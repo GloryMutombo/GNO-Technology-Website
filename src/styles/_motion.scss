@@ -8,49 +8,119 @@
   --motion-fast: 180ms;
   --motion-base: 280ms;
   --motion-slow: 520ms;
-  --motion-reveal: 720ms;
+  --motion-reveal: 1100ms; // scroll-in blocks
+  --motion-enter: 1000ms; // page-load text and visuals
   --motion-exit: 180ms;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in: cubic-bezier(0.55, 0, 1, 0.45);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  // Softer than --ease-out: entrances keep moving gently instead of snapping in.
+  --ease-enter: cubic-bezier(0.33, 1, 0.68, 1);
 }
 
 // ---------------------------------------------------------------------------
 // Scroll reveal (classes added by ScrollRevealService, browser only)
-// Uses the individual `translate` property so it never fights hover `transform`s.
+// Each block enters from its own direction (data-reveal: up / down / left / right /
+// zoom). Uses the individual `translate`/`scale` properties so it never fights
+// hover `transform`s.
 // ---------------------------------------------------------------------------
+
+.reveal {
+  --reveal-x: 0px;
+  --reveal-y: 32px;
+  --reveal-scale: 1;
+}
+
+.reveal[data-reveal='down'] {
+  --reveal-y: -32px;
+}
+
+.reveal[data-reveal='left'] {
+  --reveal-x: -56px;
+  --reveal-y: 0px;
+}
+
+.reveal[data-reveal='right'] {
+  --reveal-x: 56px;
+  --reveal-y: 0px;
+}
+
+.reveal[data-reveal='zoom'] {
+  --reveal-y: 16px;
+  --reveal-scale: 0.88;
+}
+
+@include mobile {
+  .reveal[data-reveal='left'] {
+    --reveal-x: -24px;
+  }
+
+  .reveal[data-reveal='right'] {
+    --reveal-x: 24px;
+  }
+}
 
 .reveal:not(.reveal--in) {
   opacity: 0;
-  translate: 0 28px;
+  translate: var(--reveal-x) var(--reveal-y);
+  scale: var(--reveal-scale);
 }
 
 .reveal--in {
-  animation: reveal-up var(--motion-reveal) var(--ease-out) var(--reveal-delay, 0ms) both;
+  animation: reveal-in var(--motion-reveal) var(--ease-enter) var(--reveal-delay, 0ms) both;
 }
 
-@keyframes reveal-up {
+@keyframes reveal-in {
   from {
     opacity: 0;
-    translate: 0 28px;
+    translate: var(--reveal-x) var(--reveal-y);
+    scale: var(--reveal-scale);
   }
 
   to {
     opacity: 1;
     translate: 0 0;
+    scale: 1;
   }
+}
+
+// Sideways entrances must never cause horizontal scrolling.
+main {
+  overflow-x: clip;
 }
 
 // ---------------------------------------------------------------------------
 // Page entrance (CSS only, runs on first paint and on every route change).
-// The h1 and hero background images are left static so LCP is never delayed.
+// Copy rises in, visuals slide in from the right. The h1 and hero background
+// images stay static so LCP is never delayed.
 // ---------------------------------------------------------------------------
 
 @keyframes enter-up {
   from {
     opacity: 0;
     translate: 0 18px;
+  }
+}
+
+@keyframes enter-down {
+  from {
+    opacity: 0;
+    translate: 0 -10px;
+  }
+}
+
+@keyframes enter-left {
+  from {
+    opacity: 0;
+    translate: -14px 0;
+  }
+}
+
+@keyframes enter-right {
+  from {
+    opacity: 0;
+    translate: 48px 0;
   }
 }
 
@@ -62,70 +132,148 @@
   }
 }
 
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+}
+
+@keyframes zoom-up {
+  from {
+    opacity: 0;
+    scale: 0.85;
+    translate: 0 12px;
+  }
+}
+
 .hero__copy > :not(h1),
 .sub-hero__copy > :not(h1),
 .contact-hero__content > :not(h1) {
-  animation: enter-up var(--motion-slow) var(--ease-out) both;
+  animation: enter-up var(--motion-enter) var(--ease-enter) both;
+}
+
+:is(.hero__copy, .sub-hero__copy, .contact-hero__content) > .hero-badge {
+  animation-name: enter-left;
 }
 
 .hero__copy > :nth-child(3),
 .sub-hero__copy > :nth-child(3),
 .contact-hero__content > :nth-child(3) {
-  animation-delay: 90ms;
+  animation-delay: 160ms;
 }
 
 .hero__copy > :nth-child(4),
 .sub-hero__copy > :nth-child(4),
 .contact-hero__content > :nth-child(4) {
-  animation-delay: 160ms;
+  animation-delay: 300ms;
 }
 
 .hero__copy > :nth-child(5) {
-  animation-delay: 230ms;
+  animation-delay: 440ms;
 }
 
 .dashboard-wrap,
 .about-hero__card,
 .process-hero__card {
-  animation: enter-scale 800ms var(--ease-out) 120ms both;
+  animation: enter-right 1200ms var(--ease-enter) 200ms both;
+}
+
+// Hero dashboard: the window slides in, then its parts assemble one after another.
+.window-bar > span {
+  animation: pop-in 600ms var(--ease-spring) both;
+}
+
+@for $i from 1 through 3 {
+  .window-bar > span:nth-child(#{$i}) {
+    animation-delay: #{700 + $i * 110}ms;
+  }
+}
+
+.window-bar div {
+  animation: enter-down var(--motion-enter) var(--ease-enter) 900ms both;
+}
+
+.dashboard__rail > * {
+  animation: enter-left var(--motion-enter) var(--ease-enter) both;
+}
+
+@for $i from 1 through 6 {
+  .dashboard__rail > :nth-child(#{$i}) {
+    animation-delay: #{760 + $i * 100}ms;
+  }
+}
+
+.dashboard__heading > div {
+  animation: enter-down var(--motion-enter) var(--ease-enter) 900ms both;
+}
+
+.metrics > div {
+  animation: zoom-up 1000ms var(--ease-enter) both;
+}
+
+@for $i from 1 through 3 {
+  .metrics > div:nth-child(#{$i}) {
+    animation-delay: #{950 + $i * 130}ms;
+  }
+}
+
+.chart-panel {
+  animation: enter-up 1000ms var(--ease-enter) 1300ms both;
+}
+
+.activity-panel {
+  animation: enter-up 1000ms var(--ease-enter) 1420ms both;
+}
+
+.activity-panel span {
+  animation: enter-right var(--motion-enter) var(--ease-enter) both;
+}
+
+@for $i from 1 through 3 {
+  .activity-panel span:nth-of-type(#{$i}) {
+    animation-delay: #{1700 + $i * 200}ms;
+  }
 }
 
 .dashboard-note {
   animation:
-    enter-up var(--motion-slow) var(--ease-out) 620ms both,
-    float 6s var(--ease-in-out) 1.2s infinite;
+    enter-up var(--motion-enter) var(--ease-enter) 2300ms both,
+    float 6s var(--ease-in-out) 3.4s infinite;
 }
 
-// Hero dashboard mock-up: bars grow in, glow breathes, status dot pulses.
-.bars i,
-.case-card.reveal--in .mini-bars i {
-  transform-origin: bottom;
-  animation: bar-grow 900ms var(--ease-out) both;
+// Chart bars slide up from below the baseline inside a clipped row. This looks like
+// growing but, unlike scaleY, never squashes the rounded tops, and unlike clip-path
+// it runs on the compositor, so it stays smooth while the page is still loading.
+.bars,
+.mini-bars {
+  overflow: hidden;
 }
 
 .bars i,
 .case-card.reveal--in .mini-bars i {
+  animation: bar-rise 1100ms var(--ease-enter) both;
   animation-delay: var(--bar-base);
 }
 
 .bars {
-  --bar-base: 450ms;
+  --bar-base: 1600ms;
 }
 
 .case-card.reveal--in .mini-bars {
-  --bar-base: 250ms;
+  --bar-base: 500ms;
 }
 
 @for $i from 2 through 8 {
   .bars i:nth-child(#{$i}),
   .case-card.reveal--in .mini-bars i:nth-child(#{$i}) {
-    animation-delay: calc(var(--bar-base) + #{($i - 1) * 60}ms);
+    animation-delay: calc(var(--bar-base) + #{($i - 1) * 110}ms);
   }
 }
 
-@keyframes bar-grow {
+@keyframes bar-rise {
   from {
-    transform: scaleY(0);
+    translate: 0 100%;
   }
 }
 
@@ -183,9 +331,14 @@
   }
 }
 
-.dashboard__heading b,
 .system-panel__heading b {
   animation: soft-pulse 2.8s var(--ease-in-out) infinite;
+}
+
+.dashboard__heading b {
+  animation:
+    pop-in 700ms var(--ease-spring) 1800ms both,
+    soft-pulse 2.8s var(--ease-in-out) 2.6s infinite;
 }
 
 @keyframes soft-pulse {
@@ -224,14 +377,6 @@
     box-shadow var(--motion-base) var(--ease-out),
     color var(--motion-fast) var(--ease-out),
     transform var(--motion-fast) var(--ease-out);
-}
-
-.gnod-button--primary:hover {
-  box-shadow: var(--sh-float);
-}
-
-.gnod-button:active {
-  transform: translateY(0) scale(0.98);
 }
 
 .gnod-button lucide-icon,
@@ -290,21 +435,31 @@
 .contact-cards article,
 .perspectives__grid figure {
   transition:
-    transform var(--motion-base) var(--ease-out),
-    box-shadow var(--motion-base) var(--ease-out),
+    transform 420ms var(--ease-out),
+    box-shadow 420ms var(--ease-out),
     border-color var(--motion-base) var(--ease-out);
 }
 
-.service-card:hover,
-.support-card:hover,
-.case-card:hover,
-.primary-service:hover,
-.values article:hover,
-.lifecycle__grid article:hover,
-.contact-cards article:hover,
-.perspectives__grid figure:hover {
-  box-shadow: var(--sh-float);
-  transform: translateY(-4px);
+// Hover (mouse) and :active (touch) both zoom the card towards the reader.
+:is(
+  .service-card,
+  .support-card,
+  .case-card,
+  .values article,
+  .lifecycle__grid article,
+  .contact-cards article,
+  .perspectives__grid figure
+):is(:hover, :active) {
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 28px 60px -18px rgba(36, 18, 86, 0.32);
+  transform: translateY(-6px) scale(1.04);
+}
+
+// The large feature card zooms less so it stays inside the grid.
+.primary-service:is(:hover, :active) {
+  box-shadow: 0 32px 70px -20px rgba(16, 10, 46, 0.5);
+  transform: translateY(-4px) scale(1.015);
 }
 
 .icon-badge {
@@ -360,6 +515,115 @@
 
 .contact-cards article:hover .contact-card__ghost {
   transform: rotate(-8deg) scale(1.08);
+}
+
+// ---------------------------------------------------------------------------
+// Delivery process stepper (home): Home cycles .process__step--active every
+// STEP_INTERVAL_MS while the steps are on screen; hovering a step takes over.
+// The active step's line fills over the same time, leading into the next step.
+// ---------------------------------------------------------------------------
+
+.process__steps {
+  --step-duration: 2800ms; // keep in sync with STEP_INTERVAL_MS in home.ts
+}
+
+.process__steps li {
+  transform-origin: left top;
+  transition: transform 600ms var(--ease-enter);
+}
+
+.process__marker span {
+  transition:
+    background var(--motion-base) var(--ease-out),
+    border-color var(--motion-base) var(--ease-out),
+    box-shadow var(--motion-base) var(--ease-out),
+    color var(--motion-base) var(--ease-out),
+    transform 450ms var(--ease-spring);
+}
+
+.process__marker i {
+  position: relative;
+  overflow: hidden;
+}
+
+.process__marker i::after {
+  position: absolute;
+  background: var(--c-primary);
+  content: '';
+  inset: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 400ms var(--ease-out);
+}
+
+.process__steps h3 {
+  width: fit-content;
+  background: linear-gradient(var(--c-primary), var(--c-primary)) no-repeat 0 100% / 0 2px;
+  transition:
+    color var(--motion-base) var(--ease-out),
+    background-size 500ms var(--ease-out);
+}
+
+.process__steps p {
+  transition: color var(--motion-base) var(--ease-out);
+}
+
+.process__steps .icon-badge {
+  transition:
+    background var(--motion-base) var(--ease-out),
+    color var(--motion-base) var(--ease-out),
+    transform var(--motion-base) var(--ease-spring);
+}
+
+.process__step--done .process__marker span {
+  border-color: var(--c-primary);
+  color: var(--c-primary);
+}
+
+.process__step--done .process__marker i::after {
+  transform: none;
+}
+
+.process__step--active {
+  transform: scale(1.05);
+}
+
+.process__step--active .process__marker span {
+  border-color: var(--c-primary);
+  background: var(--c-primary);
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--c-primary) 18%, transparent);
+  color: var(--c-white);
+  transform: scale(1.12);
+}
+
+.process__step--active .process__marker i::after {
+  transform: none;
+  transition: transform var(--step-duration) linear;
+}
+
+.process__step--active .icon-badge {
+  background: var(--c-primary);
+  color: var(--c-white);
+}
+
+.process__step--active h3 {
+  background-size: 100% 2px;
+  color: var(--c-primary-strong);
+}
+
+.process__step--active p {
+  color: var(--c-ink);
+}
+
+@include mobile {
+  .process__marker i::after {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+
+  .process__step--active {
+    transform: scale(1.03);
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -432,18 +696,11 @@
 }
 
 .form-success {
-  animation: enter-scale var(--motion-slow) var(--ease-out) both;
+  animation: enter-scale var(--motion-enter) var(--ease-enter) both;
 }
 
 .form-success lucide-icon {
   animation: pop-in var(--motion-slow) var(--ease-spring) 150ms both;
-}
-
-@keyframes pop-in {
-  from {
-    opacity: 0;
-    transform: scale(0.4);
-  }
 }
 
 // ---------------------------------------------------------------------------
@@ -481,6 +738,14 @@
   .contact-hero__content > *,
   .dashboard-wrap,
   .dashboard-wrap::before,
+  .window-bar > span,
+  .window-bar div,
+  .dashboard__rail > *,
+  .dashboard__heading > div,
+  .metrics > div,
+  .chart-panel,
+  .activity-panel,
+  .activity-panel span,
   .dashboard-note,
   .about-hero__card,
   .process-hero__card,

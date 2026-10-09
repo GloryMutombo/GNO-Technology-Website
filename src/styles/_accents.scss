@@ -1,0 +1,307 @@
+@use 'sass:list';
+@use './mixins' as *;
+
+// Colour accents for the About, Our process and Contact pages, layered on top of
+// _inner-pages.scss. Only colours, borders and shadows change here: no layout.
+// Repeated cards cycle through the brand accents via `--accent`.
+
+:root {
+  --g-accent-line: linear-gradient(
+    90deg,
+    var(--c-primary-strong) 0%,
+    var(--c-primary) 50%,
+    var(--c-sky) 100%
+  );
+  --g-section-tint: linear-gradient(160deg, #f3efff 0%, #f6f7f9 45%, #eaf7ff 100%);
+  --g-section-tint-alt: linear-gradient(200deg, #eef8ff 0%, #f6f7f9 50%, #f1edff 100%);
+}
+
+$accents: (var(--c-primary), var(--c-sky), var(--c-success), var(--c-primary-strong));
+
+@mixin cycle-accents($selector, $count: 6) {
+  @for $i from 1 through $count {
+    #{$selector}:nth-child(#{$i}) {
+      --accent: #{list.nth($accents, ($i - 1) % list.length($accents) + 1)};
+      // Darker shade for text so every accent keeps 4.5:1 contrast on white.
+      --accent-text: color-mix(in srgb, var(--accent) 72%, #000);
+    }
+  }
+}
+
+.accent-line {
+  border-radius: var(--r-pill);
+  background: var(--g-accent-line);
+}
+
+// Accent-tinted icon badge for any card that sets --accent.
+%accent-badge {
+  background: color-mix(in srgb, var(--accent) 12%, var(--c-white));
+  color: var(--accent);
+}
+
+// ---------------------------------------------------------------------------
+// About
+// ---------------------------------------------------------------------------
+
+.about-presence {
+  background: var(--g-section-tint);
+}
+
+.journey {
+  background: var(--g-section-tint-alt);
+}
+
+@include cycle-accents('.timeline li', 5);
+
+.timeline li > span {
+  border-color: transparent;
+  background: var(--accent);
+  box-shadow: 0 6px 16px -4px color-mix(in srgb, var(--accent) 55%, transparent);
+  color: var(--c-white);
+}
+
+.timeline li:not(:last-child)::after {
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    var(--accent),
+    color-mix(in srgb, var(--accent) 15%, transparent)
+  );
+}
+
+.timeline h3 {
+  color: var(--c-purple-900);
+}
+
+.team {
+  background:
+    radial-gradient(
+      600px 400px at 0% 0%,
+      color-mix(in srgb, var(--c-primary) 9%, transparent),
+      transparent
+    ),
+    radial-gradient(
+      600px 400px at 100% 30%,
+      color-mix(in srgb, var(--c-sky) 10%, transparent),
+      transparent
+    ),
+    var(--c-bg-page);
+}
+
+@include cycle-accents('.team__grid article', 3);
+
+.team__grid img {
+  box-shadow:
+    0 0 0 4px var(--c-white),
+    0 0 0 7px var(--accent),
+    var(--sh-sub-form);
+}
+
+.team__grid p {
+  color: var(--accent-text);
+}
+
+@include cycle-accents('.values article', 3);
+
+.values article {
+  border-top: 4px solid var(--accent);
+  background: var(--c-white);
+}
+
+.values .icon-badge {
+  @extend %accent-badge;
+}
+
+.values h3 {
+  color: var(--accent-text);
+}
+
+// ---------------------------------------------------------------------------
+// Our process
+// ---------------------------------------------------------------------------
+
+.lifecycle {
+  background: var(--g-section-tint);
+}
+
+@include cycle-accents('.lifecycle__grid article', 6);
+
+.lifecycle__grid article {
+  border-color: color-mix(in srgb, var(--accent) 18%, var(--c-border-alt));
+  border-top: 4px solid var(--accent);
+  background: var(--c-white);
+  box-shadow: 0 10px 28px -12px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+.lifecycle__grid .icon-badge {
+  @extend %accent-badge;
+}
+
+.lifecycle__top > span {
+  color: color-mix(in srgb, var(--accent) 28%, transparent);
+}
+
+.lifecycle article ul {
+  border-top-color: color-mix(in srgb, var(--accent) 20%, var(--c-border-alt));
+}
+
+.lifecycle article li lucide-icon {
+  color: var(--accent);
+}
+
+.engineering {
+  background: var(--g-section-tint-alt);
+}
+
+@include cycle-accents('.engineering__values article', 3);
+
+.engineering__values .icon-badge {
+  @extend %accent-badge;
+  box-shadow: 0 8px 20px -8px color-mix(in srgb, var(--accent) 50%, transparent);
+}
+
+.process-cta__panel {
+  background: var(--g-cta);
+  box-shadow: var(--sh-float);
+}
+
+.process-cta__panel > img {
+  opacity: 0.15;
+}
+
+// ---------------------------------------------------------------------------
+// Contact: Request a Proposal (form and side cards stand out from the page)
+// ---------------------------------------------------------------------------
+
+.contact-main {
+  background: var(--g-section-tint);
+}
+
+.contact-form,
+.form-success {
+  border: 1px solid var(--c-border-badge);
+  border-top: 4px solid var(--c-primary);
+  background: var(--c-white);
+  box-shadow: var(--sh-float);
+}
+
+// Two fields side by side share a row: only stacked fields get the top gap.
+.form-row > .form-field + .form-field {
+  margin-top: 0;
+}
+
+.form-field label {
+  color: var(--c-purple-900);
+  font-weight: 600;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  border-color: #c9cede;
+  background: var(--c-white);
+  color: var(--c-ink);
+}
+
+.form-field input:hover,
+.form-field select:hover,
+.form-field textarea:hover {
+  border-color: color-mix(in srgb, var(--c-primary) 45%, #c9cede);
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: var(--c-primary);
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: #8a90a2;
+}
+
+.contact-form > button {
+  font-weight: 600;
+  box-shadow: 0 10px 24px -10px color-mix(in srgb, var(--c-primary) 70%, transparent);
+}
+
+.contact-form > button {
+  transition:
+    background var(--motion-fast) var(--ease-out),
+    box-shadow var(--motion-base) var(--ease-out),
+    transform var(--motion-fast) var(--ease-out);
+}
+
+.contact-form > button:is(:hover, :focus-visible, :active):not(:disabled) {
+  background: var(--c-primary-strong);
+  box-shadow: 0 16px 32px -10px color-mix(in srgb, var(--c-primary) 80%, transparent);
+  transform: translateY(-2px);
+}
+
+.contact-form > button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.help-card a {
+  transition:
+    background var(--motion-fast) var(--ease-out),
+    color var(--motion-fast) var(--ease-out);
+}
+
+.help-card a:is(:hover, :focus-visible, :active) {
+  background: var(--c-white);
+  color: var(--c-midnight);
+}
+
+.info-card {
+  border: 1px solid var(--c-border-badge);
+  border-left: 4px solid var(--c-primary);
+  background: var(--c-white);
+  box-shadow: var(--sh-card);
+}
+
+.info-card + .info-card {
+  border-left-color: var(--c-sky);
+}
+
+.info-card address,
+.info-card p {
+  color: var(--c-ink);
+}
+
+.why-list {
+  border: 1px solid var(--c-border-badge);
+  border-radius: var(--r-lg);
+  padding: 20px;
+  background: var(--c-white);
+  box-shadow: var(--sh-card);
+}
+
+.why-list li {
+  color: var(--c-ink);
+}
+
+.why-list lucide-icon {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--c-lavender);
+  color: var(--c-primary);
+}
+
+.why-list lucide-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.contact-map {
+  border-color: var(--c-border-badge);
+  box-shadow: var(--sh-card);
+}
+
+.contact-map > img {
+  opacity: 0.75;
+}

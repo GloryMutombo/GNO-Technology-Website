@@ -55,6 +55,10 @@
   font-weight: 700;
 }
 
+.site-footer__contact--link {
+  color: var(--c-white);
+}
+
 .site-footer__contact lucide-icon {
   flex: 0 0 auto;
   color: var(--c-accent);
@@ -82,7 +86,8 @@
 
 .site-footer__column a:hover,
 .site-footer__legal a:hover,
-.site-footer__contact--phone:hover {
+.site-footer__contact--phone:hover,
+.site-footer__contact--link:hover {
   text-decoration: underline;
   text-underline-offset: 3px;
 }

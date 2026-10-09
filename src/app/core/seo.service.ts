@@ -27,7 +27,7 @@ export class SeoService {
     this.meta.updateTag({ property: 'og:image:height', content: '630' });
     this.meta.updateTag({
       property: 'og:image:alt',
-      content: 'GNOD Technologies — software shaped around your business',
+      content: 'GNOD Technologies: software shaped around your business',
     });
     this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
     this.meta.updateTag({ name: 'twitter:title', content: data.title });

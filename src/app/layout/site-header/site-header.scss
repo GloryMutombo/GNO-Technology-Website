@@ -147,41 +147,10 @@
   margin-left: 1px;
 }
 
+// Size, colours and hover/touch states come from the global .gnod-button
+// (styles/_base.scss, _motion.scss); the header version has no border.
 .gnod-button {
-  min-height: 52px;
-  justify-content: center;
-  gap: 10px;
   border: 0;
-  border-radius: var(--r-md);
-  padding-inline: 22px;
-  font: 700 15px/19px var(--font-body);
-  transition:
-    background var(--motion-fast) var(--ease-out),
-    box-shadow var(--motion-base) var(--ease-out),
-    transform var(--motion-fast) var(--ease-out);
-}
-
-.gnod-button--primary {
-  background: var(--c-primary);
-  box-shadow: var(--sh-card);
-  color: var(--c-white);
-}
-
-.gnod-button--primary:hover {
-  background: var(--c-primary-strong);
-  transform: translateY(-1px);
-}
-
-.gnod-button--primary:active {
-  transform: translateY(0) scale(0.98);
-}
-
-.gnod-button lucide-icon {
-  transition: transform var(--motion-base) var(--ease-spring);
-}
-
-.gnod-button:hover lucide-icon {
-  transform: translate(2px, -2px);
 }
 
 .compact-nav {
@@ -213,8 +182,10 @@
     border-color var(--motion-fast) var(--ease-out);
 }
 
-.compact-nav__menu:hover {
+.compact-nav__menu:is(:hover, :active) {
   border-color: var(--c-primary);
+  background: var(--c-primary);
+  color: var(--c-white);
 }
 
 .compact-nav__menu-icon {

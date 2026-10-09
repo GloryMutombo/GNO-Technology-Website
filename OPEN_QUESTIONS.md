@@ -40,3 +40,8 @@ These are small issues spotted in the Figma file. None of them blocks the build 
 - Fonts from Google Fonts (Inter + Plus Jakarta Sans); icons from `lucide-angular`.
 - Google Analytics 4: Codex leaves a clearly marked placeholder — paste the GA4 measurement ID from your **work** Google account.
 - Alternative hosting: if you later want Firebase Hosting instead of cPanel, ask Codex to replace the PHP script with a Firebase Cloud Function (your domain's DNS would then point to Firebase).
+
+## Notes added 2026-10-09
+
+- **Years of experience:** the home page now speaks of the team's *combined* experience: the badge says "10+ years of combined experience building systems" and the trust section says "More than 10 years of combined experience building practical, maintainable systems and solving complex, real-world problems." This sits alongside "Established 2023" on the About page (the company is new; the team's experience is longer), so the earlier contradiction is resolved.
+- **Contact form:** now sends through FormSubmit (`formEndpoint` in `src/app/core/site.config.ts`), now sending to info@gnod-tech.co.za. It must be activated once from that inbox (see DEPLOY.md). The Privacy page should mention that form data is processed by FormSubmit (POPIA).
