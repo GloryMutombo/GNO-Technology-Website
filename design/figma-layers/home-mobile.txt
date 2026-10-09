@@ -1,0 +1,979 @@
+# Figma layer outline — home-mobile
+# Source: Figma file "Gnod Website", frame "GNOD website — Mobile". Exported 2026-10-08.
+#
+# HOW TO READ THIS FILE
+# Each line is one layer. Leading dots = nesting depth (children are indented one more dot).
+# Coordinates are in Figma pixels relative to the frame's top-left corner: @x,y WIDTHxHEIGHT
+#   G  = group / frame (container). "clip" = clips its content (overflow hidden).
+#   R  = rectangle. fill:COLOR[/opacity%]  border:COLOR WIDTH  r:RADIUS
+#        fill:img:KEY = image fill (see design/IMAGES.md for KEY -> file). s=scale, t=offset of the image inside the box (object-fit: cover).
+#        fill:lin(x1,y1>x2,y2; COLOR@stop ...) = linear gradient (absolute frame coords). rad(...) = radial gradient.
+#   T  = text: "content" [layer name if different] FONT SIZE/LINE-HEIGHT wWEIGHT ls:LETTER-SPACING COLOR
+#        A "|" inside the text marks where Figma wrapped the line (soft wrap - the browser will re-wrap).
+#        A "⏎" marks a hard line break (use <br> or a new paragraph).
+#        align:center/right = paragraph alignment (default left).
+#        On tablet/mobile files, text written as ="…" is IDENTICAL to the desktop copy (shortened here to save space).
+#   I  = icon (Lucide icon name, size, c: color, sw: stroke width).
+#   V  = vector shape (lines, dividers, decorative bars).  E = ellipse/circle.  P = path.
+#   fx:shadow X Y BLUR SPREAD COLOR = CSS box-shadow: Xpx Ypx BLURpx SPREADpx COLOR.  inset shadow = inner shadow.
+#   fx:layerblur N = CSS filter: blur(N/2 px).  bgblur:N = CSS backdrop-filter: blur(N/2 px).  op:N = opacity.
+### FRAME Mobile (svg 438x16311, offset 24,0)
+G GNOD website — Mobile @0,0 450x16311
+.R @0,0 390x16311 fill:#FFF
+.G Header and hero @0,0 390x1179 clip
+..R @0,0 390x1179 fill:#FFF
+..G Top bar @0,0 390x36
+...R @0,0 390x36 fill:#100A2E
+...T "=Reliable software and IT sol…" [Top bar message] Inter 10 w400 #DAD5EB @20,12 219x12
+..G Navigation @0,36 390x73
+...V vector @0,36 390x72 paths:1 c:#FFF
+...V vector @0,107 390x2 paths:1 c:#E8E8F0
+...R [Brand] @20,56 81x32 fill:img:de2cc3027e s1,1.153 t0,-0.077
+...G Menu @326,50 44x44
+....R @326,50 44x44 fill:#F1EDFF r:12
+....I menu @341,66 14x12 c:#4B0FA8
+..G Hero @0,108 390x1071 clip
+...R @0,108 390x1071 fill:lin(-24,0>366,0; #F8F5FF@0 #EFF8FF@0.6 #FFF@1)
+...G Hero copy @20,157 350x550
+....G Experience badge @21,157 297x28
+.....R @21,157 297x28 fill:#FFF r:14
+.....R @21,157 297x28 border:#DDD5F8 1 r:14
+.....E [Signal] @32,167 7x7 fill:#22D3EE
+.....T "=3+ years of building dependa…" [Badge label] Inter 12 w700 #4B0FA8 @47,163 258x15
+....T "=Custom software that fits yo…" [Hero title] Plus Jakarta Sans 40/42 w800 ls:-1.5px #1F2333 @20,202 337x177
+....T "=GNOD designs, builds and sup…" [Hero description] Inter 17/28 w400 #667085 @20,401 326x76
+....G Hero actions @20,503 350x116
+.....G Button @20,503 350x52 fx:shadow 0 12 32 -8 rgba(36,18,86,0.094)
+......R @20,503 350x52 fill:#5B3CFA r:12
+......T "=Get a free quote" [Label] Inter 15 w700 #FFF @122,519 118x19
+......I arrow-up-right @255,525 7x7 c:#FFF sw:1.5
+.....G Button @21,568 349x51
+......R @21,568 349x51 border:#4B0FA8 1 r:12
+......T "=Call 012 663 3699" [Label] Inter 15 w700 #4B0FA8 @114,583 135x19
+......I phone @260,586 15x15 c:#4B0FA8 sw:1.5
+....G Capability pills @21,642 207x65
+.....G Pill @21,642 106x28
+......R @21,642 106x28 fill:#FFF r:14
+......R @21,642 106x28 border:#DFE3EE 1 r:14
+......T "=Web platforms" [Label] Inter 12 w400 #1F2333 @32,648 82x15
+.....G Pill @136,642 92x28
+......R @136,642 92x28 fill:#FFF r:14
+......R @136,642 92x28 border:#DFE3EE 1 r:14
+......T "=Mobile apps" [Label] Inter 12 w400 #1F2333 @147,648 69x15
+.....G Pill @21,679 137x28
+......R @21,679 137x28 fill:#FFF r:14
+......R @21,679 137x28 border:#DFE3EE 1 r:14
+......T "=Systems integration" [Label] Inter 12 w400 #1F2333 @32,685 113x15
+...G Hero visual @20,770 350x330
+....G Visual glow @55,795 280x280
+.....R @55,795 280x280 fill:rad(translate(219 935) scale(140); #5B3CFA/19%@0 #22D3EE/0%@1) r:140
+....G Software dashboard preview @20,770 350x330 fx:shadow 0 24 56 -12 rgba(22,11,59,0.161)
+.....G @20,770 350x330 clip
+......R @20,770 350x330 fill:#FFF r:16
+......G Window bar @20,770 350x42
+.......R @20,770 350x42 fill:#F8F9FC
+.......E [Window control] @36,787 8x8 fill:#FF7285
+.......E [Window control] @51,787 8x8 fill:#FFC561
+.......E [Window control] @66,787 8x8 fill:#55D7A2
+.......G Address @81,779 273x24
+........R @81,779 273x24 fill:#FFF r:8
+........T "=workspace.gnod.co.za" [Address label] Inter 10 w400 #98A0B2 @164,785 106x12
+......G Dashboard @20,812 350x288 clip
+.......G Main dashboard @20,812 350x288
+........R @20,812 350x288 fill:#F7F8FC
+........G Dashboard title row @36,828 318x33 clip
+.........G Dashboard title @36,828 151x33 clip
+..........T "=Operations overview" [Title] Plus Jakarta Sans 15 w400 #1F2333 @36,828 151x19
+..........T "=Live business intelligence" [Subtitle] Inter 9 w400 #667085 @36,850 108x11
+.........G Status @257,834 97x21
+..........R @257,834 97x21 fill:#E9FBF6 r:11
+..........T "=● All systems live" [Status label] Inter 9 w700 #14A37F @266,839 80x11
+........G Metrics @37,874 317x67 clip
+.........G Metric card @37,874 100x67
+..........R @37,874 100x67 fill:#FFF r:12
+..........R @37,874 100x67 border:#E7E9F2 1 r:12
+..........T "=Active projects" [Label] Inter 8 w400 #667085 @45,882 56x10
+..........T "=18" [Value] Plus Jakarta Sans 16 w400 #1F2333 @45,897 16x21
+..........T "=+3" [Change] Inter 8 w400 #14A37F @45,922 10x10
+.........G Metric card @145,874 100x67
+..........R @145,874 100x67 fill:#FFF r:12
+..........R @145,874 100x67 border:#E7E9F2 1 r:12
+..........T "=Team capacity" [Label] Inter 8 w400 #667085 @154,882 56x10
+..........T "=82%" [Value] Plus Jakarta Sans 16 w400 #1F2333 @154,897 36x21
+..........T "=steady" [Change] Inter 8 w400 #14A37F @154,922 26x10
+.........G Metric card @254,874 100x67
+..........R @254,874 100x67 fill:#FFF r:12
+..........R @254,874 100x67 border:#E7E9F2 1 r:12
+..........T "=Open actions" [Label] Inter 8 w400 #667085 @262,882 50x10
+..........T "=24" [Value] Plus Jakarta Sans 16 w400 #1F2333 @262,897 20x21
+..........T "=-6" [Change] Inter 8 w400 #14A37F @262,922 9x10
+........G Analytics row @37,954 317x130 clip
+.........G Performance chart @37,954 317x130
+..........R @37,954 317x130 fill:#FFF r:12
+..........R @37,954 317x130 border:#E7E9F2 1 r:12
+..........T "=Delivery performance" [Chart title] Inter 10 w700 #1F2333 @48,965 106x12
+..........V Bars @48,990 294x82 paths:7 c:#DCD6FF,#5B3CFA,#22D3EE
+.....R @21,771 349x329 border:#FFF/50% 1 r:16
+.G Credibility and services @0,1179 450x3651
+..G Digital Deliveries @0,1179 390x155
+...R @0,1179 390x155 fill:lin(-24,77>366,77; #F8F5FF@0 #EFF8FF@0.6 #FFF@1)
+...G Deliveries @39,1226 312x59
+....G Company 1 @39,1226 312x59
+.....T "=MOMENTUM" [Momentum] Inter 48 w800 ls:1.2px #696D72/10% @39,1226 312x59
+..G Trust and experience @0,1334 390x522
+...R @0,1334 390x522 fill:#FFF
+...G Experience story @20,1389 354x119 clip
+....G Experience number @20,1399 104x104
+.....R @20,1399 104x104 fill:#4B0FA8 r:16
+.....G Years @45,1416 53x64 clip
+......T "=3+" [Number] Plus Jakarta Sans 42 w800 #FFF @45,1416 53x53
+......T "=YEARS" [Unit] Inter 11 w400 ls:1px #22D3EE @52,1466 40x14
+....G Experience copy @144,1389 230x119 clip
+.....T "=Technology built for the lon…" [Title] Plus Jakarta Sans 20/25 w400 #1F2333 @144,1389 230x50
+.....T "=Two decades of solving real …" [Description] Inter 14/22 w400 #667085 @144,1448 212x61
+...G Proof points @20,1547 311x250 clip
+....G Trust proof @20,1547 261x66 clip
+.....G Icon badge @20,1548 42x42
+......R @20,1548 42x42 fill:#F1EDFF r:12
+......I map-pin @35,1561 13x16 c:#5B3CFA sw:1.5
+.....G Proof copy @76,1547 205x66 clip
+......T "=Centurion roots" [Title] Plus Jakarta Sans 17 w400 #1F2333 @76,1547 128x22
+......T "=Close to clients in Pretoria…" [Description] Inter 14/21 w400 #667085 @76,1575 205x38
+....G Trust proof @20,1639 308x66 clip
+.....G Icon badge @20,1640 42x42
+......R @20,1640 42x42 fill:#F1EDFF r:12
+......I users-round @33,1653 16x14 c:#5B3CFA sw:1.5
+.....G Proof copy @76,1639 252x66 clip
+......T "=Direct collaboration" [Title] Plus Jakarta Sans 17 w400 #1F2333 @76,1639 164x22
+......T "=Senior thinking, clear commu…" [Description] Inter 14/21 w400 #667085 @76,1667 252x38
+....G Trust proof @20,1731 311x66 clip
+.....G Icon badge @20,1732 42x42
+......R @20,1732 42x42 fill:#F1EDFF r:12
+......I globe-2 @33,1745 16x16 c:#5B3CFA sw:1.5
+.....G Proof copy @76,1731 255x66 clip
+......T "=Built to deliver anywhere" [Title] Plus Jakarta Sans 17 w400 #1F2333 @76,1731 200x22
+......T "=Serving South Africa and int…" [Description] Inter 14/21 w400 #667085 @76,1759 255x38
+..G Services @0,1856 450x2974
+...R @0,1856 390x2974 fill:#F4F5FA
+...G Services introduction @20,1911 338x267 clip
+....G Section heading @20,1911 283x141 clip
+.....G Eyebrow @20,1911 147x15 clip
+......G Signal @20,1918 24x2
+.......R @20,1918 24x2 fill:#5B3CFA r:1
+......T "=WHAT WE BUILD" [Label] Inter 12 w800 ls:1.2px #4B0FA8 @52,1911 115x15
+.....T "=Software comes first. Everyt…" [Title] Plus Jakarta Sans 32/36 w400 ls:-1.5px #1F2333 @20,1941 283x112
+....T "=From a first product idea to…" [Services summary] Inter 17/28 w400 #667085 @20,2075 338x104
+...G Service list @20,2119 430x2467
+....G Primary service @20,2119 430x535 fx:shadow 0 24 56 -12 rgba(22,11,59,0.161)
+.....G @20,2119 430x535 clip
+......R @20,2219 350x435 fill:#100A2E r:16
+......R @20,2219 350x435 fill:img:0b5794ba2b s1.864,1 t-0.43200000000000005,0/20% r:16
+......R [Gradient flare] @170,2119 280x280 fill:rad(translate(334 2258.57) scale(140); #5B3CFA/53%@0 #5B3CFA/0%@1) r:140
+......G Icon badge @44,2243 56x56
+.......R @44,2243 56x56 fill:#29204D r:12
+.......I braces @62,2261 19x19 c:#22D3EE sw:1.5
+......G Service copy @44,2320 287x226 clip
+.......T "=OUR CORE CAPABILITY" [Priority] Inter 11 w800 ls:1.1px #22D3EE @44,2320 148x14
+.......T "=Custom software development" [Title] Plus Jakarta Sans 28/33 w400 #FFF @44,2343 240x68
+.......T "=Purpose-built platforms, por…" [Description] Inter 16/26 w400 #CBC5E2 @44,2422 287x124
+......G Capabilities @44,2572 292x25 clip
+.......G Capability @44,2572 113x25
+........R @44,2572 113x25 fill:#FFF/7% r:13
+........R @45,2572 112x24 border:#FFF/13% 1 r:12
+........T "=Business systems" [Capability label] Inter 11 w400 #FFF @54,2577 93x14
+.......G Capability @165,2572 80x25
+........R @165,2572 80x25 fill:#FFF/7% r:13
+........R @166,2572 79x24 border:#FFF/13% 1 r:12
+........T "Automation" [Capability label] Inter 11 w400 #FFF @175,2577 60x14
+.......G Capability @253,2572 83x25
+........R @253,2572 83x25 fill:#FFF/7% r:13
+........R @254,2572 82x24 border:#FFF/13% 1 r:12
+........T "=Integrations" [Capability label] Inter 11 w400 #FFF @263,2577 62x14
+......G Learn more @44,2618 141x16 clip
+.......T "=Explore this service" [Link] Inter 13 w400 #22D3EE @44,2618 120x16
+.......I arrow-right @176,2622 9x9 c:#22D3EE sw:1.5
+.....R @21,2219 349x434 border:#2C2551 1 r:16
+....G Service grid @20,2670 350x1916
+.....G Service grid item @20,2670 350x260
+......G Service card @20,2670 350x260 fx:shadow 0 12 32 -8 rgba(36,18,86,0.094)
+.......R @20,2670 350x260 fill:#FFF r:16
+.......R @21,2670 349x259 border:#DFE3EE 1 r:16
+.......G Icon badge @44,2694 48x48
+........R @44,2694 48x48 fill:#F1EDFF r:12
+........I monitor-smartphone @59,2710 18x17 c:#5B3CFA sw:1.5
+.......G Service copy @44,2757 301x77 clip
+........T "=Web apps" [Title] Plus Jakarta Sans 21 w400 #1F2333 @44,2757 102x27
+........T "=Fast, accessible platforms f…" [Description] Inter 14/22 w400 #667085 @44,2795 301x39
+.......G Learn more @44,2852 141x16 clip
+........T "=Explore this service" [Link] Inter 13 w400 #4B0FA8 @44,2852 120x16
+........I arrow-right @176,2856 9x9 c:#4B0FA8 sw:1.5
+.....G Service grid item @20,2946 350x260
+......G Service card @20,2946 350x260 fx:shadow 0 12 32 -8 rgba(36,18,86,0.094)
+.......R @20,2946 350x260 fill:#FFF r:16
+.......R @21,2946 349x259 border:#DFE3EE 1 r:16
+.......G Icon badge @44,2970 48x48
+........R @44,2970 48x48 fill:#F1EDFF r:12
+........I smartphone @62,2984 13x18 c:#5B3CFA sw:1.5
+.......G Service copy @44,3033 221x77 clip
+........T "=Mobile apps" [Title] Plus Jakarta Sans 21 w400 #1F2333 @44,3033 124x27
+........T "=Useful native and cross-plat…" [Description] Inter 14/22 w400 #667085 @44,3071 221x39
+.......G Learn more @44,3128 141x16 clip
+........T "=Explore this service" [Link] Inter 13 w400 #4B0FA8 @44,3128 120x16
+........I arrow-right @176,3132 9x9 c:#4B0FA8 sw:1.5
+.....G Service grid item @20,3222 350x260
+......G Service card @20,3222 350x260 fx:shadow 0 12 32 -8 rgba(36,18,86,0.094)
+.......R @20,3222 350x260 fill:#FFF r:16
+.......R @21,3222 349x259 border:#DFE3EE 1 r:16
+.......G Icon badge @44,3246 48x48
+........R @44,3246 48x48 fill:#F1EDFF r:12
+........I headphones @60,3261 17x17 c:#5B3CFA sw:1.5
+.......G Service copy @44,3309 242x77 clip
+........T "=Managed IT" [Title] Plus Jakarta Sans 21 w400 #1F2333 @44,3309 116x27
+........T "=Responsive day-to-day suppor…" [Description] Inter 14/22 w400 #667085 @44,3347 242x39
+.......G Learn more @44,3404 141x16 clip
+........T "=Explore this service" [Link] Inter 13 w400 #4B0FA8 @44,3404 120x16
+........I arrow-right @176,3408 9x9 c:#4B0FA8 sw:1.5
+.....G Service grid item @20,3498 350x260
+......G Service card @20,3498 350x260 fx:shadow 0 12 32 -8 rgba(36,18,86,0.094)
+.......R @20,3498 350x260 fill:#FFF r:16
+.......R @21,3498 349x259 border:#DFE3EE 1 r:16
+.......G Icon badge @44,3522 48x48
+........R @44,3522 48x48 fill:#F1EDFF r:12
+........I shield-check @61,3536 15x18 c:#5B3CFA sw:1.5
+.......G Service copy @44,3585 268x77 clip
+........T "=Security" [Title] Plus Jakarta Sans 21 w400 #1F2333 @44,3585 85x27
+........T "=Practical protection across …" [Description] Inter 14/22 w400 #667085 @44,3623 268x39
+.......G Learn more @44,3680 141x16 clip
+........T "=Explore this service" [Link] Inter 13 w400 #4B0FA8 @44,3680 120x16
+........I arrow-right @176,3684 9x9 c:#4B0FA8 sw:1.5
+.....G Service grid item @20,3774 350x260
+......G Service card @20,3774 350x260 fx:shadow 0 12 32 -8 rgba(36,18,86,0.094)
+.......R @20,3774 350x260 fill:#FFF r:16
+.......R @21,3774 349x259 border:#DFE3EE 1 r:16
+.......G Icon badge @44,3798 48x48
+........R @44,3798 48x48 fill:#F1EDFF r:12
+........I cloud-cog @59,3813 18x16 c:#5B3CFA sw:1.5
+.......G Service copy @44,3861 235x77 clip
+........T "=Cloud" [Title] Plus Jakarta Sans 21 w400 #1F2333 @44,3861 62x27
+........T "=Secure, scalable environment…" [Description] Inter 14/22 w400 #667085 @44,3899 235x39
+.......G Learn more @44,3956 141x16 clip
+........T "=Explore this service" [Link] Inter 13 w400 #4B0FA8 @44,3956 120x16
+........I arrow-right @176,3960 9x9 c:#4B0FA8 sw:1.5
+.....G Service grid item @20,4050 350x260
+......G Service card @20,4050 350x260 fx:shadow 0 12 32 -8 rgba(36,18,86,0.094)
+.......R @20,4050 350x260 fill:#FFF r:16
+.......R @21,4050 349x259 border:#DFE3EE 1 r:16
+.......G Icon badge @44,4074 48x48
+........R @44,4074 48x48 fill:#F1EDFF r:12
+........I database-zap @60,4088 17x18 c:#5B3CFA sw:1.5
+.......G Service copy @44,4137 280x77 clip
+........T "=Data" [Title] Plus Jakarta Sans 21 w400 #1F2333 @44,4137 48x27
+........T "=Dashboards, integrations and…" [Description] Inter 14/22 w400 #667085 @44,4175 280x39
+.......G Learn more @44,4232 141x16 clip
+........T "=Explore this service" [Link] Inter 13 w400 #4B0FA8 @44,4232 120x16
+........I arrow-right @176,4236 9x9 c:#4B0FA8 sw:1.5
+.....G Service grid item @20,4326 350x260
+......G Service card @20,4326 350x260 fx:shadow 0 12 32 -8 rgba(36,18,86,0.094)
+.......R @20,4326 350x260 fill:#FFF r:16
+.......R @21,4326 349x259 border:#DFE3EE 1 r:16
+.......G Icon badge @44,4350 48x48
+........R @44,4350 48x48 fill:#F1EDFF r:12
+........I compass @59,4364 18x18 c:#5B3CFA sw:1.5
+.......G Service copy @44,4413 288x77 clip
+........T "=Consulting" [Title] Plus Jakarta Sans 21 w400 #1F2333 @44,4413 110x27
+........T "Technology direction grounded in business |goals." [Description] Inter 14/22 w400 #667085 @44,4451 288x39
+.......G Learn more @44,4508 141x16 clip
+........T "=Explore this service" [Link] Inter 13 w400 #4B0FA8 @44,4508 120x16
+........I arrow-right @176,4512 9x9 c:#4B0FA8 sw:1.5
+...G Services action @20,4623 350x150
+....T "=Not sure what shape your sol…" [Prompt] Plus Jakarta Sans 20/28 w700 #1F2333 @20,4623 347x81
+....G Button @21,4722 349x51
+.....R @21,4722 349x51 border:#4B0FA8 1 r:12
+.....T "=Talk through your idea" [Label] Inter 15 w700 #4B0FA8 @99,4738 164x19
+.....I arrow-right @277,4742 11x11 c:#4B0FA8 sw:1.5
+.G Custom software value @0,4830 390x1475
+..R @0,4830 390x1475 fill:#100A2E
+..G Custom software copy @20,4885 353x795
+...G Section heading @20,4885 348x282 clip
+....G Eyebrow @20,4885 329x15 clip
+.....G Signal @20,4892 24x2
+......R @20,4892 24x2 fill:#22D3EE r:1
+.....T "=CUSTOM SOFTWARE, PROPERLY TA…" [Label] Inter 12 w800 ls:1.2px #22D3EE @52,4885 297x15
+....T "=The system your business has…" [Title] Plus Jakarta Sans 32/36 w400 ls:-1.5px #FFF @20,4915 258x112
+....T "=Off-the-shelf tools can forc…" [Description] Inter 16/26 w400 #C7C1DF @20,5043 348x124
+...G Software benefits @20,5199 353x216 clip
+....G Benefit @20,5199 326x42 clip
+.....G Check @20,5199 22x22
+......R @20,5199 22x22 fill:#22D3EE/13% r:11
+......I check @27,5206 9x6 c:#22D3EE sw:2
+.....T "=Shape the product around rea…" Inter 15/22 w400 #E8E5F2 @52,5200 294x41
+....G Benefit @20,5257 353x42 clip
+.....G Check @20,5257 22x22
+......R @20,5257 22x22 fill:#22D3EE/13% r:11
+......I check @27,5264 9x6 c:#22D3EE sw:2
+.....T "=Connect existing platforms, …" Inter 15/22 w400 #E8E5F2 @52,5258 321x41
+....G Benefit @20,5315 331x42 clip
+.....G Check @20,5315 22x22
+......R @20,5315 22x22 fill:#22D3EE/13% r:11
+......I check @27,5322 9x6 c:#22D3EE sw:2
+.....T "=Build security, maintainabil…" Inter 15/22 w400 #E8E5F2 @52,5316 299x41
+....G Benefit @20,5373 313x42 clip
+.....G Check @20,5373 22x22
+......R @20,5373 22x22 fill:#22D3EE/13% r:11
+......I check @27,5380 9x6 c:#22D3EE sw:2
+.....T "=Keep improving with a long-t…" Inter 15/22 w400 #E8E5F2 @52,5374 281x41
+...G Software actions @20,5445 350x116
+....G Button @20,5445 350x52 fx:shadow 0 12 32 -8 rgba(36,18,86,0.094)
+.....R @20,5445 350x52 fill:#5B3CFA r:12
+.....T "=Discuss your software" [Label] Inter 15 w700 #FFF @99,5461 164x19
+.....I message-circle @274,5463 15x15 c:#FFF sw:1.5
+....G Button @20,5509 350x52
+.....R @20,5509 350x52 fill:#FFF r:12
+.....T "=See how we work" [Label] Inter 15 w700 #4B0FA8 @117,5525 128x19
+.....I arrow-down-right @260,5531 7x8 c:#4B0FA8 sw:1.5
+...G Engagement note @20,5589 350x92
+....R @20,5589 350x92 fill:#FFF/4% r:12
+....R @21,5589 349x91 border:#FFF/9% 1 r:12
+....I circle-help @38,5606 17x17 c:#22D3EE sw:1.5
+....T "=You don’t need a finished sp…" [Note] Inter 13/20 w400 #C7C1DF @68,5606 280x56
+..G Custom software visual @20,5729 350x520
+...G Connected system visual @20,5729 350x520 fx:shadow 0 24 56 -12 rgba(22,11,59,0.161)
+....G @20,5729 350x520 clip
+.....R @20,5729 350x520 fill:#17103A r:24
+.....R [Team collaboration] @20,5729 350x190 fill:img:2e9dc0774a s1,2.763 t0,-0.8809999999999999
+.....G Architecture panel @20,5919 350x330
+......R @20,5919 350x330 fill:lin(-24,0>326,0; #17103A@0 #21175A@1)
+......G Architecture title @38,5936 314x34 clip
+.......G Architecture copy @38,5936 236x34 clip
+........T "=Your connected business syst…" [Title] Plus Jakarta Sans 15 w400 #FFF @38,5936 236x19
+........T "=One tailored platform • secu…" [Subtitle] Inter 10 w400 #AFA7CC @38,5958 192x12
+.......G Live status @316,5943 36x21
+........R @316,5943 36x21 fill:#22D3EE/9% r:11
+........T "=LIVE" [Label] Inter 9 w700 #22D3EE @324,5948 20x11
+......G Architecture columns @38,6025 314x165
+.......G Inputs @38,6025 154x165
+........G Architecture node @38,6025 154x78 fx:shadow 0 12 32 -8 rgba(36,18,86,0.094)
+.........R @38,6025 154x78 fill:#FFF r:12
+.........G Node icon @50,6047 34x34
+..........R @50,6047 34x34 fill:#F1EDFF r:8
+..........I users @60,6058 14x13 c:#5B3CFA sw:1.5
+.........G Node copy @93,6037 60x54
+..........T "=Customer portal" [Title] Inter 12/15 w400 #1F2333 @94,6037 59x30
+..........T "=Self-service journeys" [Detail] Inter 9/11 w400 #667085 @93,6069 55x22
+.........E [Status] @173,6061 7x7 fill:#14A37F
+........G Architecture node @38,6112 154x78 fx:shadow 0 12 32 -8 rgba(36,18,86,0.094)
+.........R @38,6112 154x78 fill:#FFF r:12
+.........G Node icon @50,6134 34x34
+..........R @50,6134 34x34 fill:#F1EDFF r:8
+..........I workflow @61,6145 13x13 c:#5B3CFA sw:1.5
+.........G Node copy @94,6124 58x54
+..........T "=Team workflows" [Title] Inter 12/15 w400 #1F2333 @94,6124 58x30
+..........T "=Automated operations" [Detail] Inter 9/11 w400 #667085 @94,6156 49x22
+.........E [Status] @173,6148 7x7 fill:#14A37F
+.......I Connector @210,6102 12x12 c:#22D3EE sw:1.5
+.......G Core @240,6046 112x124
+........G Architecture node @240,6046 112x124 fx:shadow 0 12 32 -8 rgba(36,18,86,0.094)
+.........R @240,6046 112x124 fill:#5B3CFA r:12
+.........G Node icon @252,6058 34x34
+..........R @252,6058 34x34 fill:#FFF/9% r:8
+..........I braces @263,6068 13x13 c:#FFF sw:1.5
+.........G Node copy @252,6101 75x39
+..........T "=Custom core" [Title] Inter 12 w400 #FFF @252,6101 72x15
+..........T "=Built around your rules" [Detail] Inter 9/11 w400 #E3DEFF @252,6118 75x22
+.........E [Status] @252,6151 7x7 fill:#22D3EE
+....R @21,5729 349x519 border:#2C2551 1 r:24
+.G Process and selected work @0,6305 390x3265
+..G Process @0,6305 390x1067
+...R @0,6305 390x1067 fill:#FFF
+...G Process introduction @20,6360 328x267 clip
+....G Section heading @20,6360 287x141 clip
+.....G Eyebrow @20,6360 270x15 clip
+......G Signal @20,6367 24x2
+.......R @20,6367 24x2 fill:#5B3CFA r:1
+......T "=A PRACTICAL DELIVERY PROCESS" [Label] Inter 12 w800 ls:1.2px #4B0FA8 @52,6360 238x15
+.....T "=Clear steps. Close collabora…" [Title] Plus Jakarta Sans 32/36 w400 ls:-1.5px #1F2333 @20,6390 287x112
+....T "=We keep the work visible fro…" [Process summary] Inter 17/28 w400 #667085 @20,6524 328x104
+...G Process steps @21,6672 347x613 clip
+....G Process step @21,6672 340x162 clip
+.....G Step marker @21,6672 43x162 clip
+......G Step number @21,6672 43x43
+.......R @21,6672 43x43 fill:#5B3CFA r:22
+.......R @21,6672 43x43 border:#5B3CFA 1 r:22
+.......T "=01" [Number] Inter 12 w800 #FFF @35,6686 14x15
+......R [Connector] @41,6724 2x110 fill:#DCD7EF
+.....G Step content @80,6672 280x127 clip
+......G Icon badge @80,6672 40x40
+.......R @80,6672 40x40 fill:#F1EDFF r:12
+.......I search @93,6685 14x14 c:#5B3CFA sw:1.5
+......T "=Discover" [Title] Plus Jakarta Sans 21 w400 #1F2333 @80,6721 90x27
+......T "=We unpack the business chall…" [Description] Inter 14/22 w400 #667085 @80,6760 280x39
+....G Process step @21,6834 335x162 clip
+.....G Step marker @21,6834 43x162 clip
+......G Step number @21,6834 43x43
+.......R @21,6834 43x43 fill:#FFF r:22
+.......R @21,6834 43x43 border:#CFC8EE 1 r:22
+.......T "=02" [Number] Inter 12 w800 #4B0FA8 @34,6848 17x15
+......R [Connector] @41,6886 2x110 fill:#DCD7EF
+.....G Step content @80,6834 275x127 clip
+......G Icon badge @80,6834 40x40
+.......R @80,6834 40x40 fill:#F1EDFF r:12
+.......I pencil-ruler @92,6846 15x15 c:#5B3CFA sw:1.5
+......T "=Shape" [Title] Plus Jakarta Sans 21 w400 #1F2333 @80,6883 65x27
+......T "=Together we define the small…" [Description] Inter 14/22 w400 #667085 @80,6922 275x39
+....G Process step @21,6996 336x162 clip
+.....G Step marker @21,6996 43x162 clip
+......G Step number @21,6996 43x43
+.......R @21,6996 43x43 fill:#FFF r:22
+.......R @21,6996 43x43 border:#CFC8EE 1 r:22
+.......T "=03" [Number] Inter 12 w800 #4B0FA8 @34,7010 17x15
+......R [Connector] @41,7048 2x110 fill:#DCD7EF
+.....G Step content @80,6996 276x127 clip
+......G Icon badge @80,6996 40x40
+.......R @80,6996 40x40 fill:#F1EDFF r:12
+.......I code-2 @92,7009 15x12 c:#5B3CFA sw:1.5
+......T "=Build" [Title] Plus Jakarta Sans 21 w400 #1F2333 @80,7045 51x27
+......T "=Short, visible delivery cycl…" [Description] Inter 14/22 w400 #667085 @80,7084 276x39
+....G Process step @21,7158 347x127 clip
+.....G Step marker @21,7158 43x43 clip
+......G Step number @21,7158 43x43
+.......R @21,7158 43x43 fill:#FFF r:22
+.......R @21,7158 43x43 border:#CFC8EE 1 r:22
+.......T "=04" [Number] Inter 12 w800 #4B0FA8 @34,7172 17x15
+.....G Step content @80,7158 287x127 clip
+......G Icon badge @80,7158 40x40
+.......R @80,7158 40x40 fill:#F1EDFF r:12
+.......I refresh-cw @93,7171 14x14 c:#5B3CFA sw:1.5
+......T "=Evolve" [Title] Plus Jakarta Sans 21 w400 #1F2333 @80,7207 67x27
+......T "=After launch, we support, me…" [Description] Inter 14/22 w400 #667085 @80,7246 287x39
+..G Selected work @0,7372 390x2198
+...R @0,7372 390x2198 fill:#F4F5FA
+...G Section heading @20,7427 352x220 clip
+....G Eyebrow @20,7427 228x15 clip
+.....G Signal @20,7434 24x2
+......R @20,7434 24x2 fill:#5B3CFA r:1
+.....T "=SELECTED WORK PATTERNS" [Label] Inter 12 w800 ls:1.2px #4B0FA8 @52,7427 196x15
+....T "=Real-world software, shaped …" [Title] Plus Jakarta Sans 32/36 w400 ls:-1.5px #1F2333 @20,7457 348x76
+....T "=Examples of the kinds of cha…" [Description] Inter 16/26 w400 #667085 @20,7549 352x98
+...G Case studies @20,7687 350x1731
+....G Case study @20,7687 350x557 fx:shadow 0 12 32 -8 rgba(36,18,86,0.094)
+.....G @20,7687 350x557 clip
+......R @20,7687 350x557 fill:#FFF r:16
+......G Web product visual @20,7687 350x240 clip
+.......R @20,7687 350x240 fill:#F1EDFF
+.......G Application frame @38,7705 314x204 fx:shadow 0 24 56 -12 rgba(22,11,59,0.161)
+........G @38,7705 314x204 clip
+.........R @38,7705 314x204 fill:#FFF r:12
+.........G Application bar @38,7705 314x34
+..........R @38,7705 314x34 fill:#F5F6FA
+..........E [Window control] @50,7719 6x6 fill:#FF8CA0
+..........E [Window control] @61,7719 6x6 fill:#FFD071
+..........E [Window control] @72,7719 6x6 fill:#63DDAE
+.........G Application body @38,7739 314x170 clip
+..........G App rail @38,7739 48x170
+...........R @38,7739 48x170 fill:#100A2E
+...........I layout-dashboard @50,7750 11x11 c:#9C94BA
+...........I inbox @49,7777 12x9 c:#9C94BA
+...........I users @49,7802 12x11 c:#9C94BA
+...........I settings @50,7828 10x12 c:#9C94BA
+..........G App content @86,7739 266x170
+...........R @86,7739 266x170 fill:#FAFAFD
+...........T "=Operations workspace" [App title] Plus Jakarta Sans 12 w400 #1F2333 @100,7753 133x15
+...........G App metrics @101,7778 237x46 clip
+............G App metric @101,7778 74x46
+.............R @101,7778 74x46 fill:#FFF r:8
+.............R @101,7778 74x46 border:#DFE3EE 1 r:8
+.............T "=Overview" [Metric label] Inter 7 w400 #667085 @108,7785 32x9
+.............T "=128" [Metric value] Plus Jakarta Sans 14 w400 #1F2333 @108,7798 23x18
+............G App metric @182,7778 74x46
+.............R @182,7778 74x46 fill:#FFF r:8
+.............R @182,7778 74x46 border:#DFE3EE 1 r:8
+.............T "=In progress" [Metric label] Inter 7 w400 #667085 @190,7785 37x9
+.............T "=34" [Metric value] Plus Jakarta Sans 14 w400 #5B3CFA @190,7798 18x18
+............G App metric @264,7778 74x46
+.............R @264,7778 74x46 fill:#FFF r:8
+.............R @264,7778 74x46 border:#DFE3EE 1 r:8
+.............T "=Complete" [Metric label] Inter 7 w400 #667085 @271,7785 32x9
+.............T "=94" [Metric value] Plus Jakarta Sans 14 w400 #1F2333 @271,7798 17x18
+...........G App chart @100,7831 238x64
+............G @100,7831 238x64 clip
+.............R @100,7835 238x60 fill:#FFF r:8
+.............I Chart bar @110,7861 20x24 c:#C9BEFF
+.............I Chart bar @138,7851 20x34 c:#C9BEFF
+.............I Chart bar @167,7856 20x29 c:#C9BEFF
+.............I Chart bar @195,7843 20x42 c:#C9BEFF
+.............I Chart bar @223,7847 20x38 c:#C9BEFF
+.............I Chart bar @251,7835 20x50 c:#C9BEFF
+.............I Chart bar @280,7840 20x45 c:#22D3EE
+.............I Chart bar @308,7831 20x54 c:#22D3EE
+......G Case study copy @42,7949 311x270
+.......G Case tags @43,7949 193x28 clip
+........G Pill @43,7949 86x28
+.........R @43,7949 86x28 fill:#FFF r:14
+.........R @43,7949 86x28 border:#DFE3EE 1 r:14
+.........T "=Operations" [Label] Inter 12 w400 #1F2333 @54,7955 62x15
+........G Pill @137,7949 99x28
+.........R @137,7949 99x28 fill:#FFF r:14
+.........R @137,7949 99x28 border:#DFE3EE 1 r:14
+.........T "=Web platform" [Label] Inter 12 w400 #1F2333 @148,7955 76x15
+.......T "=A shared operations hub for …" [Title] Plus Jakarta Sans 22/28 w400 #1F2333 @42,7992 311x56
+.......G Context @42,8061 295x60 clip
+........T "=THE NEED" [Label] Inter 11 w800 ls:0.8px #4B0FA8 @42,8061 61x14
+........T "=Critical jobs, approvals and…" [Description] Inter 14/22 w400 #667085 @42,8082 295x39
+.......G Outcome @42,8137 304x82 clip
+........T "=THE OUTCOME" [Label] Inter 11 w800 ls:0.8px #14A37F @42,8137 91x14
+........T "=One dependable workspace now…" [Description] Inter 14/22 w400 #1F2333 @42,8158 304x61
+.....R @21,7687 349x556 border:#DFE3EE 1 r:16
+....G Case study @20,8264 350x577 fx:shadow 0 12 32 -8 rgba(36,18,86,0.094)
+.....G @20,8264 350x577 clip
+......R @20,8264 350x577 fill:#FFF r:16
+......G Mobile product visual @20,8264 350x295 clip
+.......R @20,8264 350x260 fill:lin(-24,0>326,0; #DDF8FF@0 #E8E0FF@1)
+.......G Phone @122,8288 146x271 fx:shadow 0 24 56 -12 rgba(22,11,59,0.161)
+........R @122,8288 146x236 fill:#100A2E r:28
+........G Phone screen @130,8296 130x263
+.........R @130,8296 130x220 fill:#FFF r:22
+.........G Mobile header @144,8310 102x22 clip
+..........T "=Today’s visits" [Title] Plus Jakarta Sans 12 w400 #1F2333 @144,8310 77x15
+..........E [Avatar] @224,8310 22x22 fill:#F1EDFF
+.........G Mobile progress @144,8344 102x71
+..........R @144,8344 102x71 fill:#4B0FA8 r:12
+..........T "=Route progress" [Label] Inter 8 w400 #DAD1FA @154,8353 58x10
+..........T "=4 of 7" [Value] Plus Jakarta Sans 18 w400 #FFF @154,8370 47x23
+..........G Progress track @154,8401 82x4
+...........G @154,8401 82x4 clip
+............R @154,8401 82x4 fill:#FFF/20% r:2
+............R [Progress value] @154,8401 70x4 fill:#22D3EE r:2
+.........G Task @144,8427 102x36
+..........R @144,8427 102x36 fill:#EAF7FF r:8
+..........G Task icon @152,8435 20x20
+...........R @152,8435 20x20 fill:#339CE8 r:10
+...........I check @158,8442 7x5 c:#FFF
+..........T "=Site inspection" [Task label] Inter 8 w400 #1F2333 @180,8439 56x10
+.........G Task @144,8475 102x36
+..........R @144,8475 102x36 fill:#F4F5FA r:8
+..........G Task icon @152,8483 20x20
+...........R @152,8483 20x20 fill:#FFF r:10
+...........I check @158,8490 7x5 c:#667085
+..........T "=Equipment check" [Task label] Inter 8/10 w400 #1F2333 @180,8482 43x20
+.........G Task @144,8523 102x36
+..........R @144,8523 102x36 fill:#F4F5FA r:8
+......G Case study copy @42,8546 298x270
+.......G Case tags @43,8546 183x28 clip
+........G Pill @43,8546 89x28
+.........R @43,8546 89x28 fill:#FFF r:14
+.........R @43,8546 89x28 border:#DFE3EE 1 r:14
+.........T "=Field teams" [Label] Inter 12 w400 #1F2333 @54,8552 65x15
+........G Pill @140,8546 86x28
+.........R @140,8546 86x28 fill:#FFF r:14
+.........R @140,8546 86x28 border:#DFE3EE 1 r:14
+.........T "=Mobile app" [Label] Inter 12 w400 #1F2333 @151,8552 63x15
+.......T "=A field app that keeps work …" [Title] Plus Jakarta Sans 22/28 w400 #1F2333 @42,8589 289x56
+.......G Context @42,8658 288x60 clip
+........T "=THE NEED" [Label] Inter 11 w800 ls:0.8px #4B0FA8 @42,8658 61x14
+........T "=Remote teams needed simpler …" [Description] Inter 14/22 w400 #667085 @42,8679 288x39
+.......G Outcome @42,8734 298x82 clip
+........T "=THE OUTCOME" [Label] Inter 11 w800 ls:0.8px #14A37F @42,8734 91x14
+........T "=A focused mobile workflow re…" [Description] Inter 14/22 w400 #1F2333 @42,8755 298x61
+.....R @21,8264 349x576 border:#DFE3EE 1 r:16
+....G Case study @20,8861 350x557 fx:shadow 0 12 32 -8 rgba(36,18,86,0.094)
+.....G @20,8861 350x557 clip
+......R @20,8861 350x557 fill:#FFF r:16
+......G Web product visual @20,8861 350x240 clip
+.......R @20,8861 350x240 fill:#16103A
+.......G Application frame @38,8879 314x204 fx:shadow 0 24 56 -12 rgba(22,11,59,0.161)
+........G @38,8879 314x204 clip
+.........R @38,8879 314x204 fill:#FFF r:12
+.........G Application bar @38,8879 314x34
+..........R @38,8879 314x34 fill:#F5F6FA
+..........E [Window control] @50,8893 6x6 fill:#FF8CA0
+..........E [Window control] @61,8893 6x6 fill:#FFD071
+..........E [Window control] @72,8893 6x6 fill:#63DDAE
+.........G Application body @38,8913 314x170 clip
+..........G App rail @38,8913 48x170
+...........R @38,8913 48x170 fill:#100A2E
+...........I layout-dashboard @50,8924 11x11 c:#9C94BA
+...........I inbox @49,8951 12x9 c:#9C94BA
+...........I users @49,8976 12x11 c:#9C94BA
+...........I settings @50,9002 10x12 c:#9C94BA
+..........G App content @86,8913 266x170
+...........R @86,8913 266x170 fill:#FAFAFD
+...........T "=Executive reporting" [App title] Plus Jakarta Sans 12 w400 #1F2333 @100,8927 114x15
+...........G App metrics @101,8952 237x46 clip
+............G App metric @101,8952 74x46
+.............R @101,8952 74x46 fill:#FFF r:8
+.............R @101,8952 74x46 border:#DFE3EE 1 r:8
+.............T "=Overview" [Metric label] Inter 7 w400 #667085 @108,8959 32x9
+.............T "=128" [Metric value] Plus Jakarta Sans 14 w400 #1F2333 @108,8972 23x18
+............G App metric @182,8952 74x46
+.............R @182,8952 74x46 fill:#FFF r:8
+.............R @182,8952 74x46 border:#DFE3EE 1 r:8
+.............T "=In progress" [Metric label] Inter 7 w400 #667085 @190,8959 37x9
+.............T "=34" [Metric value] Plus Jakarta Sans 14 w400 #5B3CFA @190,8972 18x18
+............G App metric @264,8952 74x46
+.............R @264,8952 74x46 fill:#FFF r:8
+.............R @264,8952 74x46 border:#DFE3EE 1 r:8
+.............T "=Complete" [Metric label] Inter 7 w400 #667085 @271,8959 32x9
+.............T "=94" [Metric value] Plus Jakarta Sans 14 w400 #1F2333 @271,8972 17x18
+...........G App chart @100,9005 238x64
+............G @100,9005 238x64 clip
+.............R @100,9009 238x60 fill:#FFF r:8
+.............I Chart bar @110,9035 20x24 c:#C9BEFF
+.............I Chart bar @138,9025 20x34 c:#C9BEFF
+.............I Chart bar @167,9030 20x29 c:#C9BEFF
+.............I Chart bar @195,9017 20x42 c:#C9BEFF
+.............I Chart bar @223,9021 20x38 c:#C9BEFF
+.............I Chart bar @251,9009 20x50 c:#C9BEFF
+.............I Chart bar @280,9014 20x45 c:#22D3EE
+.............I Chart bar @308,9005 20x54 c:#22D3EE
+......G Case study copy @42,9123 302x270
+.......G Case tags @43,9123 178x28 clip
+........G Pill @43,9123 50x28
+.........R @43,9123 50x28 fill:#FFF r:14
+.........R @43,9123 50x28 border:#DFE3EE 1 r:14
+.........T "=Data" [Label] Inter 12 w400 #1F2333 @54,9129 27x15
+........G Pill @101,9123 120x28
+.........R @101,9123 120x28 fill:#FFF r:14
+.........R @101,9123 120x28 border:#DFE3EE 1 r:14
+.........T "=Decision support" [Label] Inter 12 w400 #1F2333 @112,9129 96x15
+.......T "=A reporting layer that turns…" [Title] Plus Jakarta Sans 22/28 w400 #1F2333 @42,9166 302x56
+.......G Context @42,9235 293x60 clip
+........T "=THE NEED" [Label] Inter 11 w800 ls:0.8px #4B0FA8 @42,9235 61x14
+........T "=Leadership spent too much ti…" [Description] Inter 14/22 w400 #667085 @42,9256 293x39
+.......G Outcome @42,9311 266x82 clip
+........T "=THE OUTCOME" [Label] Inter 11 w800 ls:0.8px #14A37F @42,9311 91x14
+........T "=A trusted dashboard brings k…" [Description] Inter 14/22 w400 #1F2333 @42,9332 266x61
+.....R @21,8861 349x556 border:#DFE3EE 1 r:16
+...T "Every engagement is different. We scope, validate and |price work according to the real need — not a pre-|packaged promise." [Proof note] Inter 13/20 w400 #667085 @28,9455 338x56
+.G Technology support and presence @0,9570 390x3010
+..G Supporting technology services @0,9570 390x1757
+...R @0,9570 390x1757 fill:#FFF
+...G Section heading @20,9625 340x292 clip
+....G Eyebrow @20,9625 295x15 clip
+.....G Signal @20,9632 24x2
+......R @20,9632 24x2 fill:#5B3CFA r:1
+.....T "=ONE PARTNER BEYOND THE PRODU…" [Label] Inter 12 w800 ls:1.2px #4B0FA8 @52,9625 263x15
+....T "=The support your software ne…" [Title] Plus Jakarta Sans 32/36 w400 ls:-1.5px #1F2333 @20,9655 277x148
+....T "=Custom development leads our…" [Description] Inter 16/26 w400 #667085 @20,9819 340x98
+...G Support service list @20,9957 350x1314
+....G Support service item @20,9957 350x250
+.....G Support service @20,9957 350x250 fx:shadow 0 12 32 -8 rgba(36,18,86,0.094)
+......R @20,9957 350x250 fill:#FFF r:16
+......R @21,9957 349x249 border:#DFE3EE 1 r:16
+......G Icon badge @44,9981 48x48
+.......R @44,9981 48x48 fill:#EAF7FF r:12
+.......I headphones @60,9996 17x17 c:#339CE8 sw:1.5
+......G Support copy @44,10044 283x76 clip
+.......T "=Managed IT" [Title] Plus Jakarta Sans 21 w400 #1F2333 @44,10044 116x27
+.......T "=Proactive care, practical he…" [Description] Inter 14/22 w400 #667085 @44,10081 283x39
+......G Support link @44,10138 91x15 clip
+.......T "=How we help" [Label] Inter 12 w400 #4B0FA8 @44,10138 73x15
+.......I arrow-up-right @129,10143 6x6 c:#4B0FA8 sw:1.5
+....G Support service item @20,10223 350x250
+.....G Support service @20,10223 350x250 fx:shadow 0 12 32 -8 rgba(36,18,86,0.094)
+......R @20,10223 350x250 fill:#FFF r:16
+......R @21,10223 349x249 border:#DFE3EE 1 r:16
+......G Icon badge @44,10247 48x48
+.......R @44,10247 48x48 fill:#EAF7FF r:12
+.......I shield-check @61,10261 15x18 c:#339CE8 sw:1.5
+......G Support copy @44,10310 293x76 clip
+.......T "=Security" [Title] Plus Jakarta Sans 21 w400 #1F2333 @44,10310 85x27
+.......T "=Risk-aware protection, secur…" [Description] Inter 14/22 w400 #667085 @44,10347 293x39
+......G Support link @44,10404 91x15 clip
+.......T "=How we help" [Label] Inter 12 w400 #4B0FA8 @44,10404 73x15
+.......I arrow-up-right @129,10409 6x6 c:#4B0FA8 sw:1.5
+....G Support service item @20,10489 350x250
+.....G Support service @20,10489 350x250 fx:shadow 0 12 32 -8 rgba(36,18,86,0.094)
+......R @20,10489 350x250 fill:#FFF r:16
+......R @21,10489 349x249 border:#DFE3EE 1 r:16
+......G Icon badge @44,10513 48x48
+.......R @44,10513 48x48 fill:#EAF7FF r:12
+.......I cloud @59,10530 18x13 c:#339CE8 sw:1.5
+......G Support copy @44,10576 302x76 clip
+.......T "=Cloud" [Title] Plus Jakarta Sans 21 w400 #1F2333 @44,10576 62x27
+.......T "=Right-sized cloud architectu…" [Description] Inter 14/22 w400 #667085 @44,10613 302x39
+......G Support link @44,10670 91x15 clip
+.......T "=How we help" [Label] Inter 12 w400 #4B0FA8 @44,10670 73x15
+.......I arrow-up-right @129,10675 6x6 c:#4B0FA8 sw:1.5
+....G Support service item @20,10755 350x250
+.....G Support service @20,10755 350x250 fx:shadow 0 12 32 -8 rgba(36,18,86,0.094)
+......R @20,10755 350x250 fill:#FFF r:16
+......R @21,10755 349x249 border:#DFE3EE 1 r:16
+......G Icon badge @44,10779 48x48
+.......R @44,10779 48x48 fill:#EAF7FF r:12
+.......I database @60,10793 17x18 c:#339CE8 sw:1.5
+......G Support copy @44,10842 306x76 clip
+.......T "=Data" [Title] Plus Jakarta Sans 21 w400 #1F2333 @44,10842 48x27
+.......T "=Connected information, clean…" [Description] Inter 14/22 w400 #667085 @44,10879 306x39
+......G Support link @44,10936 91x15 clip
+.......T "=How we help" [Label] Inter 12 w400 #4B0FA8 @44,10936 73x15
+.......I arrow-up-right @129,10941 6x6 c:#4B0FA8 sw:1.5
+....G Support service item @20,11021 350x250
+.....G Support service @20,11021 350x250 fx:shadow 0 12 32 -8 rgba(36,18,86,0.094)
+......R @20,11021 350x250 fill:#FFF r:16
+......R @21,11021 349x249 border:#DFE3EE 1 r:16
+......G Icon badge @44,11045 48x48
+.......R @44,11045 48x48 fill:#EAF7FF r:12
+.......I compass @59,11059 18x18 c:#339CE8 sw:1.5
+......G Support copy @44,11108 281x76 clip
+.......T "=Consulting" [Title] Plus Jakarta Sans 21 w400 #1F2333 @44,11108 110x27
+.......T "=Clear priorities, roadmaps a…" [Description] Inter 14/22 w400 #667085 @44,11145 281x39
+......G Support link @44,11202 91x15 clip
+.......T "=How we help" [Label] Inter 12 w400 #4B0FA8 @44,11202 73x15
+.......I arrow-up-right @129,11207 6x6 c:#4B0FA8 sw:1.5
+..G Local presence @0,11327 390x1253
+...R @0,11327 390x1253 fill:#F1EDFF
+...G Presence visual @20,11383 350x440
+....G South African presence @20,11383 350x440 fx:shadow 0 24 56 -12 rgba(22,11,59,0.161)
+.....G @20,11383 350x440 clip
+......R [gnod-map-location 1] @20,11383 350x440 fill:img:735497300c s2.235,1 t-0.617,0
+......R [Image overlay] @20,11383 350x440 fill:lin(195,11383>195,11823; #100A2E/4%@0 #100A2E/26%@0.5 #100A2E/95%@1)
+......G Presence content @44,11407 290x392
+.......G Location badge @44,11407 160x31
+........R @44,11407 160x31 fill:#FFF/91% r:16
+........I map-pin @59,11416 10x13 c:#4B0FA8 sw:1.5
+........T "=Zwartkop • Centurion" [Location] Inter 11 w400 #1F2333 @79,11415 113x14
+.......G Presence caption @44,11598 290x201 clip
+........T "=Local enough to sit at your …" [Title] Plus Jakarta Sans 28/33 w400 #FFF @44,11598 290x134
+........G Delivery locations @44,11743 228x56 clip
+.........G Location @44,11743 67x24
+..........R @44,11743 67x24 fill:#FFF/9% r:12
+..........R @45,11743 66x23 border:#FFF/18% 1 r:12
+..........T "=Centurion" [Location label] Inter 10 w400 #FFF @54,11748 46x12
+.........G Location @119,11743 57x24
+..........R @119,11743 57x24 fill:#FFF/9% r:12
+..........R @120,11743 56x23 border:#FFF/18% 1 r:12
+..........T "=Pretoria" [Location label] Inter 10 w400 #FFF @129,11748 37x12
+.........G Location @184,11743 88x24
+..........R @184,11743 88x24 fill:#FFF/9% r:12
+..........R @185,11743 87x23 border:#FFF/18% 1 r:12
+..........T "=Johannesburg" [Location label] Inter 10 w400 #FFF @194,11748 67x12
+.........G Location @44,11775 79x24
+..........R @44,11775 79x24 fill:#FFF/9% r:12
+..........R @45,11775 78x23 border:#FFF/18% 1 r:12
+..........T "=South Africa" [Location label] Inter 10 w400 #FFF @54,11780 58x12
+.........G Location @131,11775 79x24
+..........R @131,11775 79x24 fill:#FFF/9% r:12
+..........R @132,11775 78x23 border:#FFF/18% 1 r:12
+..........T "=International" [Location label] Inter 10 w400 #FFF @141,11780 59x12
+...G Presence copy @20,11866 350x657 clip
+....G Section heading @20,11866 340x272 clip
+.....G Eyebrow @20,11866 337x15 clip
+......G Signal @20,11873 24x2
+.......R @20,11873 24x2 fill:#5B3CFA r:1
+......T "=HERE IN GAUTENG. READY FOR A…" [Label] Inter 12 w800 ls:1.2px #4B0FA8 @52,11866 305x15
+.....T "=Technology That Goes Further…" [Title] Plus Jakarta Sans 32/36 w400 ls:-1.5px #1F2333 @20,11896 234x76
+.....T "=Based in Zwartkop, Centurion…" [Description] Inter 16/26 w400 #667085 @20,11988 340x150
+....G Presence principles @20,12166 350x282 clip
+.....G Presence principle @20,12166 350x86
+......R @20,12166 350x86 fill:#FFF/66% r:12
+......G Principle icon @34,12180 36x36
+.......R @34,12180 36x36 fill:#FFF r:8
+.......I coffee @45,12190 14x14 c:#4B0FA8 sw:1.5
+......G Principle copy @82,12179 268x57 clip
+.......T "=Human partnership" [Title] Inter 14 w400 #1F2333 @82,12179 127x17
+.......T "=Straight conversations, shar…" [Description] Inter 13/19 w400 #667085 @82,12201 268x35
+.....G Presence principle @20,12264 350x86
+......R @20,12264 350x86 fill:#FFF/66% r:12
+......G Principle icon @34,12278 36x36
+.......R @34,12278 36x36 fill:#FFF r:8
+.......I clock-3 @44,12288 15x15 c:#4B0FA8 sw:1.5
+......G Principle copy @82,12277 266x57 clip
+.......T "=Responsive delivery" [Title] Inter 14 w400 #1F2333 @82,12277 132x17
+.......T "=A practical rhythm that resp…" [Description] Inter 13/19 w400 #667085 @82,12299 266x35
+.....G Presence principle @20,12362 350x86
+......R @20,12362 350x86 fill:#FFF/66% r:12
+......G Principle icon @34,12376 36x36
+.......R @34,12376 36x36 fill:#FFF r:8
+.......I languages @44,12386 15x15 c:#4B0FA8 sw:1.5
+......G Principle copy @82,12375 231x57 clip
+.......T "=Business-aware communication" [Title] Inter 14 w400 #1F2333 @82,12375 210x17
+.......T "=We translate technology choi…" [Description] Inter 13/19 w400 #667085 @82,12397 231x35
+....G Button @21,12472 349x51
+.....R @21,12472 349x51 border:#4B0FA8 1 r:12
+.....T "=Meet your technology partner" [Label] Inter 15 w700 #4B0FA8 @71,12488 219x19
+.....I users @302,12491 15x14 c:#4B0FA8 sw:1.5
+.G Proof FAQ conversion and footer @0,12580 420x3731
+..G Social proof @0,12580 390x1309
+...R @0,12580 390x1309 fill:#FFF
+...G Proof introduction @20,12635 350x225 clip
+....G Section heading @20,12635 303x105 clip
+.....G Eyebrow @20,12635 303x15 clip
+......G Signal @20,12642 24x2
+.......R @20,12642 24x2 fill:#5B3CFA r:1
+......T "=WHAT GOOD PARTNERSHIP FEELS …" [Label] Inter 12 w800 ls:1.2px #4B0FA8 @52,12635 271x15
+.....T "=Built on clarity, context an…" [Title] Plus Jakarta Sans 32/36 w400 ls:-1.5px #1F2333 @20,12665 245x76
+....G Proof note @20,12757 350x104
+.....R @20,12757 350x104 fill:#EAF7FF r:12
+.....I info @35,12772 15x15 c:#339CE8 sw:1.5
+.....T "=These are representative per…" [Note] Inter 13/19 w400 #667085 @62,12772 283x73
+...G Proof cards @20,12897 350x936
+....G Testimonial style card @20,12897 350x300 fx:shadow 0 12 32 -8 rgba(36,18,86,0.094)
+.....R @20,12897 350x300 fill:#FFF r:16
+.....R @21,12897 349x299 border:#DFE3EE 1 r:16
+.....G Quote icon @44,12921 46x46
+......R @44,12921 46x46 fill:#F1EDFF r:23
+......T "=“" [Quote mark] Plus Jakarta Sans 28 w800 #5B3CFA @59,12926 14x35
+.....T "=“The strongest partner is th…" [Quote] Plus Jakarta Sans 20/29 w400 #1F2333 @44,12994 280x112
+.....G Attribution @44,13135 298x38 clip
+......G Avatar @44,13135 38x38
+.......R @44,13135 38x38 fill:lin(44,13135>82,13135; #5B3CFA@0 #339CE8@1) r:19
+.......I user-round @57,13147 12x14 c:#FFF sw:1.5
+......G Attribution copy @92,13139 250x29 clip
+.......T "=TYPICAL PERSPECTIVE" [Label] Inter 11 w800 ls:0.7px #4B0FA8 @92,13139 141x14
+.......T "=Operations lead • establishe…" [Role] Inter 11 w400 #667085 @92,13154 250x14
+....G Testimonial style card @20,13215 350x300 fx:shadow 0 12 32 -8 rgba(36,18,86,0.094)
+.....R @20,13215 350x300 fill:#FFF r:16
+.....R @21,13215 349x299 border:#DFE3EE 1 r:16
+.....G Quote icon @44,13239 46x46
+......R @44,13239 46x46 fill:#F1EDFF r:23
+......T "=“" [Quote mark] Plus Jakarta Sans 28 w800 #5B3CFA @59,13244 14x35
+.....T "=“We value a team that can ma…" [Quote] Plus Jakarta Sans 20/29 w400 #1F2333 @44,13312 307x112
+.....G Attribution @44,13453 219x38 clip
+......G Avatar @44,13453 38x38
+.......R @44,13453 38x38 fill:lin(44,13453>82,13453; #5B3CFA@0 #339CE8@1) r:19
+.......I user-round @57,13465 12x14 c:#FFF sw:1.5
+......G Attribution copy @92,13457 171x29 clip
+.......T "=TYPICAL PERSPECTIVE" [Label] Inter 11 w800 ls:0.7px #4B0FA8 @92,13457 141x14
+.......T "=Product owner • enterprise t…" [Role] Inter 11 w400 #667085 @92,13472 171x14
+....G Testimonial style card @20,13533 350x300 fx:shadow 0 12 32 -8 rgba(36,18,86,0.094)
+.....R @20,13533 350x300 fill:#FFF r:16
+.....R @21,13533 349x299 border:#DFE3EE 1 r:16
+.....G Quote icon @44,13557 46x46
+......R @44,13557 46x46 fill:#F1EDFF r:23
+......T "=“" [Quote mark] Plus Jakarta Sans 28 w800 #5B3CFA @59,13562 14x35
+.....T "=“Good support feels personal…" [Quote] Plus Jakarta Sans 20/29 w400 #1F2333 @44,13645 311x83
+.....G Attribution @44,13771 247x38 clip
+......G Avatar @44,13771 38x38
+.......R @44,13771 38x38 fill:lin(44,13771>82,13771; #5B3CFA@0 #339CE8@1) r:19
+.......I user-round @57,13783 12x14 c:#FFF sw:1.5
+......G Attribution copy @92,13775 199x29 clip
+.......T "=TYPICAL PERSPECTIVE" [Label] Inter 11 w800 ls:0.7px #4B0FA8 @92,13775 141x14
+.......T "=Managing director • growing …" [Role] Inter 11 w400 #667085 @92,13790 199x14
+..G Frequently asked questions @0,13889 390x1059
+...R @0,13889 390x1059 fill:#F4F5FA
+...G FAQ introduction @20,13944 364x273 clip
+....G Section heading @20,13944 364x194 clip
+.....G Eyebrow @20,13944 184x15 clip
+......G Signal @20,13951 24x2
+.......R @20,13951 24x2 fill:#5B3CFA r:1
+......T "=COMMON QUESTIONS" [Label] Inter 12 w800 ls:1.2px #4B0FA8 @52,13944 152x15
+.....T "=A clearer start to your next…" [Title] Plus Jakarta Sans 32/36 w400 ls:-1.5px #1F2333 @20,13974 364x76
+.....T "=If your question is not here…" [Description] Inter 16/26 w400 #667085 @20,14066 348x72
+....G Button @21,14166 349x51
+.....R @21,14166 349x51 border:#4B0FA8 1 r:12
+.....T "=Ask us anything" [Label] Inter 15 w700 #4B0FA8 @122,14182 118x19
+.....I message-circle @251,14184 15x15 c:#4B0FA8 sw:1.5
+...G FAQ list @20,14274 350x619 clip
+....G FAQ item @20,14274 350x201
+.....V vector @20,14473 350x2 paths:1 c:#DFE3EE
+.....G Question row @20,14274 350x45 clip
+......T "=What kinds of custom softwar…" [Question] Plus Jakarta Sans 17/23 w700 #1F2333 @20,14274 282x45
+......G Toggle @337,14280 33x33
+.......R @337,14280 33x33 fill:#5B3CFA r:17
+.......R @337,14280 33x33 border:#5B3CFA 1 r:17
+.......I minus @348,14297 9x0 c:#FFF sw:1.5
+.....T "=Business platforms, customer…" [Answer] Inter 15/24 w400 #667085 @20,14336 347x115
+....G FAQ item @20,14494 350x67
+.....V vector @20,14559 350x2 paths:1 c:#DFE3EE
+.....G Question row @20,14494 350x45 clip
+......T "=Can you help if our idea is …" [Question] Plus Jakarta Sans 17/23 w700 #1F2333 @20,14494 275x45
+......G Toggle @337,14500 33x33
+.......R @337,14500 33x33 fill:#FFF r:17
+.......R @337,14500 33x33 border:#DFE3EE 1 r:17
+.......I plus @348,14512 9x9 c:#4B0FA8 sw:1.5
+....G FAQ item @20,14580 350x67
+.....V vector @20,14645 350x2 paths:1 c:#DFE3EE
+.....G Question row @20,14580 350x45 clip
+......T "=Do you work with both small …" [Question] Plus Jakarta Sans 17/23 w700 #1F2333 @20,14580 231x45
+......G Toggle @337,14586 33x33
+.......R @337,14586 33x33 fill:#FFF r:17
+.......R @337,14586 33x33 border:#DFE3EE 1 r:17
+.......I plus @348,14598 9x9 c:#4B0FA8 sw:1.5
+....G FAQ item @20,14666 350x67
+.....V vector @20,14731 350x2 paths:1 c:#DFE3EE
+.....G Question row @20,14666 350x45 clip
+......T "=Can you improve or replace a…" [Question] Plus Jakarta Sans 17/23 w700 #1F2333 @20,14666 249x45
+......G Toggle @337,14672 33x33
+.......R @337,14672 33x33 fill:#FFF r:17
+.......R @337,14672 33x33 border:#DFE3EE 1 r:17
+.......I plus @348,14684 9x9 c:#4B0FA8 sw:1.5
+....G FAQ item @20,14752 350x67
+.....V vector @20,14817 350x2 paths:1 c:#DFE3EE
+.....G Question row @20,14752 350x45 clip
+......T "=Do you support software afte…" [Question] Plus Jakarta Sans 17/23 w700 #1F2333 @20,14752 249x45
+......G Toggle @337,14758 33x33
+.......R @337,14758 33x33 fill:#FFF r:17
+.......R @337,14758 33x33 border:#DFE3EE 1 r:17
+.......I plus @348,14770 9x9 c:#4B0FA8 sw:1.5
+....G FAQ item @20,14838 350x55
+.....V vector @20,14891 350x2 paths:1 c:#DFE3EE
+.....G Question row @20,14838 350x33 clip
+......T "=Do you only work in Centurio…" [Question] Plus Jakarta Sans 17 w700 #1F2333 @20,14844 251x22
+......G Toggle @337,14838 33x33
+.......R @337,14838 33x33 fill:#FFF r:17
+.......R @337,14838 33x33 border:#DFE3EE 1 r:17
+.......I plus @348,14850 9x9 c:#4B0FA8 sw:1.5
+..G Quote call to action @0,14898 420x586
+...R @0,14948 390x536 fill:#FFF
+...G Call to action panel @20,14898 400x546 fx:shadow 0 24 56 -12 rgba(22,11,59,0.161)
+....G @20,14898 400x546 clip
+.....R @20,14988 350x456 fill:lin(20,14988>370,14988; #4B0FA8@0 #5B3CFA@0.6 #339CE8@1) r:24
+.....R [Circuit glow] @60,14898 360x360 fill:rad(translate(264 15077.6) scale(180); #22D3EE/44%@0 #22D3EE/0%@1) r:180
+.....G Call to action copy @46,15013 294x258 clip
+......T "=YOUR IDEA DESERVES A USEFUL …" [Eyebrow] Inter 11 w800 ls:1.2px #22D3EE @46,15013 285x14
+......T "=Let’s turn the challenge int…" [Title] Plus Jakarta Sans 32/36 w800 ls:-1.3px #FFF @46,15039 203x148
+......T "=Tell us what is getting in t…" [Description] Inter 16/25 w400 #E6E2FF @46,15201 294x70
+.....G Call to action buttons @46,15302 298x116 clip
+......G Button @46,15302 298x52
+.......R @46,15302 298x52 fill:#FFF r:12
+.......T "=Get a free quote" [Label] Inter 15 w700 #4B0FA8 @122,15318 118x19
+.......I arrow-up-right @255,15324 7x8 c:#4B0FA8 sw:1.5
+......G Phone action @47,15366 297x51
+.......R @47,15366 297x51 border:#FFF/31% 1 r:12
+.......I phone @134,15384 15x15 c:#FFF
+.......T "=012 663 3699" [Phone number] Inter 14 w700 #FFF @161,15383 96x17
+..G Footer @0,15484 390x827
+...R @0,15484 390x827 fill:#100A2E
+...G Footer main @20,15540 335x632 clip
+....G Footer introduction @20,15540 335x217 clip
+.....R [Footer Brand] @20,15540 168x69 fill:img:de2cc3027e s1,1.109 t0,-0.055
+.....T "=Custom software development …" [Footer summary] Inter 14/22 w400 #AFA8C8 @20,15631 335x61
+.....G Footer contact @21,15714 233x42 clip
+......G Contact line @21,15714 120x17 clip
+.......I phone @21,15716 13x13 c:#22D3EE
+.......T "=012 663 3699" [Phone number] Inter 14 w700 #FFF @45,15714 96x17
+......G Contact line @23,15740 232x16 clip
+.......I map-pin @23,15742 11x13 c:#22D3EE
+.......T "=Zwartkop, Centurion, South A…" [Location] Inter 13 w400 #D7D2E6 @45,15740 209x16
+....G Footer navigation @20,15796 278x375 clip
+.....G Footer column @20,15796 131x180 clip
+......G Footer links @20,15796 131x180 clip
+.......T "=SOFTWARE" [Column title] Inter 11 w800 ls:1px #22D3EE @20,15796 71x14
+.......T "=Custom development" [Footer link] Inter 13 w400 #D7D2E6 @20,15822 131x16
+.......T "=Web applications" [Footer link] Inter 13 w400 #D7D2E6 @20,15852 105x16
+.......T "=Mobile applications" [Footer link] Inter 13 w400 #D7D2E6 @20,15882 119x16
+.......T "=Systems integration" [Footer link] Inter 13 w400 #D7D2E6 @20,15912 123x16
+.......T "=Software modernisation" [Footer link] Inter 13/18 w400 #D7D2E6 @20,15942 88x34
+.....G Footer column @197,15796 101x162 clip
+......G Footer links @197,15796 101x162 clip
+.......T "=IT SERVICES" [Column title] Inter 11 w800 ls:1px #22D3EE @197,15796 79x14
+.......T "=Managed IT" [Footer link] Inter 13 w400 #D7D2E6 @197,15822 73x16
+.......T "=Security" [Footer link] Inter 13 w400 #D7D2E6 @197,15852 51x16
+.......T "=Cloud" [Footer link] Inter 13 w400 #D7D2E6 @197,15882 36x16
+.......T "=Data & reporting" [Footer link] Inter 13 w400 #D7D2E6 @197,15912 101x16
+.......T "=Consulting" [Footer link] Inter 13 w400 #D7D2E6 @197,15942 66x16
+.....G Footer column @20,16009 100x162 clip
+......G Footer links @20,16009 100x162 clip
+.......T "=COMPANY" [Column title] Inter 11 w800 ls:1px #22D3EE @20,16009 65x14
+.......T "=Our process" [Footer link] Inter 13 w400 #D7D2E6 @20,16035 75x16
+.......T "=Selected work" [Footer link] Inter 13 w400 #D7D2E6 @20,16065 88x16
+.......T "=About GNOD" [Footer link] Inter 13 w400 #D7D2E6 @20,16095 79x16
+.......T "=Contact" [Footer link] Inter 13 w400 #D7D2E6 @20,16125 49x16
+.......T "=Get a free quote" [Footer link] Inter 13 w400 #D7D2E6 @20,16155 100x16
+...G Footer bottom @20,16220 350x64
+....G @20,16242 251x41 clip
+.....T "=© 2026 GNOD Technologies. Al…" [Copyright] Inter 11 w400 #8F88AC @20,16242 251x14
+.....G Legal links @20,16269 91x14 clip
+......T "=Privacy" [Legal link] Inter 11 w400 #8F88AC @20,16269 38x14
+......T "=Terms" [Legal link] Inter 11 w400 #8F88AC @79,16269 32x14
+....V vector @20,16220 350x2 paths:1 c:#2C2551

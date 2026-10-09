@@ -1,0 +1,73 @@
+@use './mixins' as *;
+
+.container {
+  width: min(100%, calc(var(--container) + (var(--gutter) * 2)));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.container--narrow {
+  width: min(100%, calc(var(--container-narrow) + (var(--gutter) * 2)));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--section-y);
+}
+
+.placeholder-page {
+  display: grid;
+  min-height: 560px;
+  place-items: center;
+  background: var(--c-bg-page);
+  text-align: center;
+}
+
+.placeholder-page--home {
+  background: var(--g-hero);
+}
+
+.placeholder-page__content {
+  width: min(100%, 820px);
+}
+
+.placeholder-page__content h1 {
+  text-wrap: balance;
+}
+
+.legal-placeholder {
+  max-width: 760px;
+  margin-top: 24px;
+}
+
+.legal-placeholder p + p {
+  margin-top: 16px;
+}
+
+@include tablet {
+  .container,
+  .container--narrow {
+    width: 100%;
+    padding-inline: var(--gutter-tablet);
+  }
+
+  .section {
+    padding-block: var(--section-y-tablet);
+  }
+}
+
+@include mobile {
+  .container,
+  .container--narrow {
+    padding-inline: var(--gutter-mobile);
+  }
+
+  .section {
+    padding-block: var(--section-y-mobile);
+  }
+
+  .placeholder-page {
+    min-height: 430px;
+  }
+}

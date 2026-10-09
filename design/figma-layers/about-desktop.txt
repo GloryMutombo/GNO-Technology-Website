@@ -1,0 +1,262 @@
+# Figma layer outline — about-desktop
+# Source: Figma file "Gnod Website", frame "GNOD website — About GNOD". Exported 2026-10-08.
+#
+# HOW TO READ THIS FILE
+# Each line is one layer. Leading dots = nesting depth (children are indented one more dot).
+# Coordinates are in Figma pixels relative to the frame's top-left corner: @x,y WIDTHxHEIGHT
+#   G  = group / frame (container). "clip" = clips its content (overflow hidden).
+#   R  = rectangle. fill:COLOR[/opacity%]  border:COLOR WIDTH  r:RADIUS
+#        fill:img:KEY = image fill (see design/IMAGES.md for KEY -> file). s=scale, t=offset of the image inside the box (object-fit: cover).
+#        fill:lin(x1,y1>x2,y2; COLOR@stop ...) = linear gradient (absolute frame coords). rad(...) = radial gradient.
+#   T  = text: "content" [layer name if different] FONT SIZE/LINE-HEIGHT wWEIGHT ls:LETTER-SPACING COLOR
+#        A "|" inside the text marks where Figma wrapped the line (soft wrap - the browser will re-wrap).
+#        A "⏎" marks a hard line break (use <br> or a new paragraph).
+#        align:center/right = paragraph alignment (default left).
+#        On tablet/mobile files, text written as ="…" is IDENTICAL to the desktop copy (shortened here to save space).
+#   I  = icon (Lucide icon name, size, c: color, sw: stroke width).
+#   V  = vector shape (lines, dividers, decorative bars).  E = ellipse/circle.  P = path.
+#   fx:shadow X Y BLUR SPREAD COLOR = CSS box-shadow: Xpx Ypx BLURpx SPREADpx COLOR.  inset shadow = inner shadow.
+#   fx:layerblur N = CSS filter: blur(N/2 px).  bgblur:N = CSS backdrop-filter: blur(N/2 px).  op:N = opacity.
+### FRAME About GNOD (svg 1452x5715, offset 6,3)
+G GNOD website — About GNOD @-96,0 1632x5703 fx:shadow 0 3 6 0 rgba(18,15,40,0.12)
+.G @-96,0 1632x5703 clip
+..R @0,0 1440x5703 fill:#F6F7F9
+..G Top bar @0,0 1440x40
+...R @0,0 1440x40 fill:#100A2E
+...T "Reliable software and IT solutions in Centurion" [Top bar message] Inter 12 w400 #DAD5EB @80,12 263x15
+...G Top bar phone @1257,12 103x15 clip
+....I phone @1257,14 12x12 c:#22D3EE sw:1.5
+....T "012 663 3699" [Phone number] Inter 12 w700 #FFF @1277,12 83x15
+..G Footer @0,5273 1440x430
+...R @0,5273 1440x430 fill:#100A2E
+...G Footer main @80,5345 1130x217 clip
+....G Footer introduction @80,5345 335x217 clip
+.....R [Footer brand] @80,5345 168x69 fill:img:de2cc3027e s1,1.109 t0,-0.055
+.....T "Custom software development and dependable IT |services from Zwartkop, Centurion — supporting |organisations across South Africa and abroad." [Footer summary] Inter 14/22 w400 #AFA8C8 @80,5436 335x61
+.....G Footer contact @81,5520 233x42 clip
+......G Contact line @81,5520 120x17 clip
+.......I phone @81,5522 13x13 c:#22D3EE
+.......T "012 663 3699" [Phone number] Inter 14 w700 #FFF @105,5520 96x17
+......G Contact line @83,5546 232x16 clip
+.......I map-pin @83,5547 11x13 c:#22D3EE
+.......T "Zwartkop, Centurion, South Africa" [Location] Inter 13 w400 #D7D2E6 @105,5546 209x16
+....G Footer navigation @512,5345 698x162 clip
+.....G Footer column @512,5345 147x162 clip
+......G Footer links @512,5345 147x162 clip
+.......T "SOFTWARE" [Column title] Inter 11 w800 ls:1px #22D3EE @512,5345 71x14
+.......T "Custom development" [Footer link] Inter 13 w400 #D7D2E6 @512,5371 131x16
+.......T "Web applications" [Footer link] Inter 13 w400 #D7D2E6 @512,5401 105x16
+.......T "Mobile applications" [Footer link] Inter 13 w400 #D7D2E6 @512,5431 119x16
+.......T "Systems integration" [Footer link] Inter 13 w400 #D7D2E6 @512,5461 123x16
+.......T "Software modernisation" [Footer link] Inter 13 w400 #D7D2E6 @512,5491 147x16
+.....G Footer column @811,5345 101x162 clip
+......G Footer links @811,5345 101x162 clip
+.......T "IT SERVICES" [Column title] Inter 11 w800 ls:1px #22D3EE @811,5345 79x14
+.......T "Managed IT" [Footer link] Inter 13 w400 #D7D2E6 @811,5371 73x16
+.......T "Security" [Footer link] Inter 13 w400 #D7D2E6 @811,5401 51x16
+.......T "Cloud" [Footer link] Inter 13 w400 #D7D2E6 @811,5431 36x16
+.......T "Data & reporting" [Footer link] Inter 13 w400 #D7D2E6 @811,5461 101x16
+.......T "Consulting" [Footer link] Inter 13 w400 #D7D2E6 @811,5491 66x16
+.....G Footer column @1109,5345 100x162 clip
+......G Footer links @1109,5345 100x162 clip
+.......T "COMPANY" [Column title] Inter 11 w800 ls:1px #22D3EE @1109,5345 65x14
+.......T "Our process" [Footer link] Inter 13 w400 #D7D2E6 @1109,5371 75x16
+.......T "Selected work" [Footer link] Inter 13 w400 #D7D2E6 @1109,5401 88x16
+.......T "About GNOD" [Footer link] Inter 13 w400 #D7D2E6 @1109,5431 79x16
+.......T "Contact" [Footer link] Inter 13 w400 #D7D2E6 @1109,5461 49x16
+.......T "Get a free quote" [Footer link] Inter 13 w400 #D7D2E6 @1109,5491 100x16
+...G Footer bottom @80,5625 1280x37
+....G @80,5648 1280x14 clip
+.....T "© 2026 GNOD Technologies. All rights reserved." [Copyright] Inter 11 w400 #8F88AC @80,5648 251x14
+.....G Legal links @1269,5648 91x14 clip
+......T "Privacy" [Legal link] Inter 11 w400 #8F88AC @1269,5648 38x14
+......T "Terms" [Legal link] Inter 11 w400 #8F88AC @1328,5648 32x14
+....V vector @80,5625 1280x2 paths:1 c:#2C2551
+..G Container @0,884 1440x780
+...R @0,884 1440x780 fill:#F6F7F9
+...G Tag @752,1014 121x25
+....G Frame @752,1014 121x25
+.....R @752,1014 121x25 fill:#4B0FA8/5% r:13
+.....R @753,1015 120x24 border:#4B0FA8/20% 1 r:12
+.....T "LOCAL PRESENCE" Inter 10 w700 #4B0FA8 @768,1020 89x12
+...T "Local Expertise. ⏎Global Vision." [Proudly South African, Globally Focused] Plus Jakarta Sans 32/40 w400 ls:-0.32px #1F2333 @752,1055 252x80
+...V Line @752,1153 80x0 paths:1 c:#4B0FA8
+...T "Our deep-rooted presence in South Africa allows us to |understand the unique challenges and opportunities within the |local market. We combine this localized insight with global best |practices to deliver world-class IT services." Inter 16/24 w400 #696D72 @752,1221 481x92
+...G Container @165,1114 568x320 fx:shadow 0 20 40 0 rgba(16,10,46,0.2)
+....G @165,1114 568x319 clip
+.....R @209,1114 478x319 fill:img:31cd5056f8 tr:scale(0.00106383 0.00159662)
+.....R [gnod-map-location 2] @165,1114 568x319 fill:img:735497300c s1,1.002 t0,-0.001
+.....G Container @233,1138 220x38 fx:shadow 0 8 24 0 rgba(16,10,46,0.15)
+......R @233,1138 220x38 fill:#4B0FA8 r:19
+......I map-pin @252,1150 12x15 c:#F6F7F9
+......T "HQ: Centurion, Gauteng" Inter 14/20 w600 #F6F7F9 @274,1147 161x17
+....R @209,1114 479x320 border:#DFE1E4 1 r:16
+..G Container @0,4183 1440x778
+...R @0,4183 1440x778 fill:#100A2E
+...R @0,4183 1440x778 fill:img:871e1e666a s1,1.234 t0,-0.11699999999999999 op:0.125
+...T "Our Mission" Plus Jakarta Sans 32/40 w400 ls:-0.32px #FFF @208,4311 177x40
+...T "To empower African enterprises with resilient, |innovative, and ethically-engineered technology |solutions that drive sustainable growth and digital |sovereignty." Inter 18/29 w400 #C8CBCF @208,4379 428x108
+...T "Our Vision" Plus Jakarta Sans 32/40 w400 ls:-0.32px #FFF @760,4311 154x40
+...T "To be the premier technology partner for the |continent's leading organizations, recognized for our |absolute reliability, technical depth, and local |commitment." Inter 18/29 w400 #C8CBCF @760,4379 451x108
+...G Container @208,4588 320x245 fx:shadow 0 2 4 0 rgba(16,10,46,0.08)
+....R @208,4588 320x245 fill:#F6F7F9 r:14
+....G Container @240,4620 48x48
+.....R @240,4620 48x48 fill:#F1EDFF r:14
+.....I target @253,4633 22x22 c:#5B3CFA
+....T "Integrity First" Plus Jakarta Sans 20/28 w400 ls:-0.2px #370082 @240,4692 125x25
+....T "We believe in radical transparency and |absolute honesty in every client |partnership we build." Inter 14/23 w400 #696D72 @240,4734 259x63
+...G Container @560,4588 320x245 fx:shadow 0 2 4 0 rgba(16,10,46,0.08)
+....R @560,4588 320x245 fill:#F6F7F9 r:14
+....G Container @592,4620 48x48
+.....R @592,4620 48x48 fill:#F1EDFF r:14
+.....I zap @606,4633 20x22 c:#5B3CFA
+....T "Agile Excellence" Plus Jakarta Sans 20/28 w400 ls:-0.2px #370082 @592,4692 154x25
+....T "Our methodology allows us to pivot |rapidly without sacrificing the |precision your systems require." Inter 14/23 w400 #696D72 @592,4734 238x63
+...G Container @912,4588 320x245 fx:shadow 0 2 4 0 rgba(16,10,46,0.08)
+....R @912,4588 320x245 fill:#F6F7F9 r:14
+....G Container @944,4620 48x48
+.....R @944,4620 48x48 fill:#F1EDFF r:14
+.....I shield-check @959,4633 18x22 c:#5B3CFA
+....T "Unwavering Security" Plus Jakarta Sans 20/28 w400 ls:-0.2px #370082 @944,4692 195x25
+....T "Security is not a feature; it's the |foundation of everything we build, run, |and protect." Inter 14/23 w400 #696D72 @944,4734 259x63
+..G Container @0,1663 1440x1173
+...R @0,1663 1440x1173 fill:#EAECEE/30%
+...V Line @0,1663 1440x0 paths:1 c:#DFE1E4
+...V Line @0,2836 1440x0 paths:1 c:#DFE1E4
+...G Tag @661,1794 105x25
+....G Frame @661,1794 105x25
+.....R @661,1794 105x25 fill:#4B0FA8/5% r:13
+.....R @662,1795 104x24 border:#4B0FA8/20% 1 r:12
+.....T "OUR JOURNEY" Inter 10 w700 #4B0FA8 @677,1800 73x12
+...T "A Legacy of Innovation" Plus Jakarta Sans 32/40 w400 ls:-0.32px #1F2333 @553,1835 341x40
+...V Line @680,1893 80x0 paths:1 c:#4B0FA8
+...G Container @208,1959 48x48 fx:shadow 0 2 4 0 rgba(16,10,46,0.08)
+....R @208,1959 48x48 fill:#F6F7F9 r:24
+....R @209,1960 46x46 border:#4B0FA8 2 r:23
+....T "04" Inter 16/24 w700 #4B0FA8 @221,1973 22x20
+...V Line @232,2015 0x88 paths:1 c:#DFE1E4
+...T "The Genesis" Plus Jakarta Sans 18/28 w400 ls:-0.18px #1F2333 @288,1960 102x23
+...T "GNOD Technologies was founded with a vision to provide |enterprise-grade custom software to local businesses." Inter 14/23 w400 #696D72 @288,1997 384x40
+...G Container @208,2119 48x48 fx:shadow 0 2 4 0 rgba(16,10,46,0.08)
+....R @208,2119 48x48 fill:#F6F7F9 r:24
+....R @209,2120 46x46 border:#4B0FA8 2 r:23
+....T "10" Inter 16/24 w700 #4B0FA8 @223,2133 19x20
+...V Line @232,2175 0x66 paths:1 c:#DFE1E4
+...T "Cloud Transformation" Plus Jakarta Sans 18/28 w400 ls:-0.18px #1F2333 @288,2120 183x23
+...T "Pioneered cloud migration strategies for major retail chains, setting |new standards for scalability in the South African tech landscape." Inter 14/23 w400 #696D72 @288,2157 447x40
+...G Container @208,2256 48x48 fx:shadow 0 2 4 0 rgba(16,10,46,0.08)
+....R @208,2256 48x48 fill:#F6F7F9 r:24
+....R @209,2257 46x46 border:#4B0FA8 2 r:23
+....T "16" Inter 16/24 w700 #4B0FA8 @223,2269 18x20
+...V Line @232,2312 0x66 paths:1 c:#DFE1E4
+...T "Security First" Plus Jakarta Sans 18/28 w400 ls:-0.18px #1F2333 @288,2258 111x23
+...T "Strengthened our service offering with cybersecurity solutions |designed to help businesses identify risks, protect their digital |assets, and build more secure technology environments." [Launched our comprehensive Cybersecurity division, becoming a trusted partner for financial institutions and government agencies.] Inter 14/23 w400 #696D72 @288,2294 418x63
+...G Container @208,2394 48x48 fx:shadow 0 2 4 0 rgba(16,10,46,0.08)
+....R @208,2394 48x48 fill:#F6F7F9 r:24
+....R @209,2395 46x46 border:#4B0FA8 2 r:23
+....T "20" Inter 16/24 w700 #4B0FA8 @222,2408 21x20
+...V Line @232,2450 0x88 paths:1 c:#DFE1E4
+...T "Embracing Smarter Technology" [Resilient Systems] Plus Jakarta Sans 18/28 w400 ls:-0.18px #1F2333 @288,2395 267x23
+...T "Continued expanding our technical capabilities across cloud, |automation, and modern software solutions, with a focus on helping |businesses operate more efficiently and securely." [Expanded our managed services to include AI-driven infrastructure monitoring, ensuring 99.99% uptime for our global clients during rapid shifts.] Inter 14/23 w400 #696D72 @288,2432 452x63
+...G Container @208,2554 48x48 fx:shadow 0 2 4 0 rgba(16,10,46,0.08)
+....R @208,2554 48x48 fill:#F6F7F9 r:24
+....R @209,2555 46x46 border:#4B0FA8 2 r:23
+....T "24" Inter 16/24 w700 #4B0FA8 @222,2568 21x20
+...T "Looking Ahead" [The Future: AI & Beyond] Plus Jakarta Sans 18/28 w400 ls:-0.18px #1F2333 @288,2556 127x23
+...T "We continue to explore emerging technologies such as AI and |intelligent automation, expanding our capabilities and looking |for new ways to help businesses solve problems, improve |efficiency, and embrace the future of technology." [Celebrating 20 years of excellence. We are now integrating generative AI and blockchain solutions into our core enterprise offerings.] Inter 14/23 w400 #696D72 @288,2592 411x86
+...G Container @833,1959 399x301 fx:shadow 0 20 40 0 rgba(16,10,46,0.2)
+....R @833,1959 399x301 fill:lin(833,1959>1122,2343; #4B0FA8/20%@0 #DFE1E4@0.5 #DEE2FF/20%@1) r:16
+....R @837,1963 391x293 fill:img:9f659017e9 s1.334,1 t-0.166,0 r:15
+..G Container @0,2836 1440x1348
+...R @0,2836 1440x1348 fill:#F6F7F9
+...G Tag @208,2966 115x25
+....G Frame @208,2966 115x25
+.....R @208,2966 115x25 fill:#4B0FA8/5% r:13
+.....R @209,2967 114x24 border:#4B0FA8/20% 1 r:12
+.....T "THE CORE TEAM" Inter 10 w700 #4B0FA8 @224,2972 82x12
+...T "Meet the Team Behind GNOD" [Meet the Experts Behind Your Success] Plus Jakarta Sans 32/40 w400 ls:-0.32px #1F2333 @208,3006 438x40
+...V Line @208,3065 80x0 paths:1 c:#4B0FA8
+...T "We’re a focused team of developers and technology professionals passionate about |building practical digital solutions. We combine technical expertise, creativity, and a |problem-solving mindset to help businesses turn their ideas and challenges into |technology that works." [Our leadership team brings together decades of collective experience in technology consulting, project management, and software engineering.] Inter 16/24 w400 #696D72 @208,3092 636x92
+...T "Steven Ndaye" Plus Jakarta Sans 18/28 w400 ls:-0.18px #1F2333 @398,3404 119x23
+...T "FOUNDER, CEO & |SENIOR DEVELOPER" [Founder, CEO & Senior developer] Inter 12/16 w600 ls:0.6px #4B0FA8 align:center @393,3434 127x31
+...G Avatar @396,3259 120x120 fx:shadow 0 4 12 0 rgba(16,10,46,0.12)
+....G @396,3259 120x120 clip
+.....R @396,3259 120x120 fill:#CED0F8 r:60
+.....R [p.image.1] @396,3259 120x120 fill:img:bc3b23a625 tr:scale(0.00257069)
+...T "Glory Mutombo" Plus Jakarta Sans 18/28 w400 ls:-0.18px #1F2333 @654,3404 134x23
+...T "SOFTWARE |DEVELOPER" [Software Developer] Inter 12/16 w600 ls:0.6px #4B0FA8 align:right @684,3434 77x31
+...G Avatar @660,3259 120x120 fx:shadow 0 4 12 0 rgba(16,10,46,0.12)
+....G @660,3259 120x120 clip
+.....R @660,3259 120x120 fill:#CED0F8 r:60
+.....R [p.image.2] @660,3259 120x120 fill:img:594d712740 tr:scale(0.005)
+...T "Gedeon Bafinamene" Plus Jakarta Sans 18/28 w400 ls:-0.18px #1F2333 @898,3404 176x23
+...T "SOFTWARE ⏎DEVELOPER" [Software Developer] Inter 12/16 w600 ls:0.6px #4B0FA8 align:center @946,3434 79x31
+...G Avatar @924,3259 120x120 fx:shadow 0 4 12 0 rgba(16,10,46,0.12)
+....G @924,3259 120x120 clip
+.....R @924,3259 120x120 fill:#CED0F8 r:60
+.....R [p.image.3] @924,3259 120x120 fill:img:14c1073075 tr:scale(0.01)
+...G Container @209,3616 1023x439 fx:shadow 0 25 50 0 rgba(0,0,0,0.25)
+....R @209,3616 1023x439 border:#DFE1E4 1 r:24
+....R @209,3616 1022x438 fill:img:0fbc9d2715 s1,1.556 t0,-0.278
+....G Container @209,3616 1022x438
+.....R @209,3616 1022x438 fill:lin(505,435>505,-3; #240059/90%@0 #240059/20%@0.5 #240059/0%@1)
+.....T "A Culture of Collaboration & Innovation" [A Culture of Collaborative Innovation] Plus Jakarta Sans 32/40 w700 ls:-0.32px #FFF @257,3878 585x40
+.....T "We believe great technology starts with great ideas and collaboration. |Our team works closely together, combining technical expertise, |creativity, and curiosity to solve real-world challenges and build |practical digital solutions for the future." [Our diversity is our strength. We foster an environment where South Africa's brightest tech minds collaborate to solve tomorrow's problems today.] Inter 16/24 w400 #FFF/80% @257,3936 533x92
+..G Container @0,4961 1440x312
+...R @0,4961 1440x312 fill:lin(-6,153>1434,153; #4B0FA8@0 #5B3CFA@0.6 #339CE8@1)
+...R @0,4961 1440x312 fill:img:5026377b4e s1,2.596 t0,-0.7979999999999999/15%
+...G Button @837,5095 188x44
+....R @837,5095 188x44 fill:#FFF r:12
+....T "Contact Our Team" Inter 14/22 w700 #4B0FA8 @869,5108 124x17
+...G Button @1042,5096 190x43
+....R @1042,5096 190x43 border:#FFF 1 r:12
+....T "View Our Services" [View Case Studies] Inter 14/22 w500 #FFF @1075,5108 123x17
+...T "Ready to start your digital journey |with a trusted partner?" Plus Jakarta Sans 32/40 w400 ls:-0.32px #F6F7F9 @208,5041 508x80
+...G Container @208,5141 481x49 op:0.9
+....T "Let's discuss how GNOD Technologies can solve your IT |challenges." Inter 18/28 w400 #F6F7F9 @208,5141 481x49 op:0.9
+..G Container @-96,22 1632x957 clip
+...R @0,118 1440x766 fill:#100A2E
+...R @0,118 1440x766 fill:img:333fe66842 s1,1.227 t0,-0.114 op:0.125
+...V Line @0,884 1440x0 paths:1 c:#DFE1E4
+...G Rectangle @1152,22 384x384 fx:layerblur 240
+....R @1152,22 384x384 fill:#4B0FA8/20% r:192
+...G Rectangle @-96,723 256x256 fx:layerblur 200
+....R @-96,723 256x256 fill:#DEE2FF/20% r:128
+...G Experience badge @209,249 141x28
+....R @209,249 141x28 fill:#FFF r:14
+....R @209,249 141x28 border:#DDD5F8 1 r:14
+....E [Signal] @220,259 7x7 fill:#22D3EE
+....T "Established 2023" [Badge label] Inter 12 w700 #4B0FA8 @235,255 103x15
+...G Two Decades of Technological Excellence @208,298 511x164
+....T "Technology Built |for What’s Next." Plus Jakarta Sans 64/84 w800 ls:-1px #F6F5FF @208,298 505x164
+....T " " Plus Jakarta Sans 64/252 w800 ls:-1px #4B0FA8 xoff:500.9 @709,382 10x80
+...T "Since 2023, GNOD Technologies has been helping businesses turn |complex technology challenges into practical, reliable digital |solutions. Based in South Africa, we combine software |development, IT consulting, cybersecurity, and cloud technologies |to help businesses operate smarter, scale confidently, and grow in a |digital-first world." [For over 20 years, GNOD Technologies has been at the forefront of digital innovation in South Africa. From our headquarters in Centurion, we bridge the gap between complex enterprise needs and elegant, reliable IT solutions.] Inter 18/29 w400 #C5BDFF @208,507 584x166
+...G Container @208,717 164x38
+....R @208,717 164x38 fill:#FFF/5% r:19
+....R @209,718 163x37 border:#FFF/10% 1 r:19
+....I circle-check @226,729 15x15 c:#22D3EE
+....T "4 Core Services" [ISO 27001 Certified] Inter 14/20 w400 #FFF/80% @249,727 105x17
+...G Container @390,717 216x38
+....R @390,717 216x38 fill:#FFF/5% r:19
+....R @391,718 215x37 border:#FFF/10% 1 r:19
+....I circle-check @408,729 15x15 c:#22D3EE
+....T "End-to-End IT Solutions" [Level 2 B-BBEE Contributor] Inter 14/20 w400 #FFF/80% @430,727 158x17
+...G Container @833,346 399x308 fx:shadow 0 25 50 0 rgba(0,0,0,0.25) bgblur:4
+....R @833,346 399x308 fill:#FFF/5% r:16
+....R @834,347 398x307 border:#FFF/10% 1 r:16
+....R @850,363 365x273 fill:img:333fe66842 s1.149,1 t-0.07400000000000001,0
+....R @834,347 397x306 fill:lin(1033,653>1033,347; #240059/60%@0 #240059/0%@1)
+..G Navigation @0,37 1440x85
+...V vector @0,37 1440x84 paths:1 c:#FFF
+...V vector @0,120 1440x2 paths:1 c:#E8E8F0
+...R [Brand] @80,49 130x60 fill:img:de2cc3027e s1.013,1 t-0.006,0
+...G Navigation links @683,53 677x52
+....T "Services" [Navigation link] Inter 14 w600 #1F2333 @683,70 59x17
+....T "Custom software" [Navigation link] Inter 14 w600 #1F2333 @772,70 117x17
+....T "Our process" [Navigation link] Inter 14 w600 #1F2333 @919,70 83x17
+....T "Work" [Navigation link] Inter 14 w600 #1F2333 @1032,70 35x17
+....T "About" [Navigation link] Inter 14 w600 #1F2333 @1098,70 41x17
+....G Button @1170,53 190x52 fx:shadow 0 12 32 -8 rgba(36,18,86,0.094)
+.....R @1170,53 190x52 fill:#5B3CFA r:12
+.....T "Get a free quote" [Label] Inter 15 w700 #FFF @1192,69 118x19
+.....I arrow-up-right @1325,75 8x7 c:#FFF sw:1.5

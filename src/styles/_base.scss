@@ -1,0 +1,141 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--c-white);
+  color: var(--c-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--c-primary);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--c-lavender);
+  color: var(--c-purple-900);
+}
+
+.gnod-button {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid transparent;
+  border-radius: var(--r-md);
+  padding-inline: 22px;
+  cursor: pointer;
+  font: 700 15px/19px var(--font-body);
+  transition:
+    background 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.gnod-button--primary {
+  background: var(--c-primary);
+  box-shadow: var(--sh-card);
+  color: var(--c-white);
+}
+
+.gnod-button--outline {
+  border-color: var(--c-primary-strong);
+  background: transparent;
+  color: var(--c-primary-strong);
+}
+
+.gnod-button--white {
+  background: var(--c-white);
+  color: var(--c-primary-strong);
+}
+
+.gnod-button--outline-dark {
+  border-color: color-mix(in srgb, var(--c-white) 31%, transparent);
+  background: transparent;
+  color: var(--c-white);
+}
+
+.gnod-button--primary:hover {
+  background: var(--c-primary-strong);
+  transform: translateY(-1px);
+}
+
+.gnod-button--outline:hover {
+  background: color-mix(in srgb, var(--c-primary-strong) 6%, transparent);
+}
+
+.gnod-button--white:hover {
+  background: var(--c-lavender);
+}
+
+.gnod-button:active {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,151 @@
+<section class="sub-hero about-hero" aria-labelledby="about-title">
+  <img ngSrc="/images/bg-code-js.webp" fill priority alt="" />
+  <div class="container--narrow sub-hero__inner">
+    <div class="sub-hero__copy">
+      <p class="hero-badge"><span></span>Established 2023</p>
+      <h1 id="about-title" class="t-hero-sub">Technology Built<br />for What’s Next.</h1>
+      <p>
+        Since 2023, GNOD Technologies has been helping businesses turn complex technology challenges
+        into practical, reliable digital solutions. Based in South Africa, we combine software
+        development, IT consulting, cybersecurity, and cloud technologies to help businesses operate
+        smarter, scale confidently, and grow in a digital-first world.
+      </p>
+      <ul class="sub-hero__chips">
+        <li><lucide-icon aria-hidden="true" name="circle-check" />4 Core Services</li>
+        <li><lucide-icon aria-hidden="true" name="circle-check" />End-to-End IT Solutions</li>
+      </ul>
+    </div>
+    <div class="about-hero__card" aria-hidden="true">
+      <img ngSrc="/images/bg-code-js.webp" fill alt="" />
+    </div>
+  </div>
+</section>
+
+<section class="about-presence sub-section" aria-labelledby="about-presence-title">
+  <div class="container--narrow about-presence__inner">
+    <a
+      class="about-map"
+      href="https://www.google.com/maps/search/?api=1&query=59+Blinkblaar+Zwartkop+Centurion"
+      target="_blank"
+      rel="noopener noreferrer"
+      ><img
+        ngSrc="/images/map-gnod-zwartkop.webp"
+        fill
+        alt="Map showing GNOD Technologies at 59 Blinkblaar, Zwartkop, Centurion"
+      /><span><lucide-icon aria-hidden="true" name="map-pin" />HQ: Centurion, Gauteng</span></a
+    >
+    <div>
+      <p class="sub-tag">LOCAL PRESENCE</p>
+      <h2 id="about-presence-title" class="t-h2-sub">Local Expertise.<br />Global Vision.</h2>
+      <i class="accent-line"></i>
+      <p class="t-body-sub">
+        Our deep-rooted presence in South Africa allows us to understand the unique challenges and
+        opportunities within the local market. We combine this localized insight with global best
+        practices to deliver world-class IT services.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="journey sub-section" aria-labelledby="journey-title">
+  <div class="container--narrow">
+    <div class="sub-heading sub-heading--centred">
+      <p class="sub-tag">OUR JOURNEY</p>
+      <h2 id="journey-title" class="t-h2-sub">A Legacy of Innovation</h2>
+      <i class="accent-line"></i>
+    </div>
+    <div class="journey__body">
+      <ol class="timeline">
+        @for (item of journey; track item.number) {
+          <li>
+            <span>{{ item.number }}</span>
+            <div>
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.description }}</p>
+            </div>
+          </li>
+        }
+      </ol>
+      <div class="journey__image"><img ngSrc="/images/photo-purple-fibres.webp" fill alt="" /></div>
+    </div>
+  </div>
+</section>
+
+<section class="team sub-section" aria-labelledby="team-title">
+  <div class="container--narrow">
+    <div class="sub-heading">
+      <p class="sub-tag">THE CORE TEAM</p>
+      <h2 id="team-title" class="t-h2-sub">Meet the Team Behind GNOD</h2>
+      <i class="accent-line"></i>
+      <p class="t-body-sub">
+        We’re a focused team of developers and technology professionals passionate about building
+        practical digital solutions. We combine technical expertise, creativity, and a
+        problem-solving mindset to help businesses turn their ideas and challenges into technology
+        that works.
+      </p>
+    </div>
+    <div class="team__grid">
+      @for (member of team; track member.name) {
+        <article>
+          <img [ngSrc]="member.image" width="200" height="200" [alt]="member.alt" />
+          <h3>{{ member.name }}</h3>
+          <p>{{ member.role }}</p>
+        </article>
+      }
+    </div>
+    <div class="culture-card">
+      <img ngSrc="/images/photo-particles.webp" fill alt="" /><span></span>
+      <div>
+        <h3>A Culture of Collaboration & Innovation</h3>
+        <p>
+          We believe great technology starts with great ideas and collaboration. Our team works
+          closely together, combining technical expertise, creativity, and curiosity to solve
+          real-world challenges and build practical digital solutions for the future.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mission sub-section" aria-label="Mission, vision and values">
+  <img ngSrc="/images/bg-code-closeup.webp" fill alt="" />
+  <div class="container--narrow mission__inner">
+    <div class="mission__statement">
+      <h2 class="t-h2-sub">Our Mission</h2>
+      <p>
+        To empower African enterprises with resilient, innovative, and ethically-engineered
+        technology solutions that drive sustainable growth and digital sovereignty.
+      </p>
+    </div>
+    <div class="mission__statement">
+      <h2 class="t-h2-sub">Our Vision</h2>
+      <p>
+        To be the premier technology partner for the continent's leading organizations, recognized
+        for our absolute reliability, technical depth, and local commitment.
+      </p>
+    </div>
+    <div class="values">
+      @for (value of values; track value.title) {
+        <article>
+          <div class="icon-badge"><lucide-icon aria-hidden="true" [name]="value.icon" /></div>
+          <h3>{{ value.title }}</h3>
+          <p>{{ value.description }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="about-cta">
+  <img ngSrc="/images/bg-keyboard-red.webp" fill alt="" />
+  <div class="container--narrow about-cta__inner">
+    <div>
+      <h2>Ready to start your digital journey<br />with a trusted partner?</h2>
+      <p>Let's discuss how GNOD Technologies can solve your IT challenges.</p>
+    </div>
+    <div>
+      <a appButton="white" routerLink="/contact" fragment="quote">Contact Our Team</a
+      ><a appButton="outline-dark" routerLink="/" fragment="services">View Our Services</a>
+    </div>
+  </div>
+</section>

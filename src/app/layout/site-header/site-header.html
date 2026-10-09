@@ -1,0 +1,87 @@
+<header class="site-header">
+  <nav class="container site-header__inner" aria-label="Primary navigation">
+    <a class="site-header__logo" routerLink="/" aria-label="GNOD Technologies home">
+      <img
+        ngSrc="/images/gnod-logo.webp"
+        width="800"
+        height="365"
+        priority
+        alt="GNOD Technologies – Tailored for your IT needs"
+      />
+    </a>
+
+    <div class="desktop-nav">
+      @for (link of navLinks; track link.label) {
+        <a
+          class="desktop-nav__link t-nav"
+          [routerLink]="link.routerLink"
+          [fragment]="link.fragment"
+          routerLinkActive="desktop-nav__link--active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          ariaCurrentWhenActive="page"
+          >{{ link.label }}</a
+        >
+      }
+      <a class="desktop-nav__quote" appButton="primary" routerLink="/contact" fragment="quote">
+        <span>Get a free quote</span>
+        <lucide-icon name="arrow-up-right" [size]="16" [strokeWidth]="1.5" aria-hidden="true" />
+      </a>
+    </div>
+
+    <div class="compact-nav">
+      <a class="compact-nav__link" routerLink="/" fragment="services">Services</a>
+      <a class="compact-nav__link" routerLink="/" fragment="work">Work</a>
+      <a class="compact-nav__quote" appButton="primary" routerLink="/contact" fragment="quote">
+        <span>Free quote</span>
+        <lucide-icon name="arrow-up-right" [size]="16" [strokeWidth]="1.5" aria-hidden="true" />
+      </a>
+      <button
+        class="compact-nav__menu"
+        type="button"
+        [attr.aria-label]="menuOpen() ? 'Close navigation menu' : 'Open navigation menu'"
+        [attr.aria-expanded]="menuOpen()"
+        aria-controls="mobile-navigation-panel"
+        (click)="toggleMenu()"
+      >
+        <lucide-icon
+          class="compact-nav__menu-icon"
+          [class.compact-nav__menu-icon--open]="menuOpen()"
+          [name]="menuOpen() ? 'x' : 'menu'"
+          [size]="21"
+          [strokeWidth]="1.5"
+          aria-hidden="true"
+        />
+      </button>
+    </div>
+  </nav>
+  @if (menuOpen()) {
+    <div
+      id="mobile-navigation-panel"
+      class="mobile-panel"
+      animate.enter="mobile-panel--enter"
+      animate.leave="mobile-panel--leave"
+      cdkTrapFocus
+      [cdkTrapFocusAutoCapture]="true"
+      (keydown.escape)="closeMenu()"
+    >
+      <nav class="container" aria-label="Mobile navigation">
+        @for (link of navLinks; track link.label) {
+          <a [routerLink]="link.routerLink" [fragment]="link.fragment" (click)="closeMenu()">{{
+            link.label
+          }}</a>
+        }
+        <a
+          class="mobile-panel__quote"
+          appButton="primary"
+          routerLink="/contact"
+          fragment="quote"
+          (click)="closeMenu()"
+          >Get a free quote</a
+        >
+        <a class="mobile-panel__phone" href="tel:+27126633699"
+          ><lucide-icon aria-hidden="true" name="phone" />012 663 3699</a
+        >
+      </nav>
+    </div>
+  }
+</header>

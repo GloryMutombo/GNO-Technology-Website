@@ -1,0 +1,228 @@
+<section class="contact-hero" aria-labelledby="contact-title">
+  <img ngSrc="/images/bg-fibre-optics.webp" fill priority alt="" /><span
+    class="contact-hero__fade"
+  ></span>
+  <div class="container--narrow contact-hero__content">
+    <p class="hero-badge"><span></span>Expert IT Consultation</p>
+    <h1 id="contact-title" class="t-hero-sub">Let's Build the Future<br />of Your Business</h1>
+    <p>
+      Ready to transform your enterprise technology? Our specialists in Centurion are standing by to
+      architect the scalable, reliable software and infrastructure your organization needs.
+    </p>
+    <ul>
+      <li><lucide-icon aria-hidden="true" name="circle-check" />24-Hour Response Time</li>
+      <li><lucide-icon aria-hidden="true" name="circle-check" />Free Initial Consultation</li>
+      <li><lucide-icon aria-hidden="true" name="circle-check" />Centurion-Based Support</li>
+    </ul>
+  </div>
+</section>
+
+<section class="contact-cards" aria-label="Contact options">
+  <div class="container--narrow contact-cards__grid">
+    @for (card of contactCards; track card.title) {
+      <article>
+        <div class="icon-badge"><lucide-icon aria-hidden="true" [name]="card.icon" /></div>
+        <lucide-icon aria-hidden="true" class="contact-card__ghost" [name]="card.icon" />
+        <h2 class="t-h3-sub">{{ card.title }}</h2>
+        @if (card.href) {
+          <a [href]="card.href">{{ card.value }}</a>
+        } @else {
+          <p class="contact-card__value">{{ card.value }}</p>
+        }
+        <small>{{ card.note }}</small>
+      </article>
+    }
+  </div>
+</section>
+
+<section id="quote" class="contact-main sub-section" aria-labelledby="quote-title">
+  <div class="container--narrow contact-main__grid">
+    <div class="quote-form">
+      <h2 id="quote-title" class="t-h2-sub">Request a Proposal</h2>
+      <p class="t-body-sub">
+        Complete the form below and provide some context regarding your requirements. Our technical
+        lead will review your request and prepare a preliminary strategy for our first call.
+      </p>
+      @if (status() === 'success') {
+        <div class="form-success" role="status">
+          <lucide-icon aria-hidden="true" name="circle-check" />
+          <h3>Thank you — we’ve received your request.</h3>
+          <p>Our technical lead will be in touch within 24 hours.</p>
+        </div>
+      } @else {
+        <form class="contact-form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="firstName">First Name</label
+              ><input
+                id="firstName"
+                type="text"
+                formControlName="firstName"
+                autocomplete="given-name"
+                placeholder="John"
+                required
+                [attr.aria-invalid]="showError('firstName')"
+                [attr.aria-describedby]="showError('firstName') ? 'firstName-error' : null"
+              />
+              @if (showError('firstName')) {
+                <small id="firstName-error">Please enter your first name.</small>
+              }
+            </div>
+            <div class="form-field">
+              <label for="lastName">Last Name</label
+              ><input
+                id="lastName"
+                type="text"
+                formControlName="lastName"
+                autocomplete="family-name"
+                placeholder="Doe"
+                required
+                [attr.aria-invalid]="showError('lastName')"
+                [attr.aria-describedby]="showError('lastName') ? 'lastName-error' : null"
+              />
+              @if (showError('lastName')) {
+                <small id="lastName-error">Please enter your last name.</small>
+              }
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="email">Work Email</label
+              ><input
+                id="email"
+                type="email"
+                formControlName="email"
+                autocomplete="email"
+                placeholder="john@enterprise.co.za"
+                required
+                [attr.aria-invalid]="showError('email')"
+                [attr.aria-describedby]="showError('email') ? 'email-error' : null"
+              />
+              @if (showError('email')) {
+                <small id="email-error">Please enter a valid email address.</small>
+              }
+            </div>
+            <div class="form-field">
+              <label for="phone">Phone Number</label
+              ><input
+                id="phone"
+                type="tel"
+                formControlName="phone"
+                autocomplete="tel"
+                placeholder="+27 12 345 6789"
+              />
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="service">Service Interest</label
+            ><select
+              id="service"
+              formControlName="service"
+              required
+              [attr.aria-invalid]="showError('service')"
+              [attr.aria-describedby]="showError('service') ? 'service-error' : null"
+            >
+              <option value="">Select a service category</option>
+              @for (option of serviceOptions; track option.value) {
+                <option [value]="option.value">{{ option.label }}</option>
+              }
+            </select>
+            @if (showError('service')) {
+              <small id="service-error">Please select a service.</small>
+            }
+          </div>
+          <div class="form-field">
+            <label for="message">How can we help you?</label
+            ><textarea
+              id="message"
+              formControlName="message"
+              placeholder="Tell us about your project or technology challenges..."
+              required
+              [attr.aria-invalid]="showError('message')"
+              [attr.aria-describedby]="showError('message') ? 'message-error' : null"
+            ></textarea>
+            @if (showError('message')) {
+              <small id="message-error">Please share a little more about your requirements.</small>
+            }
+          </div>
+          <div class="honeypot" aria-hidden="true">
+            <label for="website">Website</label
+            ><input
+              id="website"
+              type="text"
+              formControlName="website"
+              tabindex="-1"
+              autocomplete="off"
+            />
+          </div>
+          <button type="submit" [disabled]="status() === 'sending'">
+            {{ status() === 'sending' ? 'Sending…' : 'Request Your Free Quote' }}
+            <lucide-icon aria-hidden="true" name="send" />
+          </button>
+          <p class="form-note">
+            By submitting this form, you agree to our processing of your data according to our POPIA
+            compliant <a routerLink="/privacy">Privacy Policy</a>.
+          </p>
+          <p class="form-status" aria-live="polite">{{ serverMessage() }}</p>
+        </form>
+      }
+    </div>
+
+    <aside class="contact-info">
+      <h2><lucide-icon aria-hidden="true" name="building-2" />Our Headquarters</h2>
+      <div class="info-card">
+        <h3><lucide-icon aria-hidden="true" name="map-pin" />Main Office</h3>
+        <address>59 Blinkblaar, Zwartkop<br />Centurion, 0157<br />Gauteng, South Africa</address>
+      </div>
+      <div class="info-card">
+        <h3><lucide-icon aria-hidden="true" name="earth" />Regional Reach</h3>
+        <p>
+          Serving clients across South Africa with specialized support centers in Gauteng and
+          Western Cape.
+        </p>
+      </div>
+      <h2 class="why-title">Why partner with GNOD?</h2>
+      <ul class="why-list">
+        <li>
+          <lucide-icon aria-hidden="true" name="chevron-right" />Enterprise-grade security protocols
+        </li>
+        <li>
+          <lucide-icon aria-hidden="true" name="chevron-right" />Scalable architecture specialists
+        </li>
+        <li>
+          <lucide-icon aria-hidden="true" name="chevron-right" />Direct access to senior developers
+        </li>
+        <li>
+          <lucide-icon aria-hidden="true" name="chevron-right" />Local Centurion-based support team
+        </li>
+      </ul>
+      <a
+        class="contact-map"
+        href="https://www.google.com/maps/search/?api=1&query=59+Blinkblaar+Zwartkop+Centurion"
+        target="_blank"
+        rel="noopener noreferrer"
+        ><img
+          ngSrc="/images/map-gnod-zwartkop.webp"
+          fill
+          alt="Map showing GNOD Technologies at 59 Blinkblaar, Zwartkop, Centurion"
+        /><span
+          ><i><lucide-icon aria-hidden="true" name="map-pin" /></i><b>GNOD Technologies</b></span
+        ></a
+      >
+      <div class="help-card">
+        <img ngSrc="/images/bg-code-eeprom.webp" fill alt="" />
+        <div>
+          <h2>
+            <span><lucide-icon aria-hidden="true" name="message-square" /></span>Need immediate
+            help?
+          </h2>
+          <p>
+            For critical system outages or security breaches, our priority support line is active
+            24/7 for existing SLA partners.
+          </p>
+          <a href="tel:+27126633699">Call Support Now</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>

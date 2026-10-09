@@ -1,0 +1,288 @@
+# Figma layer outline — our-process-desktop
+# Source: Figma file "Gnod Website", frame "GNOD website — Our process". Exported 2026-10-08.
+#
+# HOW TO READ THIS FILE
+# Each line is one layer. Leading dots = nesting depth (children are indented one more dot).
+# Coordinates are in Figma pixels relative to the frame's top-left corner: @x,y WIDTHxHEIGHT
+#   G  = group / frame (container). "clip" = clips its content (overflow hidden).
+#   R  = rectangle. fill:COLOR[/opacity%]  border:COLOR WIDTH  r:RADIUS
+#        fill:img:KEY = image fill (see design/IMAGES.md for KEY -> file). s=scale, t=offset of the image inside the box (object-fit: cover).
+#        fill:lin(x1,y1>x2,y2; COLOR@stop ...) = linear gradient (absolute frame coords). rad(...) = radial gradient.
+#   T  = text: "content" [layer name if different] FONT SIZE/LINE-HEIGHT wWEIGHT ls:LETTER-SPACING COLOR
+#        A "|" inside the text marks where Figma wrapped the line (soft wrap - the browser will re-wrap).
+#        A "⏎" marks a hard line break (use <br> or a new paragraph).
+#        align:center/right = paragraph alignment (default left).
+#        On tablet/mobile files, text written as ="…" is IDENTICAL to the desktop copy (shortened here to save space).
+#   I  = icon (Lucide icon name, size, c: color, sw: stroke width).
+#   V  = vector shape (lines, dividers, decorative bars).  E = ellipse/circle.  P = path.
+#   fx:shadow X Y BLUR SPREAD COLOR = CSS box-shadow: Xpx Ypx BLURpx SPREADpx COLOR.  inset shadow = inner shadow.
+#   fx:layerblur N = CSS filter: blur(N/2 px).  bgblur:N = CSS backdrop-filter: blur(N/2 px).  op:N = opacity.
+### FRAME Our process (svg 1452x3866, offset 6,3)
+G GNOD website — Our process @0,0 1440x3854 fx:shadow 0 3 6 0 rgba(18,15,40,0.12)
+.G @0,0 1440x3854 clip
+..R @0,0 1440x3854 fill:#F6F7F9
+..G Top bar @0,0 1440x40
+...R @0,0 1440x40 fill:#100A2E
+...T "Reliable software and IT solutions in Centurion" [Top bar message] Inter 12 w400 #DAD5EB @80,12 263x15
+...G Top bar phone @1257,12 103x15 clip
+....I phone @1257,14 12x12 c:#22D3EE sw:1.5
+....T "012 663 3699" [Phone number] Inter 12 w700 #FFF @1277,12 83x15
+..G Footer @0,3424 1440x430
+...R @0,3424 1440x430 fill:#100A2E
+...G Footer main @80,3496 1130x217 clip
+....G Footer introduction @80,3496 335x217 clip
+.....R [Footer brand] @80,3496 168x69 fill:img:de2cc3027e s1,1.109 t0,-0.055
+.....T "Custom software development and dependable IT |services from Zwartkop, Centurion — supporting |organisations across South Africa and abroad." [Footer summary] Inter 14/22 w400 #AFA8C8 @80,3587 335x61
+.....G Footer contact @81,3671 233x42 clip
+......G Contact line @81,3671 120x17 clip
+.......I phone @81,3673 13x13 c:#22D3EE
+.......T "012 663 3699" [Phone number] Inter 14 w700 #FFF @105,3671 96x17
+......G Contact line @83,3697 232x16 clip
+.......I map-pin @83,3698 11x13 c:#22D3EE
+.......T "Zwartkop, Centurion, South Africa" [Location] Inter 13 w400 #D7D2E6 @105,3697 209x16
+....G Footer navigation @512,3496 698x162 clip
+.....G Footer column @512,3496 147x162 clip
+......G Footer links @512,3496 147x162 clip
+.......T "SOFTWARE" [Column title] Inter 11 w800 ls:1px #22D3EE @512,3496 71x14
+.......T "Custom development" [Footer link] Inter 13 w400 #D7D2E6 @512,3522 131x16
+.......T "Web applications" [Footer link] Inter 13 w400 #D7D2E6 @512,3552 105x16
+.......T "Mobile applications" [Footer link] Inter 13 w400 #D7D2E6 @512,3582 119x16
+.......T "Systems integration" [Footer link] Inter 13 w400 #D7D2E6 @512,3612 123x16
+.......T "Software modernisation" [Footer link] Inter 13 w400 #D7D2E6 @512,3642 147x16
+.....G Footer column @811,3496 101x162 clip
+......G Footer links @811,3496 101x162 clip
+.......T "IT SERVICES" [Column title] Inter 11 w800 ls:1px #22D3EE @811,3496 79x14
+.......T "Managed IT" [Footer link] Inter 13 w400 #D7D2E6 @811,3522 73x16
+.......T "Security" [Footer link] Inter 13 w400 #D7D2E6 @811,3552 51x16
+.......T "Cloud" [Footer link] Inter 13 w400 #D7D2E6 @811,3582 36x16
+.......T "Data & reporting" [Footer link] Inter 13 w400 #D7D2E6 @811,3612 101x16
+.......T "Consulting" [Footer link] Inter 13 w400 #D7D2E6 @811,3642 66x16
+.....G Footer column @1109,3496 100x162 clip
+......G Footer links @1109,3496 100x162 clip
+.......T "COMPANY" [Column title] Inter 11 w800 ls:1px #22D3EE @1109,3496 65x14
+.......T "Our process" [Footer link] Inter 13 w400 #D7D2E6 @1109,3522 75x16
+.......T "Selected work" [Footer link] Inter 13 w400 #D7D2E6 @1109,3552 88x16
+.......T "About GNOD" [Footer link] Inter 13 w400 #D7D2E6 @1109,3582 79x16
+.......T "Contact" [Footer link] Inter 13 w400 #D7D2E6 @1109,3612 49x16
+.......T "Get a free quote" [Footer link] Inter 13 w400 #D7D2E6 @1109,3642 100x16
+...G Footer bottom @80,3776 1280x37
+....G @80,3799 1280x14 clip
+.....T "© 2026 GNOD Technologies. All rights reserved." [Copyright] Inter 11 w400 #8F88AC @80,3799 251x14
+.....G Legal links @1269,3799 91x14 clip
+......T "Privacy" [Legal link] Inter 11 w400 #8F88AC @1269,3799 38x14
+......T "Terms" [Legal link] Inter 11 w400 #8F88AC @1328,3799 32x14
+....V vector @80,3776 1280x2 paths:1 c:#2C2551
+..G Container @0,2179 1440x685
+...R @0,2179 1440x685 fill:#F6F7F9/50%
+...V Line @0,2179 1440x0 paths:1 c:#DFE1E4
+...V Line @0,2864 1440x0 paths:1 c:#DFE1E4
+...T "Built on a Foundation of |Engineering Excellence" Plus Jakarta Sans 32/40 w400 ls:-0.32px #1F2333 @208,2410 358x80
+...T "Our process isn't just about checkboxes; it's about |a commitment to quality that permeates every |stage of the development cycle." Inter 16/24 w400 #696D72 @208,2516 385x68
+...G Button @210,2612 235x17
+....G @210,2612 235x17 clip
+.....T "Learn more about our standards" Inter 14/22 w500 #4B0FA8 @210,2612 215x17
+.....I Arrow up right @437,2617 8x8 c:#4B0FA8
+...G Container @686,2333 48x48
+....R @686,2333 48x48 fill:#F1EDFF r:14
+....I zap @700,2346 20x22 c:#5B3CFA
+...T "Agile Mindset" Inter 18/28 w400 ls:0.18px #1F2333 @758,2336 118x21
+...T "We embrace change and prioritize iterative delivery to get your |product to market faster without sacrificing quality." Inter 14/23 w400 #696D72 @758,2371 420x40
+...G Container @686,2480 48x48
+....R @686,2480 48x48 fill:#F1EDFF r:14
+....I users-round @699,2494 22x20 c:#5B3CFA
+...T "User-Centric Design" Inter 18/28 w400 ls:0.18px #1F2333 @758,2484 176x21
+...T "Every line of code serves the end-user. We build intuitive interfaces |that drive engagement and solve real problems." Inter 14/23 w400 #696D72 @758,2518 450x40
+...G Container @686,2628 48x48
+....R @686,2628 48x48 fill:#F1EDFF r:14
+....I shield-check @701,2641 18x22 c:#5B3CFA
+...T "Security First" Inter 18/28 w400 ls:0.18px #1F2333 @758,2631 115x21
+...T "Data integrity is non-negotiable. We implement enterprise-grade |security protocols at every layer of the application." Inter 14/23 w400 #696D72 @758,2666 431x40
+..G Container @0,118 1440x648 clip
+...G Rectangle @0,118 1440x648
+....R @0,118 1440x648 fill:#F6F5FF
+....R @0,118 1440x648 fill:img:4167ec89ba s1,1.482 t0,-0.24100000000000002
+...G Rectangle @1128,213 128x128 fx:layerblur 128
+....R @1128,213 128x128 fill:#4B0FA8/10% r:64
+...G Rectangle @712,445 192x192 fx:layerblur 128
+....R @712,445 192x192 fill:#DEE2FF/20% r:96
+...G Container @752,237 480x360 fx:shadow 0 25 50 0 rgba(0,0,0,0.25)
+....R @752,237 480x360 fill:#F6F7F9 r:16
+....R @753,238 479x359 border:#DFE1E4/50% 1 r:16
+....R @753,238 478x358 fill:img:4167ec89ba s1.123,1 t-0.061,0
+...G Experience badge @209,199 141x28
+....R @209,199 141x28 fill:#FFF r:14
+....R @209,199 141x28 border:#DDD5F8 1 r:14
+....E [Signal] @220,209 7x7 fill:#22D3EE
+....T "Our Methodology" [Badge label] Inter 12 w700 #4B0FA8 @235,205 103x15
+...G From Vision to Reality @208,262 357x164
+....T "Reality" Plus Jakarta Sans 64/252 w800 ls:-1px #F6F5FF xoff:77.1 @285,346 203x80
+....T "From Vision |to " Plus Jakarta Sans 64/84 w800 ls:-1px #F6F5FF @208,262 357x164
+...T "Discover how GNOD Technologies combines technical |excellence with a streamlined lifecycle to deliver high-|impact software solutions." Inter 19/33 w400 #C5BDFF @208,441 491x89
+...G Button @208,581 187x56 fx:shadow 0 8 24 0 rgba(16,10,46,0.15)
+....R @208,581 187x56 fill:#5B3CFA r:14
+....T "Start a Project" Inter 14/22 w500 #F6F7F9 @240,600 96x17
+....I Arrow right @346,602 13x13 c:#F6F7F9
+...G Button @411,582 218x55
+....R @411,582 218x55 fill:#F6F7F9 r:14
+....R @411,582 218x55 border:#DFE1E4 1 r:14
+....T "View Selected Work" [View Case Studies] Inter 14/22 w500 #240059 @438,600 134x17
+....I Search @578,601 17x17 c:#240059
+..G Container @0,765 1440x1414
+...R @0,765 1440x1414 fill:#F6F7F9
+...T "The GNOD Lifecycle" Plus Jakarta Sans 32/40 w400 ls:-0.32px #1F2333 @570,893 303x40
+...T "Our standardized yet flexible approach ensures consistent quality across projects of all scales, from |startups to enterprises." Inter 16/24 w400 #696D72 align:center @345,951 757x44
+...G Container @917,1568 315x483 fx:shadow 0 2 4 0 rgba(16,10,46,0.08)
+....R @917,1568 315x483 fill:#F6F7F9 r:14
+....R @918,1569 314x482 border:#DFE1E4/50% 1 r:14
+....G Container @950,1601 56x56
+.....R @950,1601 56x56 fill:#F1EDFF r:12
+.....I clipboard-check @967,1616 21x26 c:#5B3CFA
+....T "06" Plus Jakarta Sans 36/36 w800 ls:-0.72px #DFE1E4/50% @1152,1596 46x45
+....T "Ongoing Support" Plus Jakarta Sans 24/32 w400 ls:-0.24px #1F2333 @949,1682 199x30
+....T "Post-launch, we provide |proactive maintenance and |scale your solution as your |business grows." Inter 16/24 w400 #696D72 @949,1727 209x92
+....V Line @950,1846 249x0 paths:1 c:#DFE1E4
+....I circle-check @951,1873 15x15 c:#4B0FA8
+....T "24/7 Monitoring" Inter 14/20 w400 #240059/80% @977,1870 105x17
+....I circle-check @951,1905 15x15 c:#4B0FA8
+....T "Regular Security Updates" Inter 14/20 w400 #240059/80% @977,1902 168x17
+....I circle-check @951,1937 15x15 c:#4B0FA8
+....T "Feature Enhancements" Inter 14/20 w400 #240059/80% @977,1934 152x17
+....I circle-check @951,1969 15x15 c:#4B0FA8
+....T "Performance Tuning" Inter 14/20 w400 #240059/80% @977,1966 133x17
+...G Container @208,1077 315x451 fx:shadow 0 2 4 0 rgba(16,10,46,0.08)
+....R @208,1077 315x451 fill:#F6F7F9 r:14
+....R @209,1078 314x450 border:#DFE1E4/50% 1 r:14
+....G Container @241,1110 56x56
+.....R @241,1110 56x56 fill:#F1EDFF r:12
+.....I lightbulb @261,1125 16x26 c:#5B3CFA
+....T "01" Plus Jakarta Sans 36/36 w800 ls:-0.72px #DFE1E4/50% @451,1105 38x45
+....T "Discovery & Strategy" Plus Jakarta Sans 24/32 w400 ls:-0.24px #1F2333 @241,1191 240x30
+....T "We deep-dive into your business |objectives, user needs, and |technical constraints to build a |robust project foundation." Inter 16/24 w400 #696D72 @241,1236 252x92
+....V Line @241,1355 249x0 paths:1 c:#DFE1E4
+....I circle-check @242,1382 15x15 c:#4B0FA8
+....T "Stakeholder Interviews" Inter 14/20 w400 #240059/80% @269,1379 152x17
+....I circle-check @242,1414 15x15 c:#4B0FA8
+....T "Requirements Gathering" Inter 14/20 w400 #240059/80% @269,1411 160x17
+....I circle-check @242,1446 15x15 c:#4B0FA8
+....T "Feasibility Analysis" Inter 14/20 w400 #240059/80% @269,1443 124x17
+....I circle-check @242,1478 15x15 c:#4B0FA8
+....T "Technology Selection" Inter 14/20 w400 #240059/80% @269,1475 142x17
+...G Container @506,1286 32x32 fx:shadow 0 2 4 0 rgba(16,10,46,0.08)
+....R @506,1286 32x32 fill:#F6F7F9 r:16
+....R @507,1287 31x31 border:#DFE1E4 1 r:16
+....I arrow-right @517,1297 11x11 c:#696D72
+...G Container @562,1077 315x451 fx:shadow 0 2 4 0 rgba(16,10,46,0.08)
+....R @562,1077 315x451 fill:#F6F7F9 r:14
+....R @563,1078 314x450 border:#DFE1E4/50% 1 r:14
+....G Container @595,1110 56x56
+.....R @595,1110 56x56 fill:#F1EDFF r:12
+.....I settings-2 @612,1127 21x21 c:#5B3CFA
+....T "02" Plus Jakarta Sans 36/36 w800 ls:-0.72px #DFE1E4/50% @798,1105 46x45
+....T "Planning & Design" Plus Jakarta Sans 24/32 w400 ls:-0.24px #1F2333 @595,1191 202x30
+....T "Our architects and designers |translate requirements into high-|fidelity prototypes and technical |blueprints." Inter 16/24 w400 #696D72 @595,1236 248x92
+....V Line @595,1355 249x0 paths:1 c:#DFE1E4
+....I circle-check @596,1382 15x15 c:#4B0FA8
+....T "UI/UX Prototyping" Inter 14/20 w400 #240059/80% @623,1379 119x17
+....I circle-check @596,1414 15x15 c:#4B0FA8
+....T "Database Architecture" Inter 14/20 w400 #240059/80% @623,1411 148x17
+....I circle-check @596,1446 15x15 c:#4B0FA8
+....T "API Documentation" Inter 14/20 w400 #240059/80% @623,1443 127x17
+....I circle-check @596,1478 15x15 c:#4B0FA8
+....T "Sprint Roadmap" Inter 14/20 w400 #240059/80% @623,1475 106x17
+...G Container @861,1286 32x32 fx:shadow 0 2 4 0 rgba(16,10,46,0.08)
+....R @861,1286 32x32 fill:#F6F7F9 r:16
+....R @862,1287 31x31 border:#DFE1E4 1 r:16
+....I arrow-right @872,1297 11x11 c:#696D72
+...G Container @917,1077 315x451 fx:shadow 0 2 4 0 rgba(16,10,46,0.08)
+....R @917,1077 315x451 fill:#F6F7F9 r:14
+....R @918,1078 314x450 border:#DFE1E4/50% 1 r:14
+....G Container @950,1110 56x56
+.....R @950,1110 56x56 fill:#F1EDFF r:12
+.....I code-xml @965,1127 26x21 c:#5B3CFA
+....T "03" Plus Jakarta Sans 36/36 w800 ls:-0.72px #DFE1E4/50% @1152,1105 46x45
+....T "Agile Development" Plus Jakarta Sans 24/32 w400 ls:-0.24px #1F2333 @949,1191 217x30
+....T "Clean, efficient code is written in |iterative sprints, ensuring |transparency and frequent |feedback loops." Inter 16/24 w400 #696D72 @949,1236 253x92
+....V Line @950,1355 249x0 paths:1 c:#DFE1E4
+....I circle-check @951,1382 15x15 c:#4B0FA8
+....T "Frontend & Backend Coding" Inter 14/20 w400 #240059/80% @977,1379 185x17
+....I circle-check @951,1414 15x15 c:#4B0FA8
+....T "Unit Testing" Inter 14/20 w400 #240059/80% @977,1411 79x17
+....I circle-check @951,1446 15x15 c:#4B0FA8
+....T "Continuous Integration" Inter 14/20 w400 #240059/80% @977,1443 151x17
+....I circle-check @951,1478 15x15 c:#4B0FA8
+....T "Sprint Reviews" Inter 14/20 w400 #240059/80% @977,1475 98x17
+...G Container @1215,1286 32x32 fx:shadow 0 2 4 0 rgba(16,10,46,0.08)
+....R @1215,1286 32x32 fill:#F6F7F9 r:16
+....R @1216,1287 31x31 border:#DFE1E4 1 r:16
+....I arrow-right @1226,1297 11x11 c:#696D72
+...G Container @208,1568 315x483 fx:shadow 0 2 4 0 rgba(16,10,46,0.08)
+....R @208,1568 315x483 fill:#F6F7F9 r:14
+....R @209,1569 314x482 border:#DFE1E4/50% 1 r:14
+....G Container @241,1601 56x56
+.....R @241,1601 56x56 fill:#F1EDFF r:12
+.....I shield-check @258,1616 21x26 c:#5B3CFA
+....T "04" Plus Jakarta Sans 36/36 w800 ls:-0.72px #DFE1E4/50% @442,1596 48x45
+....T "Quality Assurance" Plus Jakarta Sans 24/32 w400 ls:-0.24px #1F2333 @241,1682 205x30
+....T "Rigorous testing protocols ensure |your software is secure, |performant, and bug-free before |reaching production." Inter 16/24 w400 #696D72 @241,1727 259x92
+....V Line @241,1846 249x0 paths:1 c:#DFE1E4
+....I circle-check @242,1873 15x15 c:#4B0FA8
+....T "Regression Testing" Inter 14/20 w400 #240059/80% @269,1870 126x17
+....I circle-check @242,1905 15x15 c:#4B0FA8
+....T "Security Audits" Inter 14/20 w400 #240059/80% @269,1902 100x17
+....I circle-check @242,1937 15x15 c:#4B0FA8
+....T "Performance Stress Tests" Inter 14/20 w400 #240059/80% @269,1934 170x17
+....I circle-check @242,1969 15x15 c:#4B0FA8
+....T "User Acceptance Testing" Inter 14/20 w400 #240059/80% @269,1966 166x17
+...G Container @506,1793 32x32 fx:shadow 0 2 4 0 rgba(16,10,46,0.08)
+....R @506,1793 32x32 fill:#F6F7F9 r:16
+....R @507,1794 31x31 border:#DFE1E4 1 r:16
+....I arrow-right @517,1804 11x11 c:#696D72
+...G Container @562,1568 315x483 fx:shadow 0 2 4 0 rgba(16,10,46,0.08)
+....R @562,1568 315x483 fill:#F6F7F9 r:14
+....R @563,1569 314x482 border:#DFE1E4/50% 1 r:14
+....G Container @595,1601 56x56
+.....R @595,1601 56x56 fill:#F1EDFF r:12
+.....I rocket @611,1616 25x25 c:#5B3CFA
+....T "05" Plus Jakarta Sans 36/36 w800 ls:-0.72px #DFE1E4/50% @797,1596 46x45
+....T "Deployment & |Launch" Plus Jakarta Sans 24/32 w400 ls:-0.24px #1F2333 @595,1682 168x62
+....T "We manage the transition to |production environments, |ensuring zero downtime and |smooth user migration." Inter 16/24 w400 #696D72 @595,1759 219x92
+....V Line @595,1878 249x0 paths:1 c:#DFE1E4
+....I circle-check @596,1905 15x15 c:#4B0FA8
+....T "Cloud Infrastructure Setup" Inter 14/20 w400 #240059/80% @623,1902 175x17
+....I circle-check @596,1937 15x15 c:#4B0FA8
+....T "Data Migration" Inter 14/20 w400 #240059/80% @623,1934 97x17
+....I circle-check @596,1969 15x15 c:#4B0FA8
+....T "Production Deployment" Inter 14/20 w400 #240059/80% @623,1966 155x17
+....I circle-check @596,2001 15x15 c:#4B0FA8
+....T "Go-live Support" Inter 14/20 w400 #240059/80% @623,1998 105x17
+...G Container @861,1793 32x32 fx:shadow 0 2 4 0 rgba(16,10,46,0.08)
+....R @861,1793 32x32 fill:#F6F7F9 r:16
+....R @862,1794 31x31 border:#DFE1E4 1 r:16
+....I arrow-right @872,1804 11x11 c:#696D72
+..G @208,2768 1216x560 clip
+...R @208,2960 1024x368 fill:#100A2E r:24
+...R @208,2960 1024x368 fill:img:e332c1cd4d s1,1.855 t0,-0.428/20% r:24
+...G Rectangle @1040,2768 384x384 fx:layerblur 128
+....R @1040,2768 384x384 fill:#FFF/10% r:192
+...T "Ready to start your next digital |transformation project?" Plus Jakarta Sans 32/40 w400 ls:-0.32px #F6F7F9 align:center @500,3024 461x80
+...T "Partner with the IT experts in Centurion. We'll guide you through |every step from discovery to long-term success." Inter 16/24 w400 #F6F7F9/80% align:center @477,3138 490x44
+...G Button @553,3216 178x48 fx:shadow 0 20 40 0 rgba(16,10,46,0.2)
+....R @553,3216 178x48 fill:#F6F7F9 r:14
+....T "Get a Free Quote" Inter 14/22 w600 #4B0FA8 @585,3231 114x17
+...G Button @747,3217 139x47
+....R @747,3217 139x47 border:#F6F7F9 1 r:14
+....T "Contact Us" Inter 14/22 w500 #F6F7F9 @779,3231 75x17
+..G Navigation @0,37 1440x85
+...V vector @0,37 1440x84 paths:1 c:#FFF
+...V vector @0,120 1440x2 paths:1 c:#E8E8F0
+...R [Brand] @80,49 130x60 fill:img:de2cc3027e s1.013,1 t-0.006,0
+...G Navigation links @683,53 677x52
+....T "Services" [Navigation link] Inter 14 w600 #1F2333 @683,70 59x17
+....T "Custom software" [Navigation link] Inter 14 w600 #1F2333 @772,70 117x17
+....T "Our process" [Navigation link] Inter 14 w600 #1F2333 @919,70 83x17
+....T "Work" [Navigation link] Inter 14 w600 #1F2333 @1032,70 35x17
+....T "About" [Navigation link] Inter 14 w600 #1F2333 @1098,70 41x17
+....G Button @1170,53 190x52 fx:shadow 0 12 32 -8 rgba(36,18,86,0.094)
+.....R @1170,53 190x52 fill:#5B3CFA r:12
+.....T "Get a free quote" [Label] Inter 15 w700 #FFF @1192,69 118x19
+.....I arrow-up-right @1325,75 8x7 c:#FFF sw:1.5

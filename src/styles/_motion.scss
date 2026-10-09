@@ -1,0 +1,502 @@
+@use './mixins' as *;
+
+// Motion system: one shared rhythm for every transition and animation on the site.
+// Only transform and opacity are animated (no layout properties), and everything
+// collapses to an instant state change under prefers-reduced-motion (see _base.scss).
+
+:root {
+  --motion-fast: 180ms;
+  --motion-base: 280ms;
+  --motion-slow: 520ms;
+  --motion-reveal: 720ms;
+  --motion-exit: 180ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in: cubic-bezier(0.55, 0, 1, 0.45);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+// ---------------------------------------------------------------------------
+// Scroll reveal (classes added by ScrollRevealService, browser only)
+// Uses the individual `translate` property so it never fights hover `transform`s.
+// ---------------------------------------------------------------------------
+
+.reveal:not(.reveal--in) {
+  opacity: 0;
+  translate: 0 28px;
+}
+
+.reveal--in {
+  animation: reveal-up var(--motion-reveal) var(--ease-out) var(--reveal-delay, 0ms) both;
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    translate: 0 28px;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Page entrance (CSS only, runs on first paint and on every route change).
+// The h1 and hero background images are left static so LCP is never delayed.
+// ---------------------------------------------------------------------------
+
+@keyframes enter-up {
+  from {
+    opacity: 0;
+    translate: 0 18px;
+  }
+}
+
+@keyframes enter-scale {
+  from {
+    opacity: 0;
+    scale: 0.96;
+    translate: 0 24px;
+  }
+}
+
+.hero__copy > :not(h1),
+.sub-hero__copy > :not(h1),
+.contact-hero__content > :not(h1) {
+  animation: enter-up var(--motion-slow) var(--ease-out) both;
+}
+
+.hero__copy > :nth-child(3),
+.sub-hero__copy > :nth-child(3),
+.contact-hero__content > :nth-child(3) {
+  animation-delay: 90ms;
+}
+
+.hero__copy > :nth-child(4),
+.sub-hero__copy > :nth-child(4),
+.contact-hero__content > :nth-child(4) {
+  animation-delay: 160ms;
+}
+
+.hero__copy > :nth-child(5) {
+  animation-delay: 230ms;
+}
+
+.dashboard-wrap,
+.about-hero__card,
+.process-hero__card {
+  animation: enter-scale 800ms var(--ease-out) 120ms both;
+}
+
+.dashboard-note {
+  animation:
+    enter-up var(--motion-slow) var(--ease-out) 620ms both,
+    float 6s var(--ease-in-out) 1.2s infinite;
+}
+
+// Hero dashboard mock-up: bars grow in, glow breathes, status dot pulses.
+.bars i,
+.case-card.reveal--in .mini-bars i {
+  transform-origin: bottom;
+  animation: bar-grow 900ms var(--ease-out) both;
+}
+
+.bars i,
+.case-card.reveal--in .mini-bars i {
+  animation-delay: var(--bar-base);
+}
+
+.bars {
+  --bar-base: 450ms;
+}
+
+.case-card.reveal--in .mini-bars {
+  --bar-base: 250ms;
+}
+
+@for $i from 2 through 8 {
+  .bars i:nth-child(#{$i}),
+  .case-card.reveal--in .mini-bars i:nth-child(#{$i}) {
+    animation-delay: calc(var(--bar-base) + #{($i - 1) * 60}ms);
+  }
+}
+
+@keyframes bar-grow {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+.dashboard-wrap::before {
+  animation: glow-breathe 7s var(--ease-in-out) infinite;
+}
+
+@keyframes glow-breathe {
+  0%,
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    opacity: 0.75;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.hero-badge span {
+  position: relative;
+}
+
+.hero-badge span::after {
+  position: absolute;
+  border-radius: inherit;
+  background: inherit;
+  content: '';
+  inset: 0;
+  animation: ping 2.4s var(--ease-out) 1s infinite;
+}
+
+@keyframes ping {
+  0% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+
+  70%,
+  100% {
+    opacity: 0;
+    transform: scale(2.6);
+  }
+}
+
+.dashboard__heading b,
+.system-panel__heading b {
+  animation: soft-pulse 2.8s var(--ease-in-out) infinite;
+}
+
+@keyframes soft-pulse {
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.system-panel .connector {
+  animation: nudge 2.2s var(--ease-in-out) infinite;
+}
+
+.system-panel .connector.output {
+  animation-delay: 0.3s;
+}
+
+@keyframes nudge {
+  0%,
+  100% {
+    transform: translateX(-2px);
+  }
+
+  50% {
+    transform: translateX(3px);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Buttons & links
+// ---------------------------------------------------------------------------
+
+.gnod-button {
+  transition:
+    background var(--motion-fast) var(--ease-out),
+    border-color var(--motion-fast) var(--ease-out),
+    box-shadow var(--motion-base) var(--ease-out),
+    color var(--motion-fast) var(--ease-out),
+    transform var(--motion-fast) var(--ease-out);
+}
+
+.gnod-button--primary:hover {
+  box-shadow: var(--sh-float);
+}
+
+.gnod-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.gnod-button lucide-icon,
+.primary-service a lucide-icon,
+.service-card a lucide-icon,
+.support-card a lucide-icon,
+.engineering__inner a lucide-icon,
+.help-card a lucide-icon {
+  transition: transform var(--motion-base) var(--ease-spring);
+}
+
+.gnod-button:hover lucide-icon[name='arrow-right'],
+.primary-service:hover a lucide-icon,
+.service-card:hover a lucide-icon,
+.engineering__inner a:hover lucide-icon[name='arrow-right'],
+.help-card a:hover lucide-icon {
+  transform: translateX(4px);
+}
+
+.gnod-button:hover lucide-icon[name='arrow-up-right'],
+.support-card:hover a lucide-icon,
+.engineering__inner a:hover lucide-icon[name='arrow-up-right'] {
+  transform: translate(2px, -2px);
+}
+
+.gnod-button:hover lucide-icon[name='arrow-down-right'] {
+  transform: translate(2px, 2px);
+}
+
+.gnod-button:hover lucide-icon[name='phone'] {
+  animation: ring 600ms var(--ease-in-out);
+}
+
+@keyframes ring {
+  20%,
+  60% {
+    transform: rotate(-12deg);
+  }
+
+  40%,
+  80% {
+    transform: rotate(10deg);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Cards: lift on hover, icon badge springs
+// ---------------------------------------------------------------------------
+
+.service-card,
+.support-card,
+.case-card,
+.primary-service,
+.values article,
+.lifecycle__grid article,
+.contact-cards article,
+.perspectives__grid figure {
+  transition:
+    transform var(--motion-base) var(--ease-out),
+    box-shadow var(--motion-base) var(--ease-out),
+    border-color var(--motion-base) var(--ease-out);
+}
+
+.service-card:hover,
+.support-card:hover,
+.case-card:hover,
+.primary-service:hover,
+.values article:hover,
+.lifecycle__grid article:hover,
+.contact-cards article:hover,
+.perspectives__grid figure:hover {
+  box-shadow: var(--sh-float);
+  transform: translateY(-4px);
+}
+
+.icon-badge {
+  transition: transform var(--motion-base) var(--ease-spring);
+}
+
+:is(
+    .service-card,
+    .support-card,
+    .primary-service,
+    .trust-point,
+    .process__steps li,
+    .values article,
+    .lifecycle__grid article,
+    .engineering__values article,
+    .contact-cards article
+  ):hover
+  .icon-badge {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+.primary-service > img,
+.case-visual > *,
+.map-card > img,
+.about-map > img,
+.contact-map > img,
+.culture-card > img,
+.journey__image img,
+.team__grid img {
+  transition: transform 900ms var(--ease-out);
+}
+
+.primary-service:hover > img,
+.map-card:hover > img,
+.about-map:hover > img,
+.contact-map:hover > img,
+.culture-card:hover > img,
+.journey__image:hover img {
+  transform: scale(1.05);
+}
+
+.case-card:hover .case-visual > * {
+  transform: translateY(-6px);
+}
+
+.team__grid article:hover img {
+  transform: scale(1.06);
+}
+
+.contact-card__ghost {
+  transition: transform 900ms var(--ease-out);
+}
+
+.contact-cards article:hover .contact-card__ghost {
+  transform: rotate(-8deg) scale(1.08);
+}
+
+// ---------------------------------------------------------------------------
+// FAQ accordion
+// ---------------------------------------------------------------------------
+
+.accordion__answer {
+  transition: grid-template-rows var(--motion-base) var(--ease-out);
+}
+
+.accordion__answer p {
+  opacity: 0;
+  translate: 0 -6px;
+  transition:
+    opacity var(--motion-fast) var(--ease-out),
+    translate var(--motion-base) var(--ease-out);
+}
+
+.accordion__item--open .accordion__answer p {
+  opacity: 1;
+  translate: 0 0;
+  transition-delay: 60ms;
+}
+
+.accordion__item button span {
+  transition: color var(--motion-fast) var(--ease-out);
+}
+
+.accordion__item button:hover span {
+  color: var(--c-primary-strong);
+}
+
+.accordion__item button i {
+  transition:
+    background var(--motion-base) var(--ease-out),
+    border-color var(--motion-base) var(--ease-out),
+    color var(--motion-base) var(--ease-out),
+    transform var(--motion-base) var(--ease-spring);
+}
+
+.accordion__item button:hover i {
+  border-color: var(--c-primary);
+}
+
+.accordion__item--open button i {
+  transform: rotate(180deg);
+}
+
+// ---------------------------------------------------------------------------
+// Contact form
+// ---------------------------------------------------------------------------
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  transition:
+    border-color var(--motion-fast) var(--ease-out),
+    box-shadow var(--motion-base) var(--ease-out),
+    background var(--motion-fast) var(--ease-out);
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--c-primary) 14%, transparent);
+}
+
+.form-field > small {
+  animation: enter-up var(--motion-base) var(--ease-out);
+}
+
+.form-success {
+  animation: enter-scale var(--motion-slow) var(--ease-out) both;
+}
+
+.form-success lucide-icon {
+  animation: pop-in var(--motion-slow) var(--ease-spring) 150ms both;
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Route changes: short crossfade via the View Transitions API
+// ---------------------------------------------------------------------------
+
+::view-transition-old(root) {
+  animation: vt-fade-out var(--motion-exit) var(--ease-in) both;
+}
+
+::view-transition-new(root) {
+  animation: vt-fade-in var(--motion-base) var(--ease-out) both;
+}
+
+@keyframes vt-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes vt-fade-in {
+  from {
+    opacity: 0;
+    translate: 0 8px;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Reduced motion: no decorative loops, no entrance offsets, no hover travel
+// ---------------------------------------------------------------------------
+
+@include reduced-motion {
+  .hero__copy > *,
+  .sub-hero__copy > *,
+  .contact-hero__content > *,
+  .dashboard-wrap,
+  .dashboard-wrap::before,
+  .dashboard-note,
+  .about-hero__card,
+  .process-hero__card,
+  .bars i,
+  .mini-bars i,
+  .hero-badge span::after,
+  .dashboard__heading b,
+  .system-panel__heading b,
+  .system-panel .connector,
+  .reveal--in,
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+
+  .hero-badge span::after {
+    content: none;
+  }
+}

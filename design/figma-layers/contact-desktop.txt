@@ -1,0 +1,241 @@
+# Figma layer outline — contact-desktop
+# Source: Figma file "Gnod Website", frame "GNOD website — Contact & Get a free quote". Exported 2026-10-08.
+#
+# HOW TO READ THIS FILE
+# Each line is one layer. Leading dots = nesting depth (children are indented one more dot).
+# Coordinates are in Figma pixels relative to the frame's top-left corner: @x,y WIDTHxHEIGHT
+#   G  = group / frame (container). "clip" = clips its content (overflow hidden).
+#   R  = rectangle. fill:COLOR[/opacity%]  border:COLOR WIDTH  r:RADIUS
+#        fill:img:KEY = image fill (see design/IMAGES.md for KEY -> file). s=scale, t=offset of the image inside the box (object-fit: cover).
+#        fill:lin(x1,y1>x2,y2; COLOR@stop ...) = linear gradient (absolute frame coords). rad(...) = radial gradient.
+#   T  = text: "content" [layer name if different] FONT SIZE/LINE-HEIGHT wWEIGHT ls:LETTER-SPACING COLOR
+#        A "|" inside the text marks where Figma wrapped the line (soft wrap - the browser will re-wrap).
+#        A "⏎" marks a hard line break (use <br> or a new paragraph).
+#        align:center/right = paragraph alignment (default left).
+#        On tablet/mobile files, text written as ="…" is IDENTICAL to the desktop copy (shortened here to save space).
+#   I  = icon (Lucide icon name, size, c: color, sw: stroke width).
+#   V  = vector shape (lines, dividers, decorative bars).  E = ellipse/circle.  P = path.
+#   fx:shadow X Y BLUR SPREAD COLOR = CSS box-shadow: Xpx Ypx BLURpx SPREADpx COLOR.  inset shadow = inner shadow.
+#   fx:layerblur N = CSS filter: blur(N/2 px).  bgblur:N = CSS backdrop-filter: blur(N/2 px).  op:N = opacity.
+### FRAME Contact & Get a free quote (svg 1452x2867, offset 6,3)
+G GNOD website — Contact & Get a free quote @0,0 1440x2855 fx:shadow 0 3 6 0 rgba(18,15,40,0.12)
+.G @0,0 1440x2855 clip
+..R @0,0 1440x2855 fill:#F6F7F9
+..G Top bar @0,0 1440x40
+...R @0,0 1440x40 fill:#100A2E
+...T "Reliable software and IT solutions in Centurion" [Top bar message] Inter 12 w400 #DAD5EB @80,12 263x15
+...G Top bar phone @1257,12 103x15 clip
+....I phone @1257,14 12x12 c:#22D3EE sw:1.5
+....T "012 663 3699" [Phone number] Inter 12 w700 #FFF @1277,12 83x15
+..T "Request a Proposal" Plus Jakarta Sans 32/40 w400 ls:-0.32px #1F2333 @208,1093 291x40
+..T "Complete the form below and provide some context regarding your |requirements. Our technical lead will review your request and prepare a |preliminary strategy for our first call." Inter 16/24 w400 #696D72 @208,1151 542x68
+..G Container @208,1261 571x662 fx:shadow 0 4 12 0 rgba(16,10,46,0.12)
+...R @208,1261 571x662 fill:#F6F7F9 r:14
+...G Textbox @240,1299 241x69
+....G Textfield @240,1330 241x38
+.....R @240,1330 241x38 fill:#F6F7F9/50% r:12
+.....R @240,1330 241x38 border:#DFE1E4 1 r:12
+.....T "John" Inter 14 w400 #696D72 @252,1341 32x17
+....T "First Name" Inter 14 w400 #4B0FA8 @240,1299 72x17
+...G Textbox @505,1299 241x69
+....G Textfield @505,1330 241x38
+.....R @505,1330 241x38 fill:#F6F7F9/50% r:12
+.....R @505,1330 241x38 border:#DFE1E4 1 r:12
+.....T "Doe" Inter 14 w400 #696D72 @517,1341 27x17
+....T "Last Name" Inter 14 w400 #4B0FA8 @505,1299 71x17
+...G Textbox @240,1395 241x69
+....G Textfield @240,1426 241x38
+.....R @240,1426 241x38 fill:#F6F7F9/50% r:12
+.....R @240,1426 241x38 border:#DFE1E4 1 r:12
+.....T "john@enterprise.co.za" Inter 14 w400 #696D72 @251,1437 149x17
+....T "Work Email" Inter 14 w400 #4B0FA8 @240,1395 73x17
+...G Textbox @505,1395 241x69
+....G Textfield @505,1426 241x38
+.....R @505,1426 241x38 fill:#F6F7F9/50% r:12
+.....R @505,1426 241x38 border:#DFE1E4 1 r:12
+.....T "+27 12 345 6789" Inter 14 w400 #696D72 @517,1437 112x17
+....T "Phone Number" Inter 14 w400 #4B0FA8 @505,1395 99x17
+...G Textarea @240,1587 506x179
+....T "How can we help you?" Inter 14 w400 #4B0FA8 @240,1587 148x17
+....G Textfield @240,1618 506x148
+.....R @240,1618 506x148 fill:#F6F7F9/50% r:12
+.....R @240,1618 506x148 border:#DFE1E4 1 r:12
+.....T "Tell us about your project or technology challenges..." Inter 14 w400 #696D72 @252,1628 349x17
+.....I Resizing handle @729,1760 15x2 c:#DFE1E4
+...G Button @240,1787 507x48
+....R @240,1787 507x48 fill:#5B3CFA r:12
+....T "Request Your Free Quote" Inter 14/22 w500 #F6F7F9 @394,1802 167x17
+....I Send @577,1804 15x15 c:#F6F7F9
+...T "By submitting this form, you agree to our processing of your data according to our POPIA |compliant Privacy Policy." Inter 12/16 w400 #696D72 align:center @242,1859 507x31
+...T "Service Interest" Inter 14/14 w400 #4B0FA8 @240,1489 104x17
+...G Dropdown @240,1517 506x39
+....R @240,1517 506x39 fill:#F6F7F9/50% r:12
+....R @240,1517 506x39 border:#DFE1E4 1 r:12
+....T "Select a service category" Inter 14 w400 #4B0FA8 @252,1528 168x17
+....I Chevron down @722,1534 9x5 c:#370082
+...G Textbox @239,1556 1x26
+....R @239,1556 1x26 fill:#EFEFEF
+..I building-2 @843,1100 18x18 c:#5B3CFA
+..T "Our Headquarters" Plus Jakarta Sans 24/32 w400 ls:-0.24px #1F2333 @871,1094 204x30
+..G Container @843,1150 389x141
+...R @843,1150 389x129 fill:#F6F7F9 r:14
+...R @843,1150 389x129 border:#DFE1E4 1 r:14
+...I map-pin @862,1171 18x22 c:#5B3CFA
+...T "Main Office" Inter 16/24 w700 #4B0FA8 @899,1168 90x20
+...T "59 Blinkblaar, |Zwartkop⏎Centurion, 0157⏎Gauteng, South Africa" [59 Blinkblaar, ZwartkopCenturion, 0157Gauteng, South Africa] Inter 16/26 w400 #696D72 @899,1193 167x98
+..G Container @843,1296 389x129
+...R @843,1296 389x129 fill:#F6F7F9 r:14
+...R @843,1296 389x129 border:#DFE1E4 1 r:14
+...I earth @860,1317 22x22 c:#5B3CFA
+...T "Regional Reach" Inter 16/24 w700 #4B0FA8 @899,1314 120x20
+...T "Serving clients across South Africa with |specialized support centers in Gauteng |and Western Cape." Inter 16/24 w400 #696D72 @899,1338 305x68
+..T "Why partner with GNOD?" Plus Jakarta Sans 24/32 w400 ls:-0.24px #1F2333 @843,1458 285x30
+..I chevron-right @847,1512 5x9 c:#4B0FA8
+..T "Enterprise-grade security protocols" Inter 16/24 w400 #696D72 @871,1507 269x20
+..I chevron-right @847,1548 5x9 c:#4B0FA8
+..T "Scalable architecture specialists" Inter 16/24 w400 #696D72 @871,1543 243x20
+..I chevron-right @847,1584 5x9 c:#4B0FA8
+..T "Direct access to senior developers" Inter 16/24 w400 #696D72 @871,1579 261x20
+..I chevron-right @847,1620 5x9 c:#4B0FA8
+..T "Local Centurion-based support team" Inter 16/24 w400 #696D72 @871,1615 279x20
+..G Container @839,2067 393x244 fx:shadow 0 2 4 0 rgba(16,10,46,0.08)
+...R @842,2067 390x244 fill:#100A2E r:14
+...R @842,2067 390x244 fill:img:e332c1cd4d s1,1.0659999999999998 t0,-0.033/20% r:14
+...G Container @874,2099 40x40
+....R @874,2099 40x40 fill:#FFF/20% r:14
+....I message-square @884,2109 20x20 c:#F6F7F9
+...T "Need immediate help?" Inter 18/28 w700 #F6F7F9 @930,2109 196x21
+...T "For critical system outages or security breaches, |our priority support line is active 24/7 for existing |SLA partners." Inter 14/20 w400 #F6F7F9/80% @874,2156 329x57
+...G Button @875,2240 324x39
+....R @875,2240 324x39 border:#FFF 1 r:12
+....T "Call Support Now" Inter 14/22 w500 #FFF @978,2250 117x17
+...R [Gradient flare] @839,2067 110x110 fill:rad(translate(900 2125) scale(55); #5B3CFA/53%@0 #5B3CFA/0%@1) r:55
+..G Container @843,1678 389x349 fx:shadow 0 2 4 0 rgba(16,10,46,0.08)
+...R @843,1678 389x349 border:#DFE1E4 1 r:12
+...G Container @843,1678 388x348
+....R @843,1678 388x348 fill:#E2E8F0
+....G Container @843,1678 388x348 op:0.5
+.....R [gnod-map-location 1] @843,1678 388x348 fill:img:735497300c s1.595,1 t-0.297,0
+....G Container @1037,1894 155x26 fx:shadow 0 4 12 0 rgba(16,10,46,0.12) bgblur:8
+.....R @1037,1894 155x26 fill:#F6F7F9/95% r:4
+.....R @1038,1895 154x25 border:#DFE1E4 1 r:4
+.....T "GNOD Technologies" Inter 12/16 w700 #240059 @1049,1899 118x15
+....G Container @987,1874 48x48 fx:shadow 0 8 24 0 rgba(16,10,46,0.15)
+.....R @987,1874 48x48 fill:#4B0FA8 r:24
+.....I map-pin @1002,1887 18x22 c:#F6F7F9
+..G Container @0,118 1440x611 clip
+...R @0,118 1440x611 fill:img:eebe7aad17 s1,1.5730000000000002 t0,-0.28600000000000003 op:0.15
+...R @0,118 1440x611 fill:img:eebe7aad17 s1,1.5730000000000002 t0,-0.28600000000000003 op:0.15
+...R @0,118 1440x611 fill:lin(0,118>0,729; #F6F7F9@0 #F6F7F9/0%@0.5 #F6F7F9@1)
+...G Experience badge @209,248 170x28
+....R @209,248 170x28 fill:#FFF r:14
+....R @209,248 170x28 border:#DDD5F8 1 r:14
+....E [Signal] @220,258 7x7 fill:#22D3EE
+....T "Expert IT Consultation" [Badge label] Inter 12 w700 #4B0FA8 @235,254 132x15
+...G Let's Build the Future of Your Business @208,299 646x164
+....T "Future" Plus Jakarta Sans 64/84 w800 ls:-1px #1F2333 xoff:437 @645,299 194x80
+....T "Let's Build the |of Your Business" Plus Jakarta Sans 64/84 w800 ls:-1px #1F2333 @208,299 646x164
+...T "Ready to transform your enterprise technology? Our specialists in |Centurion are standing by to architect the scalable, reliable software and |infrastructure your organization needs." Inter 19/28 w400 #667085 @208,468 658x79
+...I circle-check @209,582 18x18 c:#4B0FA8
+...T "24-Hour Response Time" Inter 14/20 w500 #240059 @236,582 163x17
+...I circle-check @416,582 18x18 c:#4B0FA8
+...T "Free Initial Consultation" Inter 14/20 w500 #240059 @444,582 158x17
+...I circle-check @617,582 18x18 c:#4B0FA8
+...T "Centurion-Based Support" Inter 14/20 w500 #240059 @645,582 172x17
+..G Container @0,681 1440x284
+...R @0,729 1440x236 fill:#EAECEE/30%
+...G Container @208,681 238x236 fx:shadow 0 2 4 0 rgba(16,10,46,0.08)
+....R @208,681 238x236 fill:#F6F7F9 r:14
+....G Container @240,713 48x48
+.....R @240,713 48x48 fill:#F1EDFF r:14
+.....I phone @253,726 22x22 c:#5B3CFA
+....T "Call Us" Plus Jakarta Sans 24/32 w400 ls:-0.24px #1F2333 @240,778 76x30
+....T "012 663 3699" Inter 16/24 w400 #4B0FA8 @240,819 106x20
+....T "Mon-Fri, 08:00 - 17:00" Inter 12/16 w400 #696D72 @240,845 127x15
+....I Container @388,695 44x44 c:#4B0FA8 op:0.1
+...G Container @470,681 238x236 fx:shadow 0 2 4 0 rgba(16,10,46,0.08)
+....R @470,681 238x236 fill:#F6F7F9 r:14
+....G Container @502,713 48x48
+.....R @502,713 48x48 fill:#F1EDFF r:14
+.....I mail @515,728 22x18 c:#5B3CFA
+....T "Email Us" Plus Jakarta Sans 24/32 w400 ls:-0.24px #1F2333 @502,778 94x30
+....T "info@gnod-tech.co.za" Inter 16/24 w400 #4B0FA8 @502,819 167x20
+....T "Average response: 2 hours" Inter 12/16 w400 #696D72 @502,869 151x15
+....I Container @650,699 44x36 c:#4B0FA8 op:0.1
+...G Container @732,681 238x236 fx:shadow 0 2 4 0 rgba(16,10,46,0.08)
+....R @732,681 238x236 fill:#F6F7F9 r:14
+....G Container @764,713 48x48
+.....R @764,713 48x48 fill:#F1EDFF r:14
+.....I map-pin @779,726 18x22 c:#5B3CFA
+....T "Visit Our Office" Plus Jakarta Sans 24/32 w400 ls:-0.24px #1F2333 @764,778 174x30
+....T "Centurion, ZA" Inter 16/24 w400 #240059 @764,819 104x20
+....T "59 Blinkblaar, Zwartkop" Inter 12/16 w400 #696D72 @764,845 134x15
+....I Container @916,695 36x44 c:#4B0FA8 op:0.1
+...G Container @994,681 238x236 fx:shadow 0 2 4 0 rgba(16,10,46,0.08)
+....R @994,681 238x236 fill:#F6F7F9 r:14
+....G Container @1026,713 48x48
+.....R @1026,713 48x48 fill:#F1EDFF r:14
+.....I clock @1039,726 22x22 c:#5B3CFA
+....T "Support Hours" Plus Jakarta Sans 24/32 w400 ls:-0.24px #1F2333 @1026,778 165x30
+....T "24/7 Monitoring" Inter 16/24 w400 #240059 @1026,819 120x20
+....T "For managed service clients" Inter 12/16 w400 #696D72 @1026,845 159x15
+....I Container @1174,695 44x44 c:#4B0FA8 op:0.1
+..G Navigation @0,37 1440x85
+...V vector @0,37 1440x84 paths:1 c:#FFF
+...V vector @0,120 1440x2 paths:1 c:#E8E8F0
+...R [Brand] @80,49 130x60 fill:img:de2cc3027e s1.013,1 t-0.006,0
+...G Navigation links @683,53 677x52
+....T "Services" [Navigation link] Inter 14 w600 #1F2333 @683,70 59x17
+....T "Custom software" [Navigation link] Inter 14 w600 #1F2333 @772,70 117x17
+....T "Our process" [Navigation link] Inter 14 w600 #1F2333 @919,70 83x17
+....T "Work" [Navigation link] Inter 14 w600 #1F2333 @1032,70 35x17
+....T "About" [Navigation link] Inter 14 w600 #1F2333 @1098,70 41x17
+....G Button @1170,53 190x52 fx:shadow 0 12 32 -8 rgba(36,18,86,0.094)
+.....R @1170,53 190x52 fill:#5B3CFA r:12
+.....T "Get a free quote" [Label] Inter 15 w700 #FFF @1192,69 118x19
+.....I arrow-up-right @1325,75 8x7 c:#FFF sw:1.5
+..G Footer @0,2439 1440x416
+...R @0,2439 1440x416 fill:#100A2E
+...G Footer main @80,2511 1130x217 clip
+....G Footer introduction @80,2511 335x217 clip
+.....R [Footer brand] @80,2511 168x69 fill:img:de2cc3027e s1,1.109 t0,-0.055
+.....T "Custom software development and dependable IT |services from Zwartkop, Centurion — supporting |organisations across South Africa and abroad." [Footer summary] Inter 14/22 w400 #AFA8C8 @80,2602 335x61
+.....G Footer contact @81,2686 233x42 clip
+......G Contact line @81,2686 120x17 clip
+.......I phone @81,2688 13x13 c:#22D3EE
+.......T "012 663 3699" [Phone number] Inter 14 w700 #FFF @105,2686 96x17
+......G Contact line @83,2712 232x16 clip
+.......I map-pin @83,2713 11x13 c:#22D3EE
+.......T "Zwartkop, Centurion, South Africa" [Location] Inter 13 w400 #D7D2E6 @105,2712 209x16
+....G Footer navigation @512,2511 698x162 clip
+.....G Footer column @512,2511 147x162 clip
+......G Footer links @512,2511 147x162 clip
+.......T "SOFTWARE" [Column title] Inter 11 w800 ls:1px #22D3EE @512,2511 71x14
+.......T "Custom development" [Footer link] Inter 13 w400 #D7D2E6 @512,2537 131x16
+.......T "Web applications" [Footer link] Inter 13 w400 #D7D2E6 @512,2567 105x16
+.......T "Mobile applications" [Footer link] Inter 13 w400 #D7D2E6 @512,2597 119x16
+.......T "Systems integration" [Footer link] Inter 13 w400 #D7D2E6 @512,2627 123x16
+.......T "Software modernisation" [Footer link] Inter 13 w400 #D7D2E6 @512,2657 147x16
+.....G Footer column @811,2511 101x162 clip
+......G Footer links @811,2511 101x162 clip
+.......T "IT SERVICES" [Column title] Inter 11 w800 ls:1px #22D3EE @811,2511 79x14
+.......T "Managed IT" [Footer link] Inter 13 w400 #D7D2E6 @811,2537 73x16
+.......T "Security" [Footer link] Inter 13 w400 #D7D2E6 @811,2567 51x16
+.......T "Cloud" [Footer link] Inter 13 w400 #D7D2E6 @811,2597 36x16
+.......T "Data & reporting" [Footer link] Inter 13 w400 #D7D2E6 @811,2627 101x16
+.......T "Consulting" [Footer link] Inter 13 w400 #D7D2E6 @811,2657 66x16
+.....G Footer column @1109,2511 100x162 clip
+......G Footer links @1109,2511 100x162 clip
+.......T "COMPANY" [Column title] Inter 11 w800 ls:1px #22D3EE @1109,2511 65x14
+.......T "Our process" [Footer link] Inter 13 w400 #D7D2E6 @1109,2537 75x16
+.......T "Selected work" [Footer link] Inter 13 w400 #D7D2E6 @1109,2567 88x16
+.......T "About GNOD" [Footer link] Inter 13 w400 #D7D2E6 @1109,2597 79x16
+.......T "Contact" [Footer link] Inter 13 w400 #D7D2E6 @1109,2627 49x16
+.......T "Get a free quote" [Footer link] Inter 13 w400 #D7D2E6 @1109,2657 100x16
+...G Footer bottom @80,2791 1280x37
+....G @80,2814 1280x14 clip
+.....T "© 2026 GNOD Technologies. All rights reserved." [Copyright] Inter 11 w400 #8F88AC @80,2814 251x14
+.....G Legal links @1269,2814 91x14 clip
+......T "Privacy" [Legal link] Inter 11 w400 #8F88AC @1269,2814 38x14
+......T "Terms" [Legal link] Inter 11 w400 #8F88AC @1328,2814 32x14
+....V vector @80,2791 1280x2 paths:1 c:#2C2551

@@ -1,0 +1,49 @@
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="site-footer__grid">
+      <div class="site-footer__intro">
+        <a class="site-footer__logo" routerLink="/" aria-label="GNOD Technologies home">
+          <img
+            ngSrc="/images/gnod-logo.webp"
+            width="800"
+            height="365"
+            alt="GNOD Technologies – Tailored for your IT needs"
+          />
+        </a>
+        <p class="site-footer__summary">
+          Custom software development and dependable IT services from Zwartkop, Centurion —
+          supporting organisations across South Africa and abroad.
+        </p>
+        <a class="site-footer__contact site-footer__contact--phone" [href]="site.phoneHref">
+          <lucide-icon name="phone" [size]="13" [strokeWidth]="1.5" aria-hidden="true" />
+          <span>{{ site.phoneDisplay }}</span>
+        </a>
+        <p class="site-footer__contact">
+          <lucide-icon name="map-pin" [size]="13" [strokeWidth]="1.5" aria-hidden="true" />
+          <span>{{ site.shortAddress }}</span>
+        </p>
+      </div>
+
+      @for (column of columns; track column.title) {
+        <nav class="site-footer__column" [attr.aria-label]="column.title">
+          <h2>{{ column.title }}</h2>
+          <ul>
+            @for (link of column.links; track link.label) {
+              <li>
+                <a [routerLink]="link.routerLink" [fragment]="link.fragment">{{ link.label }}</a>
+              </li>
+            }
+          </ul>
+        </nav>
+      }
+    </div>
+
+    <div class="site-footer__bottom">
+      <p>© {{ currentYear }} GNOD Technologies. All rights reserved.</p>
+      <nav class="site-footer__legal" aria-label="Legal">
+        <a routerLink="/privacy">Privacy</a>
+        <a routerLink="/terms">Terms</a>
+      </nav>
+    </div>
+  </div>
+</footer>

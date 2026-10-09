@@ -1,0 +1,99 @@
+<section class="sub-hero process-hero" aria-labelledby="process-page-title">
+  <img ngSrc="/images/bg-code-dark-blue.webp" fill priority alt="" />
+  <div class="container--narrow sub-hero__inner">
+    <div class="sub-hero__copy">
+      <p class="hero-badge"><span></span>Our Methodology</p>
+      <h1 id="process-page-title" class="t-hero-sub">From Vision<br />to Reality</h1>
+      <p>
+        Discover how GNOD Technologies combines technical excellence with a streamlined lifecycle to
+        deliver high-impact software solutions.
+      </p>
+      <div class="sub-hero__actions">
+        <a appButton="primary" routerLink="/contact" fragment="quote"
+          >Start a Project <lucide-icon aria-hidden="true" name="arrow-right" /></a
+        ><a appButton="white" routerLink="/" fragment="work"
+          >View Selected Work <lucide-icon aria-hidden="true" name="search"
+        /></a>
+      </div>
+    </div>
+    <div class="process-hero__card" aria-hidden="true">
+      <img ngSrc="/images/bg-code-dark-blue.webp" fill alt="" />
+    </div>
+  </div>
+</section>
+
+<section class="lifecycle sub-section" aria-labelledby="lifecycle-title">
+  <div class="container--narrow">
+    <div class="sub-heading sub-heading--centred">
+      <h2 id="lifecycle-title" class="t-h2-sub">The GNOD Lifecycle</h2>
+      <p class="t-body-sub">
+        Our standardized yet flexible approach ensures consistent quality across projects of all
+        scales, from startups to enterprises.
+      </p>
+    </div>
+    <div class="lifecycle__grid">
+      @for (step of lifecycleSteps; track step.number) {
+        <article>
+          <div class="lifecycle__top">
+            <div class="icon-badge"><lucide-icon aria-hidden="true" [name]="step.icon" /></div>
+            <span>{{ step.number }}</span>
+          </div>
+          <h3 class="t-h3-sub">{{ step.title }}</h3>
+          <p class="t-body-sub">{{ step.description }}</p>
+          <ul>
+            @for (item of step.checklist; track item) {
+              <li><lucide-icon aria-hidden="true" name="circle-check" />{{ item }}</li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="engineering sub-section" aria-labelledby="engineering-title">
+  <div class="container--narrow engineering__inner">
+    <div>
+      <h2 id="engineering-title" class="t-h2-sub">
+        Built on a Foundation of<br />Engineering Excellence
+      </h2>
+      <p class="t-body-sub">
+        Our process isn't just about checkboxes; it's about a commitment to quality that permeates
+        every stage of the development cycle.
+      </p>
+      <a routerLink="/" fragment="process"
+        >Learn more about our standards <lucide-icon aria-hidden="true" name="arrow-up-right"
+      /></a>
+    </div>
+    <div class="engineering__values">
+      @for (value of engineeringValues; track value.title) {
+        <article>
+          <div class="icon-badge"><lucide-icon aria-hidden="true" [name]="value.icon" /></div>
+          <div>
+            <h3>{{ value.title }}</h3>
+            <p>{{ value.description }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="process-cta sub-section">
+  <div class="container--narrow">
+    <div class="process-cta__panel">
+      <img ngSrc="/images/bg-code-eeprom.webp" fill alt="" />
+      <div>
+        <h2>Ready to start your next digital<br />transformation project?</h2>
+        <p>
+          Partner with the IT experts in Centurion. We'll guide you through every step from
+          discovery to long-term success.
+        </p>
+        <span
+          ><a appButton="white" routerLink="/contact" fragment="quote">Get a Free Quote</a
+          ><a appButton="outline-dark" routerLink="/contact">Contact Us</a></span
+        >
+      </div>
+    </div>
+  </div>
+</section>

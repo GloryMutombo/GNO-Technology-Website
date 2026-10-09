@@ -1,0 +1,26 @@
+@use './mixins' as *;
+
+@include tablet {
+  .t-hero-sub {
+    font-size: 48px;
+    line-height: 56px;
+  }
+
+  .t-h2-sub {
+    font-size: 30px;
+    line-height: 38px;
+  }
+}
+
+@include mobile {
+  .t-hero-sub {
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: -1px;
+  }
+
+  .t-h2-sub {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}

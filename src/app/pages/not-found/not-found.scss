@@ -1,0 +1,22 @@
+.not-found {
+  display: grid;
+  justify-items: center;
+  gap: 24px;
+}
+
+.gnod-button {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--r-md);
+  padding-inline: 22px;
+  background: var(--c-primary);
+  box-shadow: var(--sh-card);
+  color: var(--c-white);
+  font: 700 15px/19px var(--font-body);
+}
+
+.gnod-button:hover {
+  background: var(--c-primary-strong);
+}

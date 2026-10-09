@@ -1,0 +1,47 @@
+@use '../../../styles/mixins' as *;
+
+:host {
+  display: block;
+}
+
+.top-bar {
+  height: var(--topbar-h);
+  background: var(--c-midnight);
+  color: var(--c-topbar-text);
+}
+
+.top-bar__inner {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+p {
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.top-bar__phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--c-white);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 15px;
+}
+
+lucide-icon {
+  color: var(--c-accent);
+}
+
+@include mobile {
+  p {
+    font-size: 10px;
+  }
+
+  .top-bar__phone {
+    display: none;
+  }
+}
