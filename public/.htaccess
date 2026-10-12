@@ -1,43 +1,52 @@
 Options -Indexes
-
-# Prerendered routes are folders (about/index.html). Stop Apache from redirecting
-# /about to /about/ so the served URL matches the canonical tag.
-<IfModule mod_dir.c>
-  DirectorySlash Off
-</IfModule>
+DirectorySlash Off
+ErrorDocument 404 /404/index.html
 
 RewriteEngine On
 
-# Force the canonical HTTPS, non-www host in production.
+# 1. One address: https, no www. Certificate checks in /.well-known/ are left alone.
+RewriteCond %{REQUEST_URI} !^/\.well-known/
 RewriteCond %{HTTP_HOST} ^www\.gnod-tech\.co\.za$ [NC,OR]
 RewriteCond %{HTTPS} !=on
 RewriteRule ^ https://gnod-tech.co.za%{REQUEST_URI} [R=301,L,NE]
 
-# The PHP form endpoint must never be routed through Angular.
+# 2. The PHP form endpoint is never routed through Angular.
 RewriteRule ^api/ - [L]
 
-# One URL per page: /about/ redirects permanently to /about.
-RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
-RewriteRule ^(.+)/$ /$1 [R=301,L]
+# 3. Old pages from the previous HTML site. Keep for at least a year.
+#    NE keeps the # in /#services from being encoded.
+RewriteCond %{THE_REQUEST} \s/index\.html[\s?] [NC]
+RewriteRule ^index\.html$ / [R=301,L]
+RewriteRule ^about\.html$ /about [R=301,L,NC]
+RewriteRule ^services\.html$ /#services [R=301,L,NC,NE]
+RewriteRule ^service-details\.html$ /#services [R=301,L,NC,NE]
+RewriteRule ^contact\.html$ /contact [R=301,L,NC]
 
-# Serve real files as-is.
+# 4. One address per page: /about/ goes to /about.
+RewriteCond %{REQUEST_URI} ^/(.+)/$
+RewriteCond %{DOCUMENT_ROOT}/%1/index.html -f
+RewriteRule ^ /%1 [R=301,L]
+
+# 5. Serve real files as-is.
 RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule ^ - [L]
 
-# Serve clean route URLs from their prerendered files without adding a slash.
+# 6. Serve clean route URLs from their prerendered files, without a slash.
 RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
-RewriteRule ^(.+?)/?$ $1/index.html [L]
+RewriteRule ^(.+)$ $1/index.html [L]
 
-# Leave other real directories alone after clean routes have been resolved.
+# 7. Leave other real directories alone.
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# Unknown paths fall through to Apache's 404 response and use the prerendered page.
-ErrorDocument 404 /404/index.html
-
 <IfModule mod_headers.c>
-  <FilesMatch "\.(?:css|js|mjs|woff2?|webp|png|jpe?g|gif|svg|ico)$">
+  # Hashed build files: one year.
+  <FilesMatch "\.(?:css|js|mjs|woff2)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  # Images keep their names when replaced: one week.
+  <FilesMatch "\.(?:webp|png|jpe?g|gif|svg|ico)$">
+    Header set Cache-Control "public, max-age=604800"
   </FilesMatch>
   <FilesMatch "\.html$">
     Header set Cache-Control "no-cache, no-store, must-revalidate"
@@ -50,3 +59,22 @@ ErrorDocument 404 /404/index.html
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json application/xml image/svg+xml
 </IfModule>
+
+# BEGIN cPanel-generated php ini directives, do not edit
+# Manual editing of this file may result in unexpected behavior.
+# To make changes to this file, use the cPanel MultiPHP INI Editor (Home >> Software >> MultiPHP INI Editor)
+# For more information, read our documentation (https://go.cpanel.net/EA4ModifyINI)
+<IfModule php8_module>
+
+</IfModule>
+<IfModule lsapi_module>
+
+</IfModule>
+# END cPanel-generated php ini directives, do not edit
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php82” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php82 .php .php8 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
