@@ -18,7 +18,9 @@ You need an internet connection: the build downloads the Google Fonts styles and
 
 1. Run `npm run build`. It must finish without errors.
 2. Run `npm run seo:check`. It checks every page's title, description, canonical address, structured data, headings, images, links and sitemap. It must say every check passed.
-3. Zip the **contents** of `dist/gnod-website/browser/` (not the folder itself), including hidden files so `.htaccess` is in the zip, and with `index.html` at the top level of the zip. Name it `deploy/gnod-site-<date>.zip`. The `deploy/` folder is not saved in Git.
+3. Zip the **contents** of `dist/gnod-website/browser/` (not the folder itself), including hidden files so `.htaccess` is in the zip, and with `index.html` at the top level of the zip. Name it `deploy/gnod-site-<date>.zip`. The `deploy/` folder is not saved in Git. The zip must stay under 10 MB so it can be uploaded through the browser (it is about 3 MB).
+
+If the build stops with "Inlining of fonts failed", the download from Google Fonts was interrupted: check the internet connection and run `npm run build` again.
 
 ## Put the new site live
 
@@ -36,6 +38,7 @@ Do these steps in order. Steps 3 and 4 take the site offline for a few minutes, 
    - A made-up address such as `/test-123` shows the site's own "Page not found" page.
    - `http://gnod-tech.co.za` and `https://www.gnod-tech.co.za` both end up at `https://gnod-tech.co.za`.
    - Send **one** test message through the contact form (agree on this first) and check that it arrives at info@gnod-tech.co.za.
+   - Run `https://gnod-tech.co.za/` and `https://gnod-tech.co.za/contact` through [PageSpeed Insights](https://pagespeed.web.dev/) and note the mobile scores (the target is 90 or more in every category).
 7. **If something breaks:** move the old files back from the backup folder into public_html and restore the old `.htaccess` from your backup zip.
 8. **Google Search Console:** submit `https://gnod-tech.co.za/sitemap.xml`, then use **URL Inspection → Request indexing** for `/`, `/about`, `/our-process` and `/contact`.
 9. **Google Analytics:** open **Reports → Realtime** and check that your own visit shows up. Once the events `generate_lead` (form sent), `phone_click` and `email_click` appear, mark them as **key events**.
