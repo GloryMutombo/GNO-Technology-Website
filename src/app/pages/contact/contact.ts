@@ -5,7 +5,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { LucideAngularModule } from 'lucide-angular';
+import { Icon } from '../../shared/ui/icon/icon';
 import { CONTACT_CARDS, SERVICE_OPTIONS } from '../../content/contact.content';
 import { SITE_CONFIG } from '../../core/site.config';
 
@@ -23,7 +23,7 @@ type FormStatus = 'idle' | 'sending' | 'success' | 'error';
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [LucideAngularModule, NgOptimizedImage, ReactiveFormsModule, RouterLink],
+  imports: [Icon, NgOptimizedImage, ReactiveFormsModule, RouterLink],
   templateUrl: './contact.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

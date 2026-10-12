@@ -1,0 +1,38 @@
+<div class="container faq__inner">
+  <div class="faq__intro">
+    <p class="eyebrow">COMMON QUESTIONS</p>
+    <h2 id="faq-title" class="t-h2">A clearer start<br />to your next<br />technology decision.</h2>
+    <p class="t-lead">
+      If your question is not here, a short conversation is usually the fastest route to an honest
+      answer.
+    </p>
+    <a appButton="outline" routerLink="/contact" fragment="quote"
+      >Ask us anything <lucide-icon aria-hidden="true" name="message-circle"
+    /></a>
+  </div>
+  <div class="accordion">
+    @for (item of faqs; track item.question; let index = $index) {
+      <div class="accordion__item" [class.accordion__item--open]="openFaq() === index">
+        <button
+          type="button"
+          [id]="'faq-question-' + index"
+          [attr.aria-expanded]="openFaq() === index"
+          [attr.aria-controls]="'faq-answer-' + index"
+          (click)="toggleFaq(index)"
+        >
+          <span>{{ item.question }}</span
+          ><i><lucide-icon aria-hidden="true" [name]="openFaq() === index ? 'minus' : 'plus'" /></i>
+        </button>
+        <div
+          class="accordion__answer"
+          role="region"
+          [id]="'faq-answer-' + index"
+          [attr.aria-labelledby]="'faq-question-' + index"
+          [attr.inert]="openFaq() === index ? null : ''"
+        >
+          <p class="t-body">{{ item.answer }}</p>
+        </div>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="section-intro section-intro--split">
+    <div>
+      <p class="eyebrow">A PRACTICAL DELIVERY PROCESS</p>
+      <h2 id="process-title" class="t-h2">
+        Clear steps.<br />Close collaboration.<br />No black box.
+      </h2>
+    </div>
+    <p class="t-lead-sm">
+      We keep the work visible from first workshop to live product, with decisions made early and
+      progress you can understand.
+    </p>
+  </div>
+  <ol class="process__steps">
+    @for (step of processSteps; track step.number; let index = $index) {
+      <li
+        [class.process__step--active]="activeStep() === index"
+        [class.process__step--done]="index < activeStep()"
+        (mouseenter)="highlightStep(index)"
+        (mouseleave)="resumeSteps()"
+        (focusin)="highlightStep(index)"
+        (focusout)="resumeSteps()"
+      >
+        <div class="process__marker">
+          <span>{{ step.number }}</span
+          ><i></i>
+        </div>
+        <div class="icon-badge"><lucide-icon aria-hidden="true" [name]="step.icon" /></div>
+        <h3 class="t-h3">{{ step.title }}</h3>
+        <p class="t-body-sm">{{ step.description }}</p>
+      </li>
+    }
+  </ol>
+</div>

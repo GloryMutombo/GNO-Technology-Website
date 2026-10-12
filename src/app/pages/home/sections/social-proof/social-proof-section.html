@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="perspectives__intro">
+    <div>
+      <p class="eyebrow">WHAT GOOD PARTNERSHIP FEELS LIKE</p>
+      <h2 id="perspectives-title" class="t-h2">Built on clarity, context and care.</h2>
+    </div>
+    <div class="perspectives__note">
+      <lucide-icon aria-hidden="true" name="info" />
+      <p>
+        These are representative perspectives, not attributed client endorsements. They express the
+        standard of partnership GNOD aims to deliver.
+      </p>
+    </div>
+  </div>
+  <div class="perspectives__grid">
+    @for (perspective of perspectives; track perspective.role) {
+      <figure>
+        <span class="quote-mark">“</span>
+        <blockquote class="t-quote">{{ perspective.quote }}</blockquote>
+        <figcaption>
+          <span><lucide-icon aria-hidden="true" name="user-round" /></span>
+          <p>
+            <strong>TYPICAL PERSPECTIVE</strong><small>{{ perspective.role }}</small>
+          </p>
+        </figcaption>
+      </figure>
+    }
+  </div>
+</div>

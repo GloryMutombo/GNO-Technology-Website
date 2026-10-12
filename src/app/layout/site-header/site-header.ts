@@ -4,14 +4,16 @@ import {
   Component,
   DestroyRef,
   effect,
+  ElementRef,
   inject,
   PLATFORM_ID,
   signal,
+  viewChild,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { A11yModule } from '@angular/cdk/a11y';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
-import { LucideAngularModule } from 'lucide-angular';
+import { Icon } from '../../shared/ui/icon/icon';
 import { filter } from 'rxjs';
 import { PRIMARY_NAV_LINKS } from '../../content/site.content';
 import { ButtonDirective } from '../../shared/ui/button/button.directive';
@@ -19,14 +21,7 @@ import { ButtonDirective } from '../../shared/ui/button/button.directive';
 @Component({
   selector: 'app-site-header',
   standalone: true,
-  imports: [
-    A11yModule,
-    ButtonDirective,
-    LucideAngularModule,
-    NgOptimizedImage,
-    RouterLink,
-    RouterLinkActive,
-  ],
+  imports: [A11yModule, ButtonDirective, Icon, NgOptimizedImage, RouterLink, RouterLinkActive],
   templateUrl: './site-header.html',
   styleUrl: './site-header.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -39,6 +34,7 @@ export class SiteHeader {
 
   protected readonly navLinks = PRIMARY_NAV_LINKS;
   protected readonly menuOpen = signal(false);
+  private readonly menuButton = viewChild<ElementRef<HTMLButtonElement>>('menuButton');
 
   constructor() {
     effect(() => {
@@ -67,5 +63,11 @@ export class SiteHeader {
 
   protected closeMenu(): void {
     this.menuOpen.set(false);
+  }
+
+  /** Esc closes the panel and hands focus back to the button that opened it. */
+  protected closeMenuFromKeyboard(): void {
+    this.closeMenu();
+    this.menuButton()?.nativeElement.focus();
   }
 }

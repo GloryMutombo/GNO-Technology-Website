@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="section-intro section-intro--centred">
+    <p class="eyebrow">SELECTED WORK PATTERNS</p>
+    <h2 id="work-title" class="t-h2">Real-world software,<br />shaped around the work.</h2>
+    <p class="t-lead">
+      Examples of the kinds of challenges we solve. Client details remain private, so these
+      summaries focus on the problem, product and practical value created.
+    </p>
+  </div>
+  <div class="work__grid">
+    @for (study of caseStudies; track study.title) {
+      <article class="case-card">
+        <div
+          class="case-visual"
+          [class.case-visual--dark]="study.visual === 'reporting'"
+          [class.case-visual--phone]="study.visual === 'phone'"
+          aria-hidden="true"
+        >
+          @if (study.visual === 'phone') {
+            <div appPhoneMockup class="phone-mock"></div>
+          } @else {
+            <div
+              appAppWindow
+              class="app-mock"
+              [heading]="
+                study.visual === 'reporting' ? 'Executive reporting' : 'Operations workspace'
+              "
+            ></div>
+          }
+        </div>
+        <div class="case-card__copy">
+          <ul>
+            @for (tag of study.tags; track tag) {
+              <li>{{ tag }}</li>
+            }
+          </ul>
+          <h3 class="t-h3-lg">{{ study.title }}</h3>
+          <h4>THE NEED</h4>
+          <p class="t-body-sm">{{ study.need }}</p>
+          <h4 class="outcome">THE OUTCOME</h4>
+          <p class="t-body-sm case-card__outcome">{{ study.outcome }}</p>
+        </div>
+      </article>
+    }
+  </div>
+  <p class="work__note">
+    Every engagement is different. We scope, validate and price work according to the real need, not
+    a pre-packaged promise.
+  </p>
+</div>

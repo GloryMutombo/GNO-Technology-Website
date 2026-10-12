@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="section-intro section-intro--split">
+    <div>
+      <p class="eyebrow">WHAT WE BUILD</p>
+      <h2 id="services-title" class="t-h2">
+        Software comes first. Everything else makes it stronger.
+      </h2>
+    </div>
+    <p class="t-lead-sm">
+      From a first product idea to a modernised core system, we shape the right solution and
+      surround it with the infrastructure, security and insight it needs to thrive.
+    </p>
+  </div>
+
+  <div class="services__grid">
+    <article class="primary-service">
+      <img ngSrc="/images/bg-code-eeprom.webp" fill alt="" />
+      <div class="primary-service__content">
+        <div class="icon-badge icon-badge--dark">
+          <lucide-icon aria-hidden="true" name="braces" />
+        </div>
+        <p class="primary-service__eyebrow">OUR CORE CAPABILITY</p>
+        <h3 class="t-h3-xl">Custom software development</h3>
+        <p>
+          Purpose-built platforms, portals and internal tools designed around your workflows, not a
+          generic template. We take responsibility from discovery through launch and support.
+        </p>
+        <ul>
+          <li>Business systems</li>
+          <li>Workflow automation</li>
+          <li>Integrations</li>
+          <li>Modernisation</li>
+        </ul>
+        <a routerLink="/contact" [queryParams]="{ service: 'custom-software' }" fragment="quote"
+          >Explore this service <lucide-icon aria-hidden="true" name="arrow-right"
+        /></a>
+      </div>
+    </article>
+    @for (service of services; track service.title) {
+      <article class="service-card">
+        <div class="icon-badge"><lucide-icon aria-hidden="true" [name]="service.icon" /></div>
+        <h3 class="t-h3">{{ service.title }}</h3>
+        <p class="t-body-sm">{{ service.description }}</p>
+        <a routerLink="/contact" [queryParams]="{ service: service.service }" fragment="quote"
+          >Explore this service <lucide-icon aria-hidden="true" name="arrow-right"
+        /></a>
+      </article>
+    }
+  </div>
+  <div class="services__action">
+    <p class="t-prompt">
+      Not sure what shape your solution should take? Start with the business problem.
+    </p>
+    <a appButton="outline" routerLink="/contact" fragment="quote"
+      >Talk through your idea <lucide-icon aria-hidden="true" name="arrow-right"
+    /></a>
+  </div>
+</div>

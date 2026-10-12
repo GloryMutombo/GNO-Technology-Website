@@ -36,6 +36,7 @@
         <lucide-icon name="arrow-up-right" [size]="16" [strokeWidth]="1.5" aria-hidden="true" />
       </a>
       <button
+        #menuButton
         class="compact-nav__menu"
         type="button"
         [attr.aria-label]="menuOpen() ? 'Close navigation menu' : 'Open navigation menu'"
@@ -62,7 +63,7 @@
       animate.leave="mobile-panel--leave"
       cdkTrapFocus
       [cdkTrapFocusAutoCapture]="true"
-      (keydown.escape)="closeMenu()"
+      (keydown.escape)="closeMenuFromKeyboard()"
     >
       <nav class="container" aria-label="Mobile navigation">
         @for (link of navLinks; track link.label) {

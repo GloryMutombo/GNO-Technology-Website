@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="section-intro">
+    <p class="eyebrow">ONE PARTNER BEYOND THE PRODUCT</p>
+    <h2 id="support-title" class="t-h2">
+      The support your software needs<br />to stay useful, secure and resilient.
+    </h2>
+    <p class="t-lead">
+      Custom development leads our work. These connected services help protect the investment,
+      reduce hand-offs and keep your broader technology environment healthy.
+    </p>
+  </div>
+  <div class="support__grid">
+    @for (service of supportServices; track service.title) {
+      <article class="support-card">
+        <div class="icon-badge icon-badge--sky">
+          <lucide-icon aria-hidden="true" [name]="service.icon" />
+        </div>
+        <h3 class="t-h3">{{ service.title }}</h3>
+        <p class="t-body-sm">{{ service.description }}</p>
+        <a routerLink="/contact" [queryParams]="{ service: service.service }" fragment="quote"
+          >How we help <lucide-icon aria-hidden="true" name="arrow-up-right"
+        /></a>
+      </article>
+    }
+  </div>
+</div>

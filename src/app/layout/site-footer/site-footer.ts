@@ -1,14 +1,14 @@
 import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { LucideAngularModule } from 'lucide-angular';
+import { Icon } from '../../shared/ui/icon/icon';
 import { FOOTER_COLUMNS } from '../../content/site.content';
 import { SITE_CONFIG } from '../../core/site.config';
 
 @Component({
   selector: 'app-site-footer',
   standalone: true,
-  imports: [LucideAngularModule, NgOptimizedImage, RouterLink],
+  imports: [Icon, NgOptimizedImage, RouterLink],
   templateUrl: './site-footer.html',
   styleUrl: './site-footer.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
