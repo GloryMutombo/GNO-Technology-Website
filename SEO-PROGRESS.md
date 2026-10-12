@@ -8,8 +8,8 @@ Plan: `AGENTS.md` §15. Rollback point: Git tag `before-seo-launch` (run `git ch
 - [x] 2. Static build confirmed (`outputMode: "static"`, every route prerendered)
 - [x] 3. `public/.htaccess` replaced with AGENTS.md §12.2
 - [x] 4. Hidden SEO fixes: titles/descriptions (§8.1), home canonical with slash, `noindex` (§8.2), structured data (§8.3), sitemap (§8.5), heading spacing
-- [ ] 5. Analytics: GA4 snippet with consent by region, lead events (§8.4)
-- [ ] 6. Form and email: `/api/contact.php` with reCAPTCHA (inactive until keys exist), no FormSubmit
+- [x] 5. Analytics: GA4 snippet with consent by region, lead events (§8.4)
+- [x] 6. Form and email: `/api/contact.php` with reCAPTCHA (inactive until keys exist), no third-party form service
 - [ ] 7. Checks: build, `npm run seo:check`, visual comparison, Lighthouse
 - [ ] 8. Package: `deploy/gnod-site-<date>.zip`, `DEPLOY.md` launch steps
 

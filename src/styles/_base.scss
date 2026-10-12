@@ -141,6 +141,12 @@ ul {
   transform: translateY(0) scale(0.97);
 }
 
+// Google's reCAPTCHA badge belongs on /contact only; RecaptchaService sets this class
+// on <body> when the visitor leaves that page (the script itself stays loaded).
+.recaptcha-badge-off .grecaptcha-badge {
+  visibility: hidden;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

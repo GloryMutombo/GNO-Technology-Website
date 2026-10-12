@@ -50,6 +50,37 @@ if ($elapsedMs < $config['minimum_fill_time_ms']) {
     respond(422, ['ok' => false, 'errors' => ['form' => 'Please wait a moment before submitting the form.']]);
 }
 
+// reCAPTCHA (AGENTS.md §12.3). The secret settings live outside public_html and are never
+// part of the repository; until that file exists the form works without the check.
+$genericError = ['ok' => false, 'errors' => ['form' => 'Your message could not be sent. Please email us directly.']];
+$subjectPrefix = '';
+$privateDir = dirname($_SERVER['DOCUMENT_ROOT']) . '/gnod-private';
+$privateConfig = $privateDir . '/recaptcha.php';
+
+if (!is_file($privateConfig)) {
+    error_log('GNOD website contact form: ' . $privateConfig . ' is missing, so reCAPTCHA is skipped.');
+} else {
+    $recaptchaConfig = require $privateConfig;
+    $token = string_value($payload, 'recaptchaToken');
+
+    if ($token === '') {
+        log_recaptcha($privateDir, null, 'no-token');
+        respond(400, $genericError);
+    }
+
+    $assessment = is_array($recaptchaConfig)
+        ? gnod_verify_recaptcha($token, $recaptchaConfig)
+        : ['ok' => null, 'reason' => 'bad-config'];
+    log_recaptcha($privateDir, $assessment['score'] ?? null, $assessment['reason']);
+
+    if ($assessment['ok'] === null) {
+        // Google could not be reached: never lose a real lead, but flag it.
+        $subjectPrefix = '[reCAPTCHA unavailable] ';
+    } elseif ($assessment['ok'] === false) {
+        respond(400, $genericError);
+    }
+}
+
 $firstName = clean_line(string_value($payload, 'firstName'));
 $lastName = clean_line(string_value($payload, 'lastName'));
 $email = clean_line(string_value($payload, 'email'));
@@ -115,12 +146,65 @@ $headers = [
     'X-Mailer: PHP/' . PHP_VERSION,
 ];
 
-if (!mail($config['recipient'], $config['subject'], $body, implode("\r\n", $headers))) {
+if (!mail($config['recipient'], $subjectPrefix . $config['subject'], $body, implode("\r\n", $headers))) {
     error_log('GNOD website contact form: mail() returned false.');
     respond(500, ['ok' => false, 'errors' => ['form' => 'Your message could not be sent. Please email us directly.']]);
 }
 
 respond(200, ['ok' => true]);
+
+/**
+ * Google Cloud reCAPTCHA assessment (CreateAssessment REST API).
+ *
+ * @param array<string, mixed> $cfg project_id, api_key, site_key, threshold
+ * @return array{ok: ?bool, reason: string, score?: float} ok null = Google unreachable
+ */
+function gnod_verify_recaptcha(string $token, array $cfg): array
+{
+    if (!function_exists('curl_init')) {
+        return ['ok' => null, 'reason' => 'unavailable'];
+    }
+    $url = 'https://recaptchaenterprise.googleapis.com/v1/projects/'
+        . rawurlencode((string) ($cfg['project_id'] ?? '')) . '/assessments?key=' . rawurlencode((string) ($cfg['api_key'] ?? ''));
+    $body = json_encode(['event' => [
+        'token' => $token,
+        'siteKey' => (string) ($cfg['site_key'] ?? ''),
+        'expectedAction' => 'contact',
+        'userAgent' => $_SERVER['HTTP_USER_AGENT'] ?? '',
+        'userIpAddress' => $_SERVER['REMOTE_ADDR'] ?? '',
+    ]]);
+    $ch = curl_init($url);
+    curl_setopt_array($ch, [
+        CURLOPT_POST => true,
+        CURLOPT_POSTFIELDS => $body,
+        CURLOPT_HTTPHEADER => ['Content-Type: application/json'],
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_TIMEOUT => 10,
+    ]);
+    $raw = curl_exec($ch);
+    $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    if ($raw === false || $status !== 200) {
+        return ['ok' => null, 'reason' => 'unavailable'];
+    }
+    $a = json_decode((string) $raw, true);
+    $valid = $a['tokenProperties']['valid'] ?? false;
+    $action = $a['tokenProperties']['action'] ?? '';
+    $score = (float) ($a['riskAnalysis']['score'] ?? 0);
+    if (!$valid || $action !== 'contact') {
+        return ['ok' => false, 'reason' => 'invalid', 'score' => $score];
+    }
+    return ['ok' => $score >= (float) ($cfg['threshold'] ?? 0.5), 'reason' => 'scored', 'score' => $score];
+}
+
+/** Date, score and reason only (no personal data), so the owner can tune the threshold. */
+function log_recaptcha(string $privateDir, ?float $score, string $reason): void
+{
+    if (!is_dir($privateDir) || !is_writable($privateDir)) {
+        return;
+    }
+    $line = sprintf("%s\t%s\t%s\n", date('c'), $score === null ? '-' : number_format($score, 1), $reason);
+    file_put_contents($privateDir . '/recaptcha.log', $line, FILE_APPEND | LOCK_EX);
+}
 
 /** @param array<string, mixed> $payload */
 function string_value(array $payload, string $key): string

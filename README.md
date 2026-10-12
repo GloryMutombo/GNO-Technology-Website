@@ -9,6 +9,7 @@ The owner-facing handoff is in `START-HERE.md`. Build and design rules are in `A
 - Node.js 24.15 or newer in the Node 24 line (`.nvmrc` currently pins 24.21.0)
 - npm 8 or newer
 - An internet connection for `npm run build` (the production build downloads the Google Fonts CSS and inlines it)
+- PHP 8.2 for local contact-form testing (`npm run api`)
 
 ## Commands
 
@@ -26,7 +27,17 @@ npm run preview
 
 The static deployment files are written to `dist/gnod-website/browser/`.
 
-The contact form posts to [FormSubmit](https://formsubmit.co) (`formEndpoint` in `src/app/core/site.config.ts`), so no local server is needed to test it. The older PHP endpoint (`public/api/contact.php`, `npm run api`) is kept but no longer used by the form.
+```bash
+npm run api
+```
+
+This starts the contact-form endpoint (`public/api/contact.php`) at `http://localhost:8080`; `npm start` proxies `/api` to it. The form posts to `/api/contact.php`, which validates, checks spam and reCAPTCHA (when the keys exist) and emails info@gnod-tech.co.za.
+
+```bash
+npm run seo:check
+```
+
+Run after `npm run build`: checks every prerendered page (titles, descriptions, canonical, JSON-LD, H1, alt text, links, noindex, sitemap).
 
 ## Production output
 

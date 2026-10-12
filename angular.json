@@ -58,7 +58,14 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "assets": [
+                {
+                  "glob": "**/*",
+                  "input": "public",
+                  "ignore": ["api/**"]
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"

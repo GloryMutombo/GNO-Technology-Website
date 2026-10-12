@@ -1,22 +1,28 @@
 import { NgOptimizedImage } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { ChangeDetectionStrategy, Component, DestroyRef, inject, signal } from '@angular/core';
+import {
+  afterNextRender,
+  ChangeDetectionStrategy,
+  Component,
+  DestroyRef,
+  inject,
+  signal,
+} from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { from, switchMap } from 'rxjs';
 import { Icon } from '../../shared/ui/icon/icon';
 import { CONTACT_CARDS, SERVICE_OPTIONS } from '../../content/contact.content';
+import { AnalyticsService } from '../../core/analytics.service';
+import { RecaptchaService } from '../../core/recaptcha.service';
 import { SITE_CONFIG } from '../../core/site.config';
 
-/** FormSubmit's AJAX API returns `success` as a string ("true" / "false"). */
-interface FormSubmitResponse {
-  readonly success: string | boolean;
-  readonly message?: string;
+/** Response of public/api/contact.php. */
+interface ContactResponse {
+  readonly ok: boolean;
+  readonly errors?: Readonly<Record<string, string>>;
 }
-
-/** Bots usually submit instantly; humans need at least a few seconds. */
-const MINIMUM_FILL_TIME_MS = 3000;
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error';
 
@@ -31,6 +37,8 @@ export class Contact {
   private readonly destroyRef = inject(DestroyRef);
   private readonly http = inject(HttpClient);
   private readonly route = inject(ActivatedRoute);
+  private readonly analytics = inject(AnalyticsService);
+  private readonly recaptcha = inject(RecaptchaService);
   private readonly startedAt = Date.now();
 
   protected readonly contactCards = CONTACT_CARDS;
@@ -54,6 +62,10 @@ export class Contact {
   });
 
   constructor() {
+    // reCAPTCHA loads only on this page (browser only), so its badge shows on /contact only.
+    afterNextRender(() => this.recaptcha.activate());
+    this.destroyRef.onDestroy(() => this.recaptcha.deactivate());
+
     this.route.queryParamMap.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((params) => {
       const service = params.get('service');
       if (service && this.serviceOptions.some((option) => option.value === service)) {
@@ -68,52 +80,35 @@ export class Contact {
       return;
     }
 
-    const { firstName, lastName, email, phone, service, message, website } =
-      this.form.getRawValue();
-
-    // Spam: honeypot filled or submitted too fast. Pretend success so bots learn nothing.
-    if (website || Date.now() - this.startedAt < MINIMUM_FILL_TIME_MS) {
-      this.status.set('success');
-      return;
-    }
-
-    const serviceLabel =
-      this.serviceOptions.find((option) => option.value === service)?.label ?? service;
-
     this.status.set('sending');
     this.serverMessage.set('');
-    this.http
-      .post<FormSubmitResponse>(
-        SITE_CONFIG.formEndpoint,
-        {
-          name: `${firstName} ${lastName}`,
-          email,
-          phone: phone || 'Not provided',
-          service: serviceLabel,
-          message,
-          _subject: `New website quote request: ${serviceLabel}`,
-          _replyto: email,
-          _template: 'table',
-          _captcha: 'false',
-          _honey: website,
-        },
-        { headers: { Accept: 'application/json' } },
+
+    // The token is created at submit time: the server must assess it within two minutes.
+    from(this.recaptcha.token().catch(() => null))
+      .pipe(
+        switchMap((recaptchaToken) =>
+          this.http.post<ContactResponse>(SITE_CONFIG.formEndpoint, {
+            ...this.form.getRawValue(),
+            elapsedMs: Date.now() - this.startedAt,
+            recaptchaToken,
+          }),
+        ),
+        takeUntilDestroyed(this.destroyRef),
       )
       .subscribe({
         next: (response) => {
-          if (String(response.success) === 'true') {
+          if (response.ok) {
             this.status.set('success');
+            this.analytics.event('generate_lead');
           } else {
             this.status.set('error');
-            this.serverMessage.set(
-              `We could not send your request. Please email ${SITE_CONFIG.email}.`,
-            );
+            this.serverMessage.set('Please review your details and try again.');
           }
         },
         error: () => {
           this.status.set('error');
           this.serverMessage.set(
-            `We could not send your request. Please email ${SITE_CONFIG.email}.`,
+            'We could not send your request. Please email info@gnod-tech.co.za.',
           );
         },
       });

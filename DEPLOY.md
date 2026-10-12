@@ -1,52 +1,50 @@
 # Deploying the GNOD Technologies website
 
-## Preview it locally
+This guide is for the owner. It explains how to preview the site on your computer, build the upload file, and put the new site live on the cPanel hosting.
 
-You need a current Node.js LTS release.
+## Preview it on your computer
+
+You need Node.js (the version in `.nvmrc`) and, only for testing the contact form, PHP 8.2.
 
 1. Run `npm install` once.
 2. Run `npm start` and open `http://localhost:4200`.
+3. To try the contact form, also run `npm run api` in a second window. The form then talks to the PHP script on your computer. Your computer usually can't send email, so the form will say the message couldn't be sent; that is expected.
 
-To preview the built static site instead, run `npm run build`, then `npm run preview` and open `http://localhost:8081`.
+To look at the finished build instead, run `npm run build`, then `npm run preview`, and open `http://localhost:8081`.
 
-## Build for cPanel
+## Build the upload file
 
-You need an internet connection while building: Angular downloads the Google Fonts styles and puts them straight into each page so text shows faster.
+You need an internet connection: the build downloads the Google Fonts styles and puts them straight into each page so text appears faster.
 
-1. Run `npm run build`.
-2. Open `dist/gnod-website/browser/`.
-3. Zip the **contents of that folder**, not the `browser` folder itself. Include hidden files so `.htaccess` is in the zip.
+1. Run `npm run build`. It must finish without errors.
+2. Run `npm run seo:check`. It checks every page's title, description, canonical address, structured data, headings, images, links and sitemap. It must say every check passed.
+3. Zip the **contents** of `dist/gnod-website/browser/` (not the folder itself), including hidden files so `.htaccess` is in the zip, and with `index.html` at the top level of the zip. Name it `deploy/gnod-site-<date>.zip`. The `deploy/` folder is not saved in Git.
 
-The build has one folder and `index.html` for every public route. It also contains the images, sitemap, robots file, web manifest, Apache rules (`.htaccess`) and the old PHP form script, which the site no longer uses.
+## Put the new site live
 
-## Upload with cPanel File Manager
+Do these steps in order. Steps 3 and 4 take the site offline for a few minutes, so do them back to back.
 
-1. Back up the current live site before replacing anything. In File Manager, zip the existing contents of `public_html` and download that backup.
-2. Open `public_html` and enable **Show Hidden Files (dotfiles)** in File Manager settings.
-3. Upload the new zip into `public_html` and extract it there.
-4. Confirm that `public_html/.htaccess`, `public_html/index.html` and `public_html/about/index.html` exist.
-5. Visit the home, About, Our process and Contact pages. Submit a test enquiry and check that it reaches the mailbox.
-6. Check the address bar: `http://`, `www.` and a trailing slash (`/about/`) should all end up at `https://gnod-tech.co.za/about`, and a made-up address should show the site's own "Page not found" page.
-7. Run the home page through [PageSpeed Insights](https://pagespeed.web.dev/) (mobile). Run it two or three times: scores move a few points between runs.
+1. **Email address.** Make sure `info@gnod-tech.co.za` exists in cPanel, as a mailbox (Email Accounts) or a forwarder (Forwarders). The contact form sends every enquiry there.
+2. **Back up the old site.** In cPanel File Manager, open `public_html`, select everything, choose **Compress**, download the zip to your computer, then delete that zip from the server.
+3. **Move the old site out of the way.** Create a folder outside public_html, for example `/home/<cpanel-user>/old-site-2026-10/`, and move these into it: `about.html`, `contact.html`, `index.html`, `services.html`, `service-details.html`, `robots.txt`, `sitemap.xml`, `composer.json`, and the folders `css/`, `fonts/`, `images/`, `js/`, `plugins/`, `php-mail/`. **Leave** `.well-known/`, `.user.ini`, `php.ini` and `.htaccess` where they are. (In File Manager, turn on **Settings → Show Hidden Files** to see the files that start with a dot.)
+4. **Upload the new site.** Upload `gnod-site-<date>.zip` into `public_html`, **Extract** it there (it replaces `.htaccess`), then delete the zip.
+5. **reCAPTCHA keys (only when you have them).** Create the folder `/home/<cpanel-user>/gnod-private/` (next to public_html, not inside it) and in it a file `recaptcha.php`, copied from `public/api/recaptcha.example.php` and filled in with your Google Cloud project ID, API key and site key. Only do this when the uploaded build contains the reCAPTCHA site keys (in `src/app/core/site.config.ts`); if the file exists while the build has no keys, the form rejects every message. The form keeps working without reCAPTCHA until then.
+6. **Test.**
+   - Open every page: home, About, Our process, Contact, Privacy, Terms.
+   - The old addresses land on the new pages: `/about.html` → `/about`, `/contact.html` → `/contact`, `/services.html` and `/service-details.html` → the home page's services section.
+   - `https://gnod-tech.co.za/about` loads directly, and `/about/` (with a slash) redirects to `/about`.
+   - A made-up address such as `/test-123` shows the site's own "Page not found" page.
+   - `http://gnod-tech.co.za` and `https://www.gnod-tech.co.za` both end up at `https://gnod-tech.co.za`.
+   - Send **one** test message through the contact form (agree on this first) and check that it arrives at info@gnod-tech.co.za.
+7. **If something breaks:** move the old files back from the backup folder into public_html and restore the old `.htaccess` from your backup zip.
+8. **Google Search Console:** submit `https://gnod-tech.co.za/sitemap.xml`, then use **URL Inspection → Request indexing** for `/`, `/about`, `/our-process` and `/contact`.
+9. **Google Analytics:** open **Reports → Realtime** and check that your own visit shows up. Once the events `generate_lead` (form sent), `phone_click` and `email_click` appear, mark them as **key events**.
+10. **After a week without problems,** delete the old-site folder outside public_html, including `php-mail/` (it sends through a former developer's Gmail account).
 
-Upload the files inside `dist/gnod-website/browser/` directly into `public_html`; do not leave them inside an extra `browser` or `gnod-website` directory.
+## Change where enquiries are sent
 
-## Change where quote requests are sent
+The address is in `public/api/contact-config.php` (`recipient`, currently `info@gnod-tech.co.za`; the sender is `website@gnod-tech.co.za`). Change it before building, or edit `public_html/api/contact-config.php` in File Manager after uploading. No passwords or keys belong in that file.
 
-The contact form sends requests through [FormSubmit](https://formsubmit.co), a free form-to-email service, so no server code is needed.
+## reCAPTCHA scores
 
-It currently sends to **info@gnod-tech.co.za**. Before the first real enquiry, activate it: submit one test request from the live site, then click **Activate Form** in the email FormSubmit sends to that inbox. Until it is activated, visitors who submit see a message asking them to email info@gnod-tech.co.za.
-
-To use a different inbox:
-
-1. Open `src/app/core/site.config.ts` and change the email at the end of `formEndpoint`, for example `https://formsubmit.co/ajax/info@gnod-tech.co.za`.
-2. Build and upload the site again.
-3. Submit one test request from the live site. FormSubmit emails that inbox an **Activate Form** link. Click it, and requests are delivered from then on.
-
-Optional: after activating, FormSubmit sends a random alias string. Put that alias in place of the email address in `formEndpoint` so the address is not visible in the site's code.
-
-The old PHP endpoint (`public/api/contact.php`) is still in the project but the form no longer uses it.
-
-## Analytics
-
-The GA4 placeholder is commented out in `src/index.html`. Replace both instances of `G-XXXXXXXXXX` with the ID from the GNOD work Google account, then uncomment the block and build again.
+When reCAPTCHA is active, each check is logged (date, score and reason only, no personal details) to `/home/<cpanel-user>/gnod-private/recaptcha.log`. Messages scoring below the `threshold` in `recaptcha.php` (0.5 to start) are rejected. Watch the log for a couple of days before changing the threshold.

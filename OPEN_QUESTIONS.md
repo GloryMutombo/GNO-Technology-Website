@@ -44,13 +44,10 @@ These are small issues spotted in the Figma file. None of them blocks the build 
 ## Notes added 2026-10-09
 
 - **Years of experience:** the home page now speaks of the team's *combined* experience: the badge says "10+ years of combined experience building systems" and the trust section says "More than 10 years of combined experience building practical, maintainable systems and solving complex, real-world problems." This sits alongside "Established 2023" on the About page (the company is new; the team's experience is longer), so the earlier contradiction is resolved.
-- **Contact form:** now sends through FormSubmit (`formEndpoint` in `src/app/core/site.config.ts`), now sending to info@gnod-tech.co.za. It must be activated once from that inbox (see DEPLOY.md). The Privacy page should mention that form data is processed by FormSubmit (POPIA).
+- **Contact form:** posts to `/api/contact.php`, which emails info@gnod-tech.co.za (see DEPLOY.md). The final Privacy Policy should explain how form data is handled (POPIA).
 
 ## Notes added 2026-10-12
 
-- **New derived images** (originals untouched): `bg-code-js-faint.webp` and `bg-fibre-optics-faint.webp` are lighter copies used only for the faded hero backgrounds on About (12.5% opacity) and Contact (28%); on the page they look the same. `bg-code-js-card.webp` is a 960 px copy for the small About hero card. Together they cut ~235 kB from those pages.
-- **Icons** are drawn by our own `<lucide-icon>` component from the lucide-angular icon data (see README), because lucide-angular's component rebuilt all ~90 icons during hydration.
-- **404 page** is `noindex` and has no canonical link; `/about/` (trailing slash) now redirects to `/about`.
-- **Lighthouse (mobile, on Apache with compression):** About, Our process and Contact score 92–96 for Performance; Accessibility, Best Practices and SEO are 100 on every page. Home measured 90–91 on quiet runs, but scores swing with machine load, so confirm with PageSpeed Insights after deploying.
-- **Unused PHP endpoint:** `api/contact.php` is still uploaded and works (it only mails the configured recipient). It can be deleted from the project if you don't plan to switch back to it.
-
+- **New derived images** (originals untouched): `bg-code-js-faint.webp` and `bg-fibre-optics-faint.webp` are lighter copies used only for the faded hero backgrounds on About (12.5% opacity) and Contact (28%), and `bg-code-js-card.webp` is a 960 px copy for the small About hero card. On the page they look the same (checked pixel by pixel); together they save about 235 kB. If you'd rather keep the original files, say so and they go back.
+- **Icons** are drawn by our own `<lucide-icon>` component from the lucide-angular icon data (see README), because lucide-angular's component rebuilt all ~90 icons during page start-up. They look the same.
+- **SEO launch (AGENTS.md §15)** progress, owner answers and what's waiting on the owner are tracked in `SEO-PROGRESS.md`.

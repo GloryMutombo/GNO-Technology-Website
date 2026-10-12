@@ -6,9 +6,18 @@ export const SITE_CONFIG = {
   email: 'info@gnod-tech.co.za',
   address: '59 Blinkblaar, Zwartkop, Centurion, 0157, Gauteng, South Africa',
   shortAddress: 'Zwartkop, Centurion, South Africa',
-  // Quote requests are delivered by FormSubmit (https://formsubmit.co). The first
-  // submission to a new address sends an "Activate Form" email that must be confirmed.
-  formEndpoint: 'https://formsubmit.co/ajax/info@gnod-tech.co.za',
+  /** The quote form posts here (public/api/contact.php on the same hosting). */
+  formEndpoint: '/api/contact.php',
+  /**
+   * Google Cloud reCAPTCHA site keys. They are public by design; the secret API key lives
+   * only on the server (AGENTS.md §12.3). While empty, reCAPTCHA is skipped entirely.
+   */
+  recaptcha: {
+    /** Key for gnod-tech.co.za. */
+    productionSiteKey: '' as string,
+    /** Key for localhost. */
+    developmentSiteKey: '' as string,
+  },
 } as const;
 
 export interface SeoRouteData {

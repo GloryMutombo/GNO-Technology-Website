@@ -42,3 +42,6 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# Deployment zips (AGENTS.md §12.4)
+/deploy
