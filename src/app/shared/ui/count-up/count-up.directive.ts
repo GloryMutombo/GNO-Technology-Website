@@ -10,13 +10,8 @@ import {
 
 const DURATION_MS = 2000;
 
-/** True when the element is already showing on screen (in view and not faded out). */
-function isOnScreen(element: HTMLElement, view: Window): boolean {
-  const rect = element.getBoundingClientRect();
-  if (rect.bottom <= 0 || rect.top >= view.innerHeight) {
-    return false;
-  }
-
+/** True when the element is not faded out (checks its own and its ancestors' opacity). */
+function isOpaque(element: HTMLElement, view: Window): boolean {
   let opacity = 1;
   for (let node: Element | null = element; node; node = node.parentElement) {
     opacity *= Number(view.getComputedStyle(node).opacity);
@@ -81,20 +76,25 @@ export class CountUpDirective {
         return;
       }
 
-      if (!fromZero && isOnScreen(element, view)) {
-        return;
-      }
-
       let frame = 0;
       let timer = 0;
       let firstCheck = true;
 
-      render(0);
-
+      // Visibility comes from the observer (computed after the browser's own layout), so
+      // nothing here forces an extra layout while the page is loading.
       const observer = new IntersectionObserver(
         ([entry]) => {
           const inViewAtLoad = firstCheck;
           firstCheck = false;
+
+          if (inViewAtLoad && !fromZero) {
+            if (entry?.isIntersecting && isOpaque(element, view)) {
+              // Already showing its real value: leave it rather than jump back to 0.
+              observer.disconnect();
+              return;
+            }
+            render(0);
+          }
 
           if (!entry?.isIntersecting) {
             return;

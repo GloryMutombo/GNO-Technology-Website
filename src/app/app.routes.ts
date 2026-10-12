@@ -68,6 +68,7 @@ export const routes: Routes = [
     data: {
       title: 'Page Not Found | GNOD Technologies',
       description: 'The requested page could not be found on the GNOD Technologies website.',
+      noindex: true,
     },
   },
   { path: '**', redirectTo: '404' },

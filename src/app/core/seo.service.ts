@@ -11,7 +11,8 @@ export class SeoService {
   private readonly title = inject(Title);
 
   update(data: SeoRouteData, routePath: string): void {
-    const canonicalPath = routePath === '/' ? '' : routePath.replace(/\/$/, '');
+    // Home is "https://gnod-tech.co.za/" (matches sitemap.xml); other pages have no trailing slash.
+    const canonicalPath = routePath === '/' ? '/' : routePath.replace(/\/$/, '');
     const canonicalUrl = `${SITE_CONFIG.origin}${canonicalPath}`;
 
     this.document.documentElement.lang = 'en-ZA';
@@ -33,7 +34,14 @@ export class SeoService {
     this.meta.updateTag({ name: 'twitter:title', content: data.title });
     this.meta.updateTag({ name: 'twitter:description', content: data.description });
     this.meta.updateTag({ name: 'twitter:image', content: `${SITE_CONFIG.origin}/og-image.png` });
-    this.setCanonical(canonicalUrl);
+
+    if (data.noindex) {
+      this.meta.updateTag({ name: 'robots', content: 'noindex, follow' });
+      this.document.head.querySelector('link[rel="canonical"]')?.remove();
+    } else {
+      this.meta.removeTag('name="robots"');
+      this.setCanonical(canonicalUrl);
+    }
   }
 
   private setCanonical(url: string): void {

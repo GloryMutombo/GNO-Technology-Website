@@ -13,7 +13,6 @@ const BREADCRUMB_NAMES: Readonly<Record<string, string>> = {
   '/contact': 'Contact',
   '/privacy': 'Privacy policy',
   '/terms': 'Terms and conditions',
-  '/404': 'Page not found',
 };
 
 @Injectable({ providedIn: 'root' })

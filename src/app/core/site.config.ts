@@ -14,4 +14,6 @@ export const SITE_CONFIG = {
 export interface SeoRouteData {
   readonly title: string;
   readonly description: string;
+  /** Keep the page out of search results (e.g. the 404 page). */
+  readonly noindex?: boolean;
 }

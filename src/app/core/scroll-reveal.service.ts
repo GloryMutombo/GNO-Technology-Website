@@ -121,21 +121,26 @@ export class ScrollRevealService {
     ));
     const foldLine = view.innerHeight * 0.92;
 
+    // Read every position first, then write: interleaving would force a full style
+    // recalculation per element (layout thrashing) while the page is still loading.
+    const marks: (readonly [HTMLElement, RevealVariant])[] = [];
     for (const [selector, variant] of REVEALS) {
       this.document.querySelectorAll<HTMLElement>(selector).forEach((element) => {
         if (
-          element.classList.contains('reveal') ||
-          element.getBoundingClientRect().top < foldLine
+          !element.classList.contains('reveal') &&
+          element.getBoundingClientRect().top >= foldLine
         ) {
-          return;
+          marks.push([element, variant]);
         }
-
-        element.dataset['reveal'] =
-          variant === 'cycle' ? CYCLE[this.indexInParent(element) % CYCLE.length] : variant;
-        element.classList.add('reveal');
-        this.pending.add(element);
-        observer.observe(element);
       });
+    }
+
+    for (const [element, variant] of marks) {
+      element.dataset['reveal'] =
+        variant === 'cycle' ? CYCLE[this.indexInParent(element) % CYCLE.length] : variant;
+      element.classList.add('reveal');
+      this.pending.add(element);
+      observer.observe(element);
     }
 
     if (this.pending.size) {

@@ -41,6 +41,11 @@
   margin-top: 24px;
 }
 
+.legal-placeholder a {
+  color: var(--c-primary-strong);
+  text-decoration: underline;
+}
+
 .legal-placeholder p + p {
   margin-top: 16px;
 }
