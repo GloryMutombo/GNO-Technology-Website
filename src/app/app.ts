@@ -1,7 +1,14 @@
-import { ChangeDetectionStrategy, Component, DestroyRef, inject } from '@angular/core';
+import {
+  afterNextRender,
+  ChangeDetectionStrategy,
+  Component,
+  DestroyRef,
+  inject,
+} from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRouteSnapshot, NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs';
+import { AnalyticsService } from './core/analytics.service';
 import { SeoService } from './core/seo.service';
 import { JsonLdService } from './core/json-ld.service';
 import { ScrollRevealService } from './core/scroll-reveal.service';
@@ -23,8 +30,11 @@ export class App {
   private readonly seo = inject(SeoService);
   private readonly jsonLd = inject(JsonLdService);
   private readonly scrollReveal = inject(ScrollRevealService);
+  private readonly analytics = inject(AnalyticsService);
 
   constructor() {
+    afterNextRender(() => this.analytics.listenForContactClicks());
+
     this.router.events
       .pipe(
         filter((event): event is NavigationEnd => event instanceof NavigationEnd),
