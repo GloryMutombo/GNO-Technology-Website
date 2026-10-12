@@ -36,10 +36,14 @@ export class SeoService {
     this.meta.updateTag({ name: 'twitter:image', content: `${SITE_CONFIG.origin}/og-image.png` });
 
     if (data.noindex) {
-      this.meta.updateTag({ name: 'robots', content: 'noindex, follow' });
-      this.document.head.querySelector('link[rel="canonical"]')?.remove();
+      this.meta.updateTag({ name: 'robots', content: 'noindex' });
     } else {
       this.meta.removeTag('name="robots"');
+    }
+
+    if (data.canonical === false) {
+      this.document.head.querySelector('link[rel="canonical"]')?.remove();
+    } else {
       this.setCanonical(canonicalUrl);
     }
   }

@@ -49,7 +49,8 @@ export class App {
     if (typeof title === 'string' && typeof description === 'string') {
       const path = url.split(/[?#]/, 1)[0] || '/';
       const noindex = activeRoute.data['noindex'] === true;
-      this.seo.update({ title, description, noindex } satisfies SeoRouteData, path);
+      const canonical = activeRoute.data['canonical'] !== false;
+      this.seo.update({ title, description, noindex, canonical } satisfies SeoRouteData, path);
       this.jsonLd.update(path);
     }
   }

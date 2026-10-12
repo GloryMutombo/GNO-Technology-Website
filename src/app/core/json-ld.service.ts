@@ -7,6 +7,18 @@ interface JsonLdEntity {
   readonly [key: string]: unknown;
 }
 
+/** Services listed in the business schema (AGENTS.md §8.3). */
+const OFFERED_SERVICES = [
+  'Custom software development',
+  'Web application development',
+  'Mobile app development',
+  'Managed IT services',
+  'Cyber security',
+  'Cloud services',
+  'Data and reporting',
+  'IT consulting',
+] as const;
+
 const BREADCRUMB_NAMES: Readonly<Record<string, string>> = {
   '/about': 'About GNOD',
   '/our-process': 'Our process',
@@ -68,6 +80,7 @@ export class JsonLdService {
       telephone: '+27 12 663 3699',
       email: SITE_CONFIG.email,
       image: `${SITE_CONFIG.origin}/images/gnod-logo.png`,
+      logo: `${SITE_CONFIG.origin}/images/gnod-logo.png`,
       address: {
         '@type': 'PostalAddress',
         streetAddress: '59 Blinkblaar',
@@ -77,6 +90,15 @@ export class JsonLdService {
         addressCountry: 'ZA',
       },
       areaServed: ['Centurion', 'Pretoria', 'Johannesburg', 'South Africa'],
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Software and IT services',
+        itemListElement: OFFERED_SERVICES.map((name) => ({
+          '@type': 'Offer',
+          itemOffered: { '@type': 'Service', name },
+        })),
+      },
+      // sameAs: add the company's social profile links once the owner confirms them.
     };
   }
 

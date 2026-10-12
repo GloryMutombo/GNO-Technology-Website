@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
 const descriptions = {
-  home: 'GNOD designs, builds and supports tailored software, web and mobile apps, cloud, security and managed IT for businesses in Centurion, Pretoria, Johannesburg and beyond.',
+  home: 'GNOD designs, builds and supports custom software, web and mobile apps, cloud, security and managed IT for businesses in Centurion, Pretoria and Johannesburg.',
   about:
     'Meet the team behind GNOD Technologies, a Centurion-based custom software and IT services company helping South African businesses since 2023.',
   process:
@@ -16,7 +16,7 @@ export const routes: Routes = [
     pathMatch: 'full',
     loadComponent: () => import('./pages/home/home').then((component) => component.Home),
     data: {
-      title: 'Custom Software Development in Centurion | GNOD Technologies',
+      title: 'Custom Software & IT Services in Centurion | GNOD',
       description: descriptions.home,
     },
   },
@@ -51,6 +51,8 @@ export const routes: Routes = [
     data: {
       title: 'Privacy Policy | GNOD Technologies',
       description: 'Privacy policy placeholder for GNOD Technologies in Centurion, South Africa.',
+      // Kept out of search results until the owner supplies the final text (AGENTS.md §8.2).
+      noindex: true,
     },
   },
   {
@@ -59,6 +61,7 @@ export const routes: Routes = [
     data: {
       title: 'Terms | GNOD Technologies',
       description: 'Terms and conditions placeholder for the GNOD Technologies website.',
+      noindex: true,
     },
   },
   {
@@ -69,6 +72,7 @@ export const routes: Routes = [
       title: 'Page Not Found | GNOD Technologies',
       description: 'The requested page could not be found on the GNOD Technologies website.',
       noindex: true,
+      canonical: false,
     },
   },
   { path: '**', redirectTo: '404' },
