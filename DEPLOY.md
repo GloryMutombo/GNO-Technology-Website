@@ -11,11 +11,13 @@ To preview the built static site instead, run `npm run build`, then `npm run pre
 
 ## Build for cPanel
 
+You need an internet connection while building: Angular downloads the Google Fonts styles and puts them straight into each page so text shows faster.
+
 1. Run `npm run build`.
 2. Open `dist/gnod-website/browser/`.
 3. Zip the **contents of that folder**, not the `browser` folder itself. Include hidden files so `.htaccess` is in the zip.
 
-The build has one folder and `index.html` for every public route. It also contains the PHP API, images, sitemap, robots file, web manifest and Apache rules.
+The build has one folder and `index.html` for every public route. It also contains the images, sitemap, robots file, web manifest, Apache rules (`.htaccess`) and the old PHP form script, which the site no longer uses.
 
 ## Upload with cPanel File Manager
 
@@ -24,6 +26,8 @@ The build has one folder and `index.html` for every public route. It also contai
 3. Upload the new zip into `public_html` and extract it there.
 4. Confirm that `public_html/.htaccess`, `public_html/index.html` and `public_html/about/index.html` exist.
 5. Visit the home, About, Our process and Contact pages. Submit a test enquiry and check that it reaches the mailbox.
+6. Check the address bar: `http://`, `www.` and a trailing slash (`/about/`) should all end up at `https://gnod-tech.co.za/about`, and a made-up address should show the site's own "Page not found" page.
+7. Run the home page through [PageSpeed Insights](https://pagespeed.web.dev/) (mobile). Run it two or three times: scores move a few points between runs.
 
 Upload the files inside `dist/gnod-website/browser/` directly into `public_html`; do not leave them inside an extra `browser` or `gnod-website` directory.
 
