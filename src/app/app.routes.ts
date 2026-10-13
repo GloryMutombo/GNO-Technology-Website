@@ -1,13 +1,13 @@
 import { Routes } from '@angular/router';
 
 const descriptions = {
-  home: 'GNOD designs, builds and supports custom software, web and mobile apps, cloud, security and managed IT for businesses in Centurion, Pretoria and Johannesburg.',
+  home: 'Custom software, managed IT, cyber security and cloud services for companies in Centurion, Pretoria, Johannesburg and South Africa. Call 012 663 3699.',
   about:
-    'Meet the team behind GNOD Technologies, a Centurion-based custom software and IT services company helping South African businesses since 2023.',
+    'Meet GNOD Technologies: software developers and IT specialists in Centurion, working with companies in Pretoria, Johannesburg and across South Africa.',
   process:
     'From discovery to ongoing support: how GNOD plans, designs, builds, tests and launches custom software with you.',
   contact:
-    'Request a proposal for custom software or IT services. Call 012 663 3699 or email info@gnod-tech.co.za.',
+    'Call 012 663 3699 or email info@gnod-tech.co.za. Visit us at 59 Blinkblaar, Zwartkop, Centurion. Free quotes for software and IT projects.',
 } as const;
 
 export const routes: Routes = [
@@ -16,7 +16,7 @@ export const routes: Routes = [
     pathMatch: 'full',
     loadComponent: () => import('./pages/home/home').then((component) => component.Home),
     data: {
-      title: 'Custom Software & IT Services in Centurion | GNOD',
+      title: 'Software Development & IT Services in Centurion | GNOD',
       description: descriptions.home,
     },
   },
@@ -24,7 +24,7 @@ export const routes: Routes = [
     path: 'about',
     loadComponent: () => import('./pages/about/about').then((component) => component.About),
     data: {
-      title: 'About GNOD Technologies | Software & IT Team in Centurion',
+      title: 'About GNOD Technologies | IT Company in Centurion',
       description: descriptions.about,
     },
   },
@@ -41,7 +41,7 @@ export const routes: Routes = [
     path: 'contact',
     loadComponent: () => import('./pages/contact/contact').then((component) => component.Contact),
     data: {
-      title: 'Get a Free Quote | Contact GNOD Technologies, Centurion',
+      title: 'Contact GNOD Technologies | Centurion IT Company',
       description: descriptions.contact,
     },
   },

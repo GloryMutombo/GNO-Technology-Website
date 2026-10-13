@@ -18,7 +18,7 @@ You need an internet connection: the build downloads the Google Fonts styles and
 
 1. Run `npm run build`. It must finish without errors.
 2. Run `npm run seo:check`. It checks every page's title, description, canonical address, structured data, headings, images, links and sitemap. It must say every check passed.
-3. Zip the **contents** of `dist/gnod-website/browser/` (not the folder itself), including hidden files so `.htaccess` is in the zip, and with `index.html` at the top level of the zip. Name it `deploy/gnod-site-<date>.zip`. The `deploy/` folder is not saved in Git. The zip must stay under 10 MB so it can be uploaded through the browser (it is about 3 MB).
+3. Zip the **contents** of `dist/gnod-website/browser/` (not the folder itself), including hidden files so `.htaccess` is in the zip, and with `index.html` at the top level of the zip. Name it `deploy/gnod-angular-deploy.zip`, and leave out source maps, `.DS_Store` and `__MACOSX`. The `deploy/` folder is not saved in Git. The zip must stay under 10 MB so it can be uploaded through the browser (it is about 3 MB).
 
 If the build stops with "Inlining of fonts failed", the download from Google Fonts was interrupted: check the internet connection and run `npm run build` again.
 
@@ -28,8 +28,8 @@ Do these steps in order. Steps 3 and 4 take the site offline for a few minutes, 
 
 1. **Email address.** Make sure `info@gnod-tech.co.za` exists in cPanel, as a mailbox (Email Accounts) or a forwarder (Forwarders). The contact form sends every enquiry there.
 2. **Back up the old site.** In cPanel File Manager, open `public_html`, select everything, choose **Compress**, download the zip to your computer, then delete that zip from the server.
-3. **Move the old site out of the way.** Create a folder outside public_html, for example `/home/<cpanel-user>/old-site-2026-10/`, and move these into it: `about.html`, `contact.html`, `index.html`, `services.html`, `service-details.html`, `robots.txt`, `sitemap.xml`, `composer.json`, and the folders `css/`, `fonts/`, `images/`, `js/`, `plugins/`, `php-mail/`. **Leave** `.well-known/`, `.user.ini`, `php.ini` and `.htaccess` where they are. (In File Manager, turn on **Settings → Show Hidden Files** to see the files that start with a dot.)
-4. **Upload the new site.** Upload `gnod-site-<date>.zip` into `public_html`, **Extract** it there (it replaces `.htaccess`), then delete the zip.
+3. **Move the old site out of the way.** Create a folder outside public_html, for example `/home/<cpanel-user>/old-site-2026-10/`, and move these into it: `about.html`, `contact.html`, `index.html`, `services.html`, `service-details.html`, `robots.txt`, `sitemap.xml`, `composer.json`, and the folders `css/`, `fonts/`, `images/`, `js/`, `plugins/`. **Leave** `php-mail/`, `.well-known/`, `.user.ini`, `php.ini` and `.htaccess` where they are (the new form doesn't use `php-mail/`; it stays only until step 10). (In File Manager, turn on **Settings → Show Hidden Files** to see the files that start with a dot.)
+4. **Upload the new site.** Upload `gnod-angular-deploy.zip` into `public_html`, **Extract** it there (it replaces `.htaccess`), then delete the zip.
 5. **reCAPTCHA keys (only when you have them).** Create the folder `/home/<cpanel-user>/gnod-private/` (next to public_html, not inside it) and in it a file `recaptcha.php`, copied from `public/api/recaptcha.example.php` and filled in with your Google Cloud project ID, API key and site key. Only do this when the uploaded build contains the reCAPTCHA site keys (in `src/app/core/site.config.ts`); if the file exists while the build has no keys, the form rejects every message. The form keeps working without reCAPTCHA until then.
 6. **Test.**
    - Open every page: home, About, Our process, Contact, Privacy, Terms.
@@ -42,7 +42,7 @@ Do these steps in order. Steps 3 and 4 take the site offline for a few minutes, 
 7. **If something breaks:** move the old files back from the backup folder into public_html and restore the old `.htaccess` from your backup zip.
 8. **Google Search Console:** submit `https://gnod-tech.co.za/sitemap.xml`, then use **URL Inspection → Request indexing** for `/`, `/about`, `/our-process` and `/contact`.
 9. **Google Analytics:** open **Reports → Realtime** and check that your own visit shows up. Once the events `generate_lead` (form sent), `phone_click` and `email_click` appear, mark them as **key events**.
-10. **After a week without problems,** delete the old-site folder outside public_html, including `php-mail/` (it sends through a former developer's Gmail account).
+10. **After a week without problems,** delete the old-site folder outside public_html, and move `php-mail/` out of public_html too (the new form doesn't use it, and it sends through a former developer's Gmail account).
 
 ## Change where enquiries are sent
 

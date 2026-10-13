@@ -19,6 +19,7 @@ export class SeoService {
     this.title.setTitle(data.title);
     this.meta.updateTag({ name: 'description', content: data.description });
     this.meta.updateTag({ property: 'og:type', content: 'website' });
+    this.meta.updateTag({ property: 'og:locale', content: 'en_ZA' });
     this.meta.updateTag({ property: 'og:site_name', content: SITE_CONFIG.name });
     this.meta.updateTag({ property: 'og:title', content: data.title });
     this.meta.updateTag({ property: 'og:description', content: data.description });

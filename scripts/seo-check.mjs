@@ -8,7 +8,7 @@ import { join, relative, sep } from 'node:path';
 const ORIGIN = 'https://gnod-tech.co.za';
 const ROOT = process.argv[2] ?? 'dist/gnod-website/browser';
 const TITLE_MAX = 60;
-const DESCRIPTION_MAX = 160;
+const DESCRIPTION_MAX = 155;
 const MIN_WORDS = 50;
 /** Pages allowed to carry noindex (AGENTS.md §8.2). /privacy and /terms until their final text. */
 const NOINDEX_ALLOWED = new Set(['/404', '/privacy', '/terms']);
@@ -89,14 +89,30 @@ for (const page of pages) {
   console.log(`  description (${page.description.length}): ${page.description}`);
 
   if (!page.title) fail(page.path, 'no <title>');
-  else if (page.title.length >= TITLE_MAX)
-    fail(page.path, `title is ${page.title.length} characters (max ${TITLE_MAX - 1})`);
+  else if (page.title.length > TITLE_MAX)
+    fail(page.path, `title is ${page.title.length} characters (max ${TITLE_MAX})`);
   if (!page.description) fail(page.path, 'no meta description');
-  else if (page.description.length >= DESCRIPTION_MAX)
-    fail(
-      page.path,
-      `description is ${page.description.length} characters (max ${DESCRIPTION_MAX - 1})`,
-    );
+  else if (page.description.length > DESCRIPTION_MAX)
+    fail(page.path, `description is ${page.description.length} characters (max ${DESCRIPTION_MAX})`);
+  if (attr(metaContent(page.html, 'property', 'og:locale') ?? '', 'content') !== 'en_ZA')
+    fail(page.path, 'og:locale is not en_ZA');
+
+  // Images named in meta tags and JSON-LD must be files in this build (the old /images/ folder goes).
+  const imageUrls = [
+    ...['og:image', 'twitter:image'].map(
+      (key) =>
+        attr(
+          metaContent(page.html, 'property', key) ?? metaContent(page.html, 'name', key) ?? '',
+          'content',
+        ) ?? '',
+    ),
+    ...[...page.html.matchAll(/"(?:logo|image)":"([^"]+)"/g)].map((m) => m[1]),
+  ];
+  for (const url of imageUrls) {
+    if (!url) continue;
+    if (!url.startsWith(`${ORIGIN}/`) || !existsSync(join(ROOT, url.slice(ORIGIN.length))))
+      fail(page.path, `image ${url} is not a file in this build`);
+  }
   if (page.h1Count !== 1) fail(page.path, `${page.h1Count} <h1> elements (need exactly 1)`);
 
   if (NO_CANONICAL.has(page.path)) {

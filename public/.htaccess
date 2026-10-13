@@ -1,64 +1,66 @@
+# --- GNOD: updated 13 Oct 2026 for the Angular site ---
 Options -Indexes
+DirectoryIndex index.html
 DirectorySlash Off
+# The build's own "Page not found" page, sent with a real 404 status.
 ErrorDocument 404 /404/index.html
 
+<IfModule mod_rewrite.c>
 RewriteEngine On
 
-# 1. One address: https, no www. Certificate checks in /.well-known/ are left alone.
+# 1) Old static-site addresses -> new pages, in a single 301 (keeps their Google ranking).
+#    The new site has no separate services page: both services pages go to the home
+#    page's services section. NE keeps the # from being encoded. Keep for at least a year.
+RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+RewriteRule ^index\.html$ https://gnod-tech.co.za/ [R=301,L]
+RewriteRule ^about\.html$ https://gnod-tech.co.za/about [R=301,L,NC]
+RewriteRule ^services\.html$ https://gnod-tech.co.za/#services [R=301,L,NC,NE]
+RewriteRule ^service-details\.html$ https://gnod-tech.co.za/#services [R=301,L,NC,NE]
+RewriteRule ^contact\.html$ https://gnod-tech.co.za/contact [R=301,L,NC]
+
+# 2) One version of the site: https and no www (skip SSL certificate checks)
 RewriteCond %{REQUEST_URI} !^/\.well-known/
-RewriteCond %{HTTP_HOST} ^www\.gnod-tech\.co\.za$ [NC,OR]
-RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
 RewriteRule ^ https://gnod-tech.co.za%{REQUEST_URI} [R=301,L,NE]
 
-# 2. The PHP form endpoint is never routed through Angular.
+# 3) The contact form's PHP script (/api/contact.php) is never rewritten.
 RewriteRule ^api/ - [L]
 
-# 3. Old pages from the previous HTML site. Keep for at least a year.
-#    NE keeps the # in /#services from being encoded.
-RewriteCond %{THE_REQUEST} \s/index\.html[\s?] [NC]
-RewriteRule ^index\.html$ / [R=301,L]
-RewriteRule ^about\.html$ /about [R=301,L,NC]
-RewriteRule ^services\.html$ /#services [R=301,L,NC,NE]
-RewriteRule ^service-details\.html$ /#services [R=301,L,NC,NE]
-RewriteRule ^contact\.html$ /contact [R=301,L,NC]
-
-# 4. One address per page: /about/ goes to /about.
-RewriteCond %{REQUEST_URI} ^/(.+)/$
-RewriteCond %{DOCUMENT_ROOT}/%1/index.html -f
-RewriteRule ^ /%1 [R=301,L]
-
-# 5. Serve real files as-is.
-RewriteCond %{REQUEST_FILENAME} -f
-RewriteRule ^ - [L]
-
-# 6. Serve clean route URLs from their prerendered files, without a slash.
-RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
-RewriteRule ^(.+)$ $1/index.html [L]
-
-# 7. Leave other real directories alone.
+# 4) Drop trailing slashes from page addresses: /about/ -> /about
 RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^ - [L]
+RewriteCond %{REQUEST_FILENAME}/index.html -f
+RewriteRule ^(.+)/$ https://gnod-tech.co.za/$1 [R=301,L]
+
+# 5) Serve prerendered pages at clean addresses: /about -> about/index.html
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_FILENAME}/index.html -f
+RewriteRule ^(.+)$ /$1/index.html [L]
+</IfModule>
 
 <IfModule mod_headers.c>
-  # Hashed build files: one year.
-  <FilesMatch "\.(?:css|js|mjs|woff2)$">
-    Header set Cache-Control "public, max-age=31536000, immutable"
-  </FilesMatch>
-  # Images keep their names when replaced: one week.
-  <FilesMatch "\.(?:webp|png|jpe?g|gif|svg|ico)$">
-    Header set Cache-Control "public, max-age=604800"
-  </FilesMatch>
-  <FilesMatch "\.html$">
-    Header set Cache-Control "no-cache, no-store, must-revalidate"
-  </FilesMatch>
-  <FilesMatch "\.php$">
-    Header set Cache-Control "no-store"
-  </FilesMatch>
+# Pages: browsers always check for a newer version
+<FilesMatch "\.html$">
+Header set Cache-Control "no-cache"
+</FilesMatch>
+# Hashed JS/CSS never change: cache for a year (Angular names them like main-4YCISSEY.js, chunk-B9riDtRe.js)
+<FilesMatch "-[A-Za-z0-9_-]{8}\.(js|css)$">
+Header set Cache-Control "public, max-age=31536000, immutable"
+</FilesMatch>
+# Images and fonts: cache for 30 days
+<FilesMatch "\.(jpe?g|png|webp|avif|gif|svg|ico|woff2?)$">
+Header set Cache-Control "public, max-age=2592000"
+</FilesMatch>
+# Contact form replies are never cached
+<FilesMatch "\.php$">
+Header set Cache-Control "no-store"
+</FilesMatch>
 </IfModule>
 
 <IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json application/xml image/svg+xml
+AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json application/xml image/svg+xml
 </IfModule>
+# --- end GNOD ---
 
 # BEGIN cPanel-generated php ini directives, do not edit
 # Manual editing of this file may result in unexpected behavior.

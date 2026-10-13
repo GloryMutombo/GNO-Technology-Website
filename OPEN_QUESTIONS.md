@@ -51,3 +51,8 @@ These are small issues spotted in the Figma file. None of them blocks the build 
 - **New derived images** (originals untouched): `bg-code-js-faint.webp` and `bg-fibre-optics-faint.webp` are lighter copies used only for the faded hero backgrounds on About (12.5% opacity) and Contact (28%), and `bg-code-js-card.webp` is a 960 px copy for the small About hero card. On the page they look the same (checked pixel by pixel); together they save about 235 kB. If you'd rather keep the original files, say so and they go back.
 - **Icons** are drawn by our own `<lucide-icon>` component from the lucide-angular icon data (see README), because lucide-angular's component rebuilt all ~90 icons during page start-up. They look the same.
 - **SEO launch (AGENTS.md §15)** progress, owner answers and what's waiting on the owner are tracked in `SEO-PROGRESS.md`.
+
+## Notes added 2026-10-13
+
+- **AGENTS.md is out of date in four places** after the owner's deploy brief of 13 October (details in SEO-PROGRESS.md). Only the owner edits AGENTS.md, so please update: §8.1 (Home, About and Contact titles/descriptions are now the old site's), §8.3 (`sameAs` links supplied), §8.4 (GA4 is now the standard `<script async src>` snippet; only the `config` line is limited to the live domain) and §12.2 (the new `.htaccess`, with `ErrorDocument 404 /404/index.html`).
+- **`php-mail/` stays in public_html for now** (owner's brief), although the new form doesn't use it. It still accepts posts and sends through a former developer's Gmail account, so move it out after launch (DEPLOY.md step 10).

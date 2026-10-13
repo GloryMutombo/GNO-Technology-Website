@@ -58,7 +58,7 @@ export class JsonLdService {
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_CONFIG.origin },
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_CONFIG.origin}/` },
           {
             '@type': 'ListItem',
             position: 2,
@@ -76,20 +76,20 @@ export class JsonLdService {
       '@type': ['ProfessionalService', 'LocalBusiness'],
       '@id': `${SITE_CONFIG.origin}/#business`,
       name: SITE_CONFIG.name,
-      url: SITE_CONFIG.origin,
-      telephone: '+27 12 663 3699',
+      url: `${SITE_CONFIG.origin}/`,
+      telephone: '+27126633699',
       email: SITE_CONFIG.email,
-      image: `${SITE_CONFIG.origin}/images/gnod-logo.png`,
+      image: `${SITE_CONFIG.origin}/og-image.png`,
       logo: `${SITE_CONFIG.origin}/images/gnod-logo.png`,
       address: {
         '@type': 'PostalAddress',
-        streetAddress: '59 Blinkblaar',
-        addressLocality: 'Zwartkop, Centurion',
+        streetAddress: '59 Blinkblaar, Zwartkop',
+        addressLocality: 'Centurion',
         postalCode: '0157',
         addressRegion: 'Gauteng',
         addressCountry: 'ZA',
       },
-      areaServed: ['Centurion', 'Pretoria', 'Johannesburg', 'South Africa'],
+      areaServed: ['Centurion', 'Pretoria', 'Johannesburg', 'Gauteng', 'South Africa'],
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
         name: 'Software and IT services',
@@ -98,7 +98,11 @@ export class JsonLdService {
           itemOffered: { '@type': 'Service', name },
         })),
       },
-      // sameAs: add the company's social profile links once the owner confirms them.
+      sameAs: [
+        'https://www.facebook.com/profile.php?id=61578655768700',
+        'https://www.instagram.com/gnodtechnologies/',
+        'https://www.linkedin.com/company/gnod-technologies/',
+      ],
     };
   }
 

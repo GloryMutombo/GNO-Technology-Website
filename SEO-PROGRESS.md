@@ -21,16 +21,23 @@ Plan: `AGENTS.md` §15. Rollback point: Git tag `before-seo-launch` (run `git ch
 - Lighthouse (mobile), on a local server that compresses and caches files like the live `.htaccess`:
   - `/contact`: Performance 97–98, Accessibility 100, Best Practices 100, SEO 100.
   - `/`: Accessibility 100, Best Practices 100, SEO 100. Performance swings between 71 and 95 from run to run on this computer, for both the old and the new build alike, so the SEO changes did not slow it down. Confirm on the live site with PageSpeed Insights (DEPLOY.md, step 6).
+- **13 Oct 2026 rebuild** (deploy brief): build passes; `npm run seo:check` passes on all 7 pages (now: titles ≤ 60, descriptions ≤ 155, `og:locale`, and every image in meta tags/JSON-LD exists in the build). 24 of 24 screenshots (7 pages + a made-up address, 3 widths) pixel-identical to the 12 Oct build; no hydration or console errors. `.htaccess` tested in real Apache 2.4 over https: all pages 200, `/about/` → `/about`, old pages → new pages in one 301 (also from http:// and www.), unknown addresses → 404 status with the site's 404 page, gzip and cache headers correct.
 
 ## Owner answers
 
-(none yet)
+- **13 Oct 2026, deploy brief** (replaces parts of AGENTS.md §8.1, §8.4 and §12.2; see OPEN_QUESTIONS.md):
+  - Home, About and Contact use the titles and descriptions that were live on the old site. Our process keeps its AGENTS.md title.
+  - Social profile links for `sameAs`: Facebook, Instagram, LinkedIn (added to the structured data).
+  - `og:locale` en_ZA on every page; GA4 as the standard gtag snippet in `<head>` (consent by region kept).
+  - `.htaccess` rewritten from the owner's version: old pages redirect straight to https in one step, clean URLs served from the prerendered folders, real 404.
+  - Privacy and Terms: **stay noindex and out of the sitemap** until the final text arrives (owner's choice).
+  - Contact form: **stays on `/api/contact.php`** (owner's choice); `php-mail/` is not used.
+  - Upload file: `deploy/gnod-angular-deploy.zip`. Another Claude session does the swap on the server.
 
 ## Waiting on the owner
 
 - reCAPTCHA: production and development site keys, Google Cloud project ID, restricted API key
 - Final Privacy Policy and Terms text
-- The company's social profile links (for `sameAs` in the structured data)
 - The `info@gnod-tech.co.za` mailbox or forwarder in cPanel
 - OK before any test email is sent through the live form
 

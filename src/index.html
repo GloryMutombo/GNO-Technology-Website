@@ -2,6 +2,25 @@
 <html lang="en-ZA">
   <head>
     <meta charset="utf-8" />
+    <!-- Google tag (gtag.js) for GA4. Standard snippet so Search Console can recognise it.
+         Consent off by default in the EEA/UK/CH; only the live domain is counted (AGENTS.md §8.4). -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YHD04KBNQP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('consent', 'default', {
+        analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+        region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL',
+                 'PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH']
+      });
+      gtag('consent', 'default', {
+        analytics_storage: 'granted', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied'
+      });
+      gtag('js', new Date());
+      if (location.hostname === 'gnod-tech.co.za') {
+        gtag('config', 'G-YHD04KBNQP');
+      }
+    </script>
     <title>GNOD Technologies</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,27 +35,6 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- Google Analytics 4 (AGENTS.md §8.4): live domain only, consent off by default in the EEA/UK/CH. -->
-    <script>
-      if (location.hostname === 'gnod-tech.co.za') {
-        window.dataLayer = window.dataLayer || [];
-        window.gtag = function () { dataLayer.push(arguments); };
-        gtag('consent', 'default', {
-          analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
-          region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL',
-                   'PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH']
-        });
-        gtag('consent', 'default', {
-          analytics_storage: 'granted', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied'
-        });
-        gtag('js', new Date());
-        gtag('config', 'G-YHD04KBNQP');
-        var ga = document.createElement('script');
-        ga.async = true;
-        ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-YHD04KBNQP';
-        document.head.appendChild(ga);
-      }
-    </script>
   </head>
   <body>
     <app-root></app-root>
